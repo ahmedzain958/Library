@@ -46,13 +46,16 @@ class User(
             notifyPropertyChanged(BR.profileImage)
         }
 
-    @BindingAdapter("profileImage")
-    fun loadImage(view: ImageView, imageUrl: String?) {
-        Glide.with(view.getContext())
-            .load(imageUrl)
-            .apply(RequestOptions.circleCropTransform())
-            .into(view)
-        // If you consider Picasso, follow the below
+    companion object {
+        @JvmStatic
+        @BindingAdapter("bind:profileImage")
+        fun loadImage(view: ImageView, imageUrl: String?) {
+            Glide.with(view.context)
+                .load(imageUrl)
+                .apply(RequestOptions.circleCropTransform())
+                .into(view)
+            // If you consider Picasso, follow the below
 // Picasso.with(view.getContext()).load(imageUrl).placeholder(R.drawable.placeholder).into(view);
+        }
     }
 }

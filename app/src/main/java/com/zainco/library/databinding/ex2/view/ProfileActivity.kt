@@ -1,33 +1,36 @@
 package com.zainco.library.databinding.ex2.view
 
+import android.content.res.Resources
 import android.os.Bundle
+import android.util.TypedValue
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
-import com.google.android.material.internal.ViewUtils.dpToPx
 import com.zainco.library.R
-import com.zainco.library.databinding.ex1.MyClickHandlers
+import com.zainco.library.databinding.ActivityProfileBinding
 import com.zainco.library.databinding.ex2.model.Post
+import com.zainco.library.databinding.ex2.model.User
 import com.zainco.library.databinding.ex2.utils.GridSpacingItemDecoration
 
 
-class ProfileActivity : AppCompatActivity() ,PostsAdapter.PostsAdapterListener{
-    lateinit var binding: ViewDataBinding
+class ProfileActivity : AppCompatActivity(), PostsAdapter.PostsAdapterListener {
+    lateinit var binding: ActivityProfileBinding
     lateinit var handlers: MyClickHandlers
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView<ViewDataBinding>(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView<ActivityProfileBinding>(
+            this,
+            R.layout.activity_profile
+        )
 
-        val toolbar: Toolbar = binding.toolbar
+        val toolbar = binding.toolbar
         setSupportActionBar(toolbar)
         supportActionBar?.setTitle(R.string.toolbar_profile)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        handlers = MyClickHandlers()
+        handlers = MyClickHandlers(this)
 
         renderProfile()
 
@@ -35,8 +38,8 @@ class ProfileActivity : AppCompatActivity() ,PostsAdapter.PostsAdapterListener{
     }
 
     private fun initRecyclerView() {
-        recyclerView = binding.content.recyclerView
-        recyclerView.setLayoutManager(GridLayoutManager(this, 3))
+        val recyclerView = binding.content.recyclerView
+        recyclerView.layoutManager = GridLayoutManager(this, 3)
         recyclerView.addItemDecoration(
             GridSpacingItemDecoration(
                 3,
@@ -45,46 +48,58 @@ class ProfileActivity : AppCompatActivity() ,PostsAdapter.PostsAdapterListener{
             )
         )
         recyclerView.setItemAnimator(DefaultItemAnimator())
-        recyclerView.setNestedScrollingEnabled(false)
-        mAdapter = PostsAdapter(getPosts()!!, this)
-        recyclerView.setAdapter(mAdapter)
+        recyclerView.isNestedScrollingEnabled = false
+        val mAdapter = PostsAdapter(getPosts()!!, this)
+        recyclerView.adapter = mAdapter
     }
 
     /**
      * Renders user profile data
      */
     private fun renderProfile() {
-        user = User()
-        user.setName("David Attenborough")
-        user.setEmail("david@natgeo.com")
-        user.setProfileImage("https://api.androidhive.info/images/nature/david.jpg")
-        user.setAbout("Naturalist")
+        val user = User(
+            "David Attenborough",
+            "david@natgeo.com",
+            "https://api.androidhive.info/images/nature/david.jpg",
+            "Naturalist"
+        )
+
         // ObservableField doesn't have setter method, instead will
 // be called using set() method
         user.numberOfPosts.set(3400L)
         user.numberOfFollowers.set(3050890L)
         user.numberOfFollowing.set(150L)
         // display user
-        binding.setUser(user)
+        binding.user = user
         // assign click handlers
-        binding.content.setHandlers(handlers)
+        binding.content.handlers = handlers
     }
 
     private fun getPosts(): ArrayList<Post>? {
         val posts: ArrayList<Post> = ArrayList()
         for (i in 1..9) {
-            val post = Post()
-            post.setImageUrl("https://api.androidhive.info/images/nature/$i.jpg")
+            val post = Post("https://api.androidhive.info/images/nature/$i.jpg")
             posts.add(post)
         }
         return posts
     }
 
-    fun onPostClicked(post: Post) {
+    override fun onPostClicked(post: Post?) {
         Toast.makeText(
             applicationContext,
-            "Post clicked! " + post.imageUrl,
+            "Post clicked! " + post?.imageUrl,
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+    private fun dpToPx(dp: Int): Int {
+        val r: Resources = resources
+        return Math.round(
+            TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                dp.toFloat(),
+                r.getDisplayMetrics()
+            )
+        )
     }
 }

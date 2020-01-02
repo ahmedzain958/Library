@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var user: User
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding =
+        val binding: ActivityMainBinding =
             DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         user = User("Ravi Tamada", "ravi@androidhive.info")
         binding.user = user
