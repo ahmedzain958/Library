@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 class Post(val imageUrl: String) {
     companion object {
         @JvmStatic
-        @BindingAdapter("imageUrl")
+        @BindingAdapter("bind:imageUrl")
     fun loadImage(view: ImageView, imageUrl: String?) {
         Glide.with(view.context)
             .load(imageUrl)
