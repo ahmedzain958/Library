@@ -1,6 +1,7 @@
 package com.zainco.library.lifecycle.casterio.deepdive
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -12,6 +13,7 @@ class MusicObserver(context: Context) : LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun timeToStartMusic() {
+        Log.d("zzzzzzz", "Observer called")
         musicManager.start()
     }
 

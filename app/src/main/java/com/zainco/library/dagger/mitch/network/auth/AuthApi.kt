@@ -1,4 +1,4 @@
-package com.google.firebase.udacity.daggerPosts.dagger.network.auth
+package com.zainco.library.dagger.mitch.network.auth
 
 import com.google.firebase.udacity.daggerPosts.dagger.models.User
 import io.reactivex.Flowable

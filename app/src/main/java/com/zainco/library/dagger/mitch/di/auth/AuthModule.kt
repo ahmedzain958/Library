@@ -1,6 +1,6 @@
 package com.zainco.library.dagger.mitch.di.auth
 
-import com.google.firebase.udacity.daggerPosts.dagger.network.auth.AuthApi
+import com.zainco.library.dagger.mitch.network.auth.AuthApi
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
