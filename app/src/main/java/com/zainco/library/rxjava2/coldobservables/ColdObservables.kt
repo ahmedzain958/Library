@@ -49,7 +49,7 @@ fun main() {
     println("---------------------------")
     /*
     Observer 1: 1 ------59
-Observer 1: 2 ------01
+Observer 1: 2 ------01 difference is 2 secs
 Observer 2: 1 ------01
 Observer 1: 3 ------03
 ---------------------------
