@@ -1,4 +1,4 @@
-package com.zainco.library.lifecycle.casterio.deepdive
+package com.zainco.library.archcomponents.lifecycle.casterio.deepdive
 
 import android.content.Context
 import android.media.MediaPlayer

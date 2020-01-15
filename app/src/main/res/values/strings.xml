@@ -5,6 +5,8 @@
     <string name="posts">POSTS</string>
     <string name="followers">FOLLOWERS</string>
     <string name="following">FOLLOWING</string>
+    <string name="refresh">refresh</string>
+    <string name="news_title">news title</string>
 
     <!--    databinding ex1-->
     <!--<string name="app_name">Data Binding</string>

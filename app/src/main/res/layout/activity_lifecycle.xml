@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".lifecycle.casterio.deepdive.LifecycleActivity">
+    tools:context=".archcomponents.lifecycle.casterio.deepdive.LifecycleActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
