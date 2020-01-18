@@ -12,27 +12,50 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".rxjava2.hotobservables.HotObservablesActivity">
-            <!-- <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name="com.zainco.library.archcomponents.lifecycle.casterio.deepdive.LifecycleActivity">
-
+        <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonDetailActivity" />
+        <activity android:name=".archcomponents.livedata.extendinglivedatausingsensor.SensorLiveDataActivity">
            <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
-        <activity android:name=".dagger.mitch.ui.auth.AuthActivity">
-            <!--<intent-filter>
+        <activity android:name=".rxjava2.hotobservables.HotObservablesActivity">
+
+            <!--
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+            -->
+        </activity>
+        <activity android:name=".archcomponents.lifecycle.casterio.deepdive.LifecycleActivity">
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
+        </activity>
+        <activity android:name=".dagger.mitch.ui.auth.AuthActivity">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".databinding.ex2.view.ProfileActivity"
@@ -59,11 +82,14 @@
             -->
         </activity>
         <activity android:name=".archcomponents.livedata.casterionewslist.NewsActivity">
+
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            -->
         </activity>
     </application>
 
