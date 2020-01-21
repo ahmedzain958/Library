@@ -2,6 +2,9 @@ package com.zainco.library.dagger.mitch.ui.auth
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.RequestManager
 import com.zainco.library.R
@@ -25,6 +28,49 @@ class AuthActivity : DaggerAppCompatActivity() {
         setContentView(R.layout.activity_auth)
         viewModel = ViewModelProvider(this, providerFactory).get(AuthViewModel::class.java)
         setLogo()
+        login_button.setOnClickListener {
+            attemptLogin()
+        }
+        viewModel.observeUser().observe(this, Observer { authResource ->
+            //listening to any change happens in the mediatorlivedata
+            if (authResource != null) {
+                when (authResource.status) {
+                    AuthResource.AuthStatus.LOADING -> {
+                        progress_bar.visibility = View.VISIBLE
+                    }
+                    AuthResource.AuthStatus.AUTHENTICATED -> {
+                        progress_bar.visibility = View.GONE
+                        Toast.makeText(
+                            this,
+                            "AUTHENTICATED",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    AuthResource.AuthStatus.ERROR -> {
+                        progress_bar.visibility = View.GONE
+                        Toast.makeText(
+                            this,
+                            "Error",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    AuthResource.AuthStatus.NOT_AUTHENTICATED -> {
+                        progress_bar.visibility = View.GONE
+                        Toast.makeText(
+                            this,
+                            "NOT_AUTHENTICATED",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        })
+    }
+
+    private fun attemptLogin() {
+        if (user_id_input.text.toString().isEmpty().not()) {
+            viewModel.authenticateWithId(user_id_input.text.toString().toInt())
+        }
     }
 
     private fun setLogo() {

@@ -13,11 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity">
-            <intent-filter>
+          <!--  <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonActivity">
            <!-- <intent-filter>
@@ -59,13 +59,11 @@
         </activity>
         <activity android:name=".dagger.mitch.ui.auth.AuthActivity">
 
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
         </activity>
         <activity
             android:name=".databinding.ex2.view.ProfileActivity"

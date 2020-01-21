@@ -8,26 +8,22 @@ import com.zainco.library.R
 import kotlinx.android.synthetic.main.activity_mediator_live_data.*
 
 class MediatorLiveDataActivity : AppCompatActivity() {
-    var c1 = 0
-    var c2 = 0
+    //this observer listens to any change that takes place in either id1 or id2 that exist in the viewmodel
+    private val changeObserver = Observer<String> { value: String ->
+            textView2.text = value
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mediator_live_data)
-        button.setOnClickListener {
-            c1.inc()
-        }
-        button2.setOnClickListener {
-            c2.inc()
-        }
-
         val mediatorLiveDataViewModel =
             ViewModelProviders.of(this).get(MediatorLiveDataViewModel::class.java)
-        mediatorLiveDataViewModel.setId1(c1)
-        mediatorLiveDataViewModel.getId1().observe(this, Observer {
-            textView2.text = it.toString()
-        })
-        mediatorLiveDataViewModel.getId2().observe(this, Observer {
-            textView3.text = it.toString()
-        })
+        mediatorLiveDataViewModel.mediatorLiveData.observe(this, changeObserver)
+        button.setOnClickListener {
+            mediatorLiveDataViewModel.incId1()
+        }
+        button2.setOnClickListener {
+            mediatorLiveDataViewModel.incId2()
+        }
     }
 }

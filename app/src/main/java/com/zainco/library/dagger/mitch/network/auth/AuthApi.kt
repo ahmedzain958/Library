@@ -6,5 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface AuthApi {
-    @GET("users/{id}") fun userAuth(@Path("id") id: String?): Flowable<User?>?
+    @GET("users/{id}")
+    fun getUser(@Path("id") id: Int): Flowable<User>
 }

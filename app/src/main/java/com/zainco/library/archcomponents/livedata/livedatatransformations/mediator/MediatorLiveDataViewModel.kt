@@ -6,28 +6,44 @@ import androidx.lifecycle.ViewModel
 
 class MediatorLiveDataViewModel : ViewModel() {
 
+
+    /*
+    example on mediator live data and LiveData Reactive Streams and Flowables in java
+     public void authenticateWithId(int userId){
+        final LiveData<User> source = LiveDataReactiveStreams.fromPublisher(
+                authApi.getUser(userId)
+                        .subscribeOn(Schedulers.io()));
+
+        authUser.addSource(source, new Observer<User>() {
+            @Override
+            public void onChanged(User user) {
+                authUser.setValue(user);
+                authUser.removeSource(source);
+            }
+        });
+    }
+     */
     private var id1: MutableLiveData<Int> = MutableLiveData()
     private var id2: MutableLiveData<Int> = MutableLiveData()
-    private var mId1: MediatorLiveData<Int> = MediatorLiveData()
+    val mediatorLiveData = MediatorLiveData<String>()
 
     init {
-        mId1.addSource(id1) {
-            mId1.value = id1.value
-            mId1.removeSource(id1)
+        id1.value = 0
+        id2.value = 0
+        mediatorLiveData.addSource(id1) {
+            mediatorLiveData.value = "A:$it"
         }
-        mId1.addSource(id2) {
-            mId1.value = id2.value
-            mId1.removeSource(id2)
+        mediatorLiveData.addSource(id2) {
+            mediatorLiveData.value = "B:$it"
         }
     }
 
-    fun getId1() = id1
-    fun getId2() = id2
-    fun setId1(id: Int) {
-        id1.value = id
+
+    fun incId1() {
+        id1.value = id1.value?.inc()
     }
 
-    fun setId2(id: Int) {
-        id1.value = id
+    fun incId2() {
+        id2.value = id2.value?.inc()
     }
 }
