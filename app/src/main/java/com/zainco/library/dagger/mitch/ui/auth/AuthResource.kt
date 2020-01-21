@@ -18,7 +18,7 @@ class AuthResource<T>(val status: AuthStatus, val data: T?, val message: String?
             return AuthResource(AuthStatus.ERROR, data, msg)
         }
 
-        fun <T> loading(data: T): AuthResource<T> {
+        fun <T> loading(data: T?): AuthResource<T> {
             return AuthResource(AuthStatus.LOADING, data, null)
         }
 
