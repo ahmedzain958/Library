@@ -1,10 +1,9 @@
-package com.zainco.library.dagger
+package com.zainco.library.dagger.mitch
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
-import com.zainco.library.dagger.mitch.SessionManager
 import com.zainco.library.dagger.mitch.ui.auth.AuthActivity
 import com.zainco.library.dagger.mitch.ui.auth.AuthResource
 import dagger.android.support.DaggerAppCompatActivity

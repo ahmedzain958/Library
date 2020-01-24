@@ -91,5 +91,7 @@ dependencies {
     implementation 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
 
-
+// Navigation
+    implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0'
+    implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0'
 }

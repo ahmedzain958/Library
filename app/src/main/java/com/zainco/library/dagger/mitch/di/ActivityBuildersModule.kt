@@ -2,6 +2,9 @@ package com.zainco.library.dagger.mitch.di
 
 import com.zainco.library.dagger.mitch.di.auth.AuthModule
 import com.zainco.library.dagger.mitch.di.auth.AuthViewModelModule
+import com.zainco.library.dagger.mitch.di.main.MainFragmentBuildersModule
+import com.zainco.library.dagger.mitch.di.main.MainModule
+import com.zainco.library.dagger.mitch.di.main.MainViewModelsModule
 import com.zainco.library.dagger.mitch.ui.auth.AuthActivity
 import com.zainco.library.dagger.mitch.ui.main.MitchDaggerMainActivity
 import dagger.Module
@@ -16,6 +19,11 @@ abstract class ActivityBuildersModule {
     @ContributesAndroidInjector(modules = [AuthViewModelModule::class, AuthModule::class])
     abstract fun contributeAuthActivity(): AuthActivity
 
-    @ContributesAndroidInjector()
+    //MainFragmentBuildersModule will exist within the scope MitchDaggerMainActivity subcomponent
+    @ContributesAndroidInjector(
+        modules = [MainFragmentBuildersModule::class,
+            MainViewModelsModule::class,
+            MainModule::class]
+    )
     abstract fun contributeMainActivity(): MitchDaggerMainActivity
 }

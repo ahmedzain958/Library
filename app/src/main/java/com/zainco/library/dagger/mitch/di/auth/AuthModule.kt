@@ -15,7 +15,7 @@ import retrofit2.Retrofit
 class AuthModule {
     /*
     * as we said i can use retrofit after create it in AppModule as u will see now
-    * providesMainApi():AuthApi u tell dagger that u wanna authApi object with u in a place
+    * provideAuthApi():AuthApi u tell dagger that u wanna authApi object with u in a place
     * to use it as an injected object
     * */
     @Provides
