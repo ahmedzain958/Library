@@ -19,7 +19,7 @@ class AuthViewModel @Inject constructor(
         sessionManager.authenticateWithId(queryUserId(userId))
     }
 
-    fun queryUserId(userId: Int): LiveData<AuthResource<User>> {
+    private fun queryUserId(userId: Int): LiveData<AuthResource<User>> {
         val liveDataAuthRes: Flowable<AuthResource<User>> = authApi.getUser(userId)
             //instead of calling onError
             .onErrorReturn {

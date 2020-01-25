@@ -7,6 +7,7 @@ import com.zainco.library.dagger.mitch.network.main.MainApi
 import com.zainco.library.dagger.mitch.ui.main.posts.PostRecyclerAdapter
 import dagger.Module
 import dagger.Provides
+import io.reactivex.disposables.CompositeDisposable
 import retrofit2.Retrofit
 
 /*
@@ -41,4 +42,11 @@ class MainModule {
     fun provideLayoutManager(context: Application): LayoutManager {
         return LinearLayoutManager(context.applicationContext)
     }
+
+    @Provides
+    fun provideCompositeDisposable(): CompositeDisposable {
+        return CompositeDisposable()
+    }
+
+
 }

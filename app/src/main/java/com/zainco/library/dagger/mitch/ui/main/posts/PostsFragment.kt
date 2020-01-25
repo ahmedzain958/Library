@@ -50,10 +50,12 @@ class PostsFragment : DaggerFragment() {
     }
 
     private fun observePosts() {
-        postsViewModel.observeMyPosts().removeObservers(viewLifecycleOwner)
-        postsViewModel.observeMyPosts().observe(this, Observer { listResource ->
-            adapter.setPosts(listResource)
-        })
+        postsViewModel.observeMyPosts().apply {
+            removeObservers(viewLifecycleOwner)
+            observe(this@PostsFragment, Observer { listResource ->
+                adapter.setPosts(listResource)
+            })
+        }
     }
 
 
