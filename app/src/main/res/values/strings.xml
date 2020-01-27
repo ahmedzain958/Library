@@ -14,4 +14,13 @@
     <string name="toolbar_profile">Profile</string>-->
     <string name="title_activity_user_detail">UserDetailActivity</string>
     <string name="sign_out">log out</string>
+
+    <!-- highordered fns and edittext events-->
+    <string name="loading">Loading</string>
+    <string name="language">Language: %s</string>
+    <string name="search_hint">GitHub Repository</string>
+    <string name="no_results">No results 😓</string>
+    <string name="unknown">\?</string>
+
+
 </resources>

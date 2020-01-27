@@ -65,11 +65,11 @@
             -->
         </activity>
         <activity android:name=".dagger.mitch.ui.auth.AuthActivity">
-            <intent-filter>
+           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity
             android:name=".databinding.ex2.view.ProfileActivity"
@@ -104,6 +104,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             -->
+        </activity>
+        <activity android:name=".highorderedfunandedittextlisteners.ui.SearchRepositoriesActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -10,4 +10,9 @@
     <color name="colorPrimaryDark">#111111</color>
     <color name="colorAccent">#fecb2f</color>
     <color name="profile_meta">#333</color>
+
+
+    <color name="titleColor">#1F75FE</color>
+    <color name="titleColorAlpha">#551F75FE</color>
+    <color name="greyAlpha">#55999999</color>
 </resources>

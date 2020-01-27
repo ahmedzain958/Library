@@ -56,7 +56,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
     //for viewmodel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc03"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
 
     testImplementation 'junit:junit:4.12'
@@ -89,9 +89,23 @@ dependencies {
     implementation 'com.jakewharton.rxbinding:rxbinding:0.4.0'
     implementation 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0'
     implementation 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    //paging
+    implementation 'android.arch.paging:runtime:1.0.1'
+
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //okhttp
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
 
 // Navigation
     implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0'
     implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0'
+
+    //room
+    implementation "androidx.room:room-runtime:2.2.3"
+    kapt "androidx.room:room-compiler:2.2.3"
+
 }
