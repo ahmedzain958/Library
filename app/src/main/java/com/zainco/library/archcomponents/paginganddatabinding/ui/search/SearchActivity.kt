@@ -10,7 +10,6 @@ import com.zainco.library.archcomponents.paginganddatabinding.ui.BindingActivity
 import com.zainco.library.archcomponents.paginganddatabinding.ui.bookmark.BookmarkActivity
 import com.zainco.library.databinding.ActivitySearchBinding
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * @author Leopold
@@ -18,11 +17,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class SearchActivity : BindingActivity<ActivitySearchBinding>() {
     @LayoutRes
     override fun getLayoutResId() = R.layout.activity_search
-//    private val searchViewModel: SearchViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding.vm = getViewModel()
         binding.lifecycleOwner = this
     }
