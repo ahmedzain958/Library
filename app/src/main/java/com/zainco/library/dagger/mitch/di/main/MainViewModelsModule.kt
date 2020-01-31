@@ -15,6 +15,7 @@ abstract class MainViewModelsModule {
     @ViewModelKey(ProfileViewModel::class)
     abstract fun bindProfileViewModel(profileViewModel: ProfileViewModel): ViewModel
 
+    //this viewmodel in this subcomponent can call MainApi dependency in another
     @Binds
     @IntoMap
     @ViewModelKey(PostsViewModel::class)

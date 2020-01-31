@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -48,6 +49,7 @@ class MitchDaggerMainActivity : BaseActivity(),
            )*/
     }
 
+    //enables opening nav drawer but not closing it and it enables the back arrow (2 things)
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(
             Navigation.findNavController(this, R.id.my_nav_host_fragment)
@@ -70,6 +72,13 @@ class MitchDaggerMainActivity : BaseActivity(),
                 sessionManager.logOut()
                 return true
             }
+            android.R.id.home -> {
+                // references the top left button of any fragment/activity you are in
+                if (drawer_layout.isDrawerOpen(GravityCompat.START))//hamburger top left icon first click opens the nav drawer and second click closes it
+                    drawer_layout.closeDrawer(GravityCompat.START)
+                else return false
+                return true
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -80,7 +89,20 @@ class MitchDaggerMainActivity : BaseActivity(),
         drawer_layout.closeDrawers()
 
         when (menuItem.itemId) {
-            R.id.profileFragment -> navController.navigate(R.id.profileFragment)
+            R.id.profileFragment -> {
+                // nav options to clear backstack
+
+                val navOptions = NavOptions.Builder()
+                    //destinationId : to popup untill , clearing all interventing destinations
+                    // .setPopUpTo(destinationId, inclusive)
+                    .setPopUpTo(R.id.dagger_navigation, true)
+                    .build()
+                navController.navigate(
+                    R.id.profileFragment,
+                    null,
+                    navOptions
+                )
+            }
             R.id.postsFragment -> navController.navigate(R.id.postsFragment)
         }
         return true
