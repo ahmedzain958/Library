@@ -1,6 +1,5 @@
 //added to project just fo versions and to display how is it organized
 ext.deps = [:]
-def deps = [:]
 def versions = [:]
 
 versions.room = "2.1.0-alpha03"
@@ -80,6 +79,7 @@ build_versions.min_sdk = 21
 build_versions.target_sdk = 28
 build_versions.build_tools = "28.0.3"
 
+def deps = [:]
 deps.kotlin = kotlin
 deps.koin = koin
 deps.support = support

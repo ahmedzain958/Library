@@ -115,12 +115,18 @@
 
 
         <activity android:name=".archcomponents.paginganddatabinding.ui.search.SearchActivity">
+
+        </activity>
+        <activity android:name=".archcomponents.paginganddatabinding.ui.bookmark.BookmarkActivity" />
+        <activity android:name=".databinding.mvvmloadingbaseobservable.DogBreedsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".archcomponents.paginganddatabinding.ui.bookmark.BookmarkActivity" />
+        <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.DataBindingTypesActivity" />
+        <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ViewModelActivity" />
+        <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ObservableFieldActivity" />
     </application>
 
 </manifest>

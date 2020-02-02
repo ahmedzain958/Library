@@ -47,7 +47,7 @@ class ProfileActivity : AppCompatActivity(), PostsAdapter.PostsAdapterListener {
                 true
             )
         )
-        recyclerView.setItemAnimator(DefaultItemAnimator())
+        recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.isNestedScrollingEnabled = false
         val mAdapter = PostsAdapter(getPosts()!!, this)
         recyclerView.adapter = mAdapter
@@ -77,7 +77,8 @@ class ProfileActivity : AppCompatActivity(), PostsAdapter.PostsAdapterListener {
 
     private fun getPosts(): ArrayList<Post>? {
         val posts: ArrayList<Post> = ArrayList()
-        for (i in 1..9) {
+        val indices: IntRange = 1..9
+        for (i in indices) {
             val post = Post("https://api.androidhive.info/images/nature/$i.jpg")
             posts.add(post)
         }
@@ -98,7 +99,7 @@ class ProfileActivity : AppCompatActivity(), PostsAdapter.PostsAdapterListener {
             TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,
                 dp.toFloat(),
-                r.getDisplayMetrics()
+                r.displayMetrics
             )
         )
     }
