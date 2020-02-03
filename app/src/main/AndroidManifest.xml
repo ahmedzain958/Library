@@ -127,6 +127,7 @@
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.DataBindingTypesActivity" />
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ViewModelActivity" />
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ObservableFieldActivity" />
+        <activity android:name=".multicheckrecyclerview.MultiCheckRecyclerActivity" />
     </application>
 
 </manifest>

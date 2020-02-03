@@ -1,9 +1,10 @@
 package com.zainco.library.multicheckrecyclerview;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.zainco.library.R;
 
@@ -34,10 +35,11 @@ public class MultiCheckRecyclerActivity extends AppCompatActivity {
 
         adapter.loadItems(items);
     }
+
     private void fillItems() {
-        for (int x = 0; x <=100; x++) {
+        for (int x = 0; x <= 100; x++) {
             Model model = new Model();
-            model.setPosition(x+1);
+            model.setPosition(x + 1);
 
             items.add(model);
         }
