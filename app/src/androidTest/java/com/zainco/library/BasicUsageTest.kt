@@ -22,6 +22,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
+import com.zainco.library.databinding.livedatavsobservable_databindingbasicsample.ui.DataBindingTypesActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -36,7 +37,7 @@ import org.junit.runner.RunWith
 class BasicUsageTest {
 
     @get:Rule
-    var activityRule = ActivityTestRule(MainActivity::class.java)
+    var activityRule = ActivityTestRule(DataBindingTypesActivity::class.java)
 
     @Test
     fun observableFieldsActivity_likes() {

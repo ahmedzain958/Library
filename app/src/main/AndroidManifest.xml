@@ -106,11 +106,11 @@
             -->
         </activity>
         <activity android:name=".highorderedfunandedittextlisteners.ui.SearchRepositoriesActivity">
-           <!-- <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
 
 
@@ -119,10 +119,10 @@
         </activity>
         <activity android:name=".archcomponents.paginganddatabinding.ui.bookmark.BookmarkActivity" />
         <activity android:name=".databinding.mvvmloadingbaseobservable.DogBreedsActivity">
-            <intent-filter>
+           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.DataBindingTypesActivity" />
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ViewModelActivity" />
