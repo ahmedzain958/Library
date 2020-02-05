@@ -50,6 +50,7 @@ class MitchDaggerMainActivity : BaseActivity(),
     }
 
     //enables opening nav drawer but not closing it and it enables the back arrow (2 things)
+    //use onOptionsItemSelected to close the nav drawer
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(
             Navigation.findNavController(this, R.id.my_nav_host_fragment)
@@ -73,11 +74,12 @@ class MitchDaggerMainActivity : BaseActivity(),
                 return true
             }
             android.R.id.home -> {
-                // references the top left button of any fragment/activity you are in
+                // references the top left button of any fragment/activity you are in (no matter what fragment / activity you are in)
                 if (drawer_layout.isDrawerOpen(GravityCompat.START))//hamburger top left icon first click opens the nav drawer and second click closes it
+                {
                     drawer_layout.closeDrawer(GravityCompat.START)
-                else return false
-                return true
+                    return true//if the nav drawer is open close the drawer and consume the click
+                } else return false//if nav drawer isn't opened stop; don't consume the click
             }
         }
         return super.onOptionsItemSelected(item)
@@ -90,10 +92,10 @@ class MitchDaggerMainActivity : BaseActivity(),
 
         when (menuItem.itemId) {
             R.id.profileFragment -> {
-                // nav options to clear backstack
-
+                //clear the back stack when the user navigates to the profile screen
+                // nav options to clear backstack not to press back many times to reach the main destination
                 val navOptions = NavOptions.Builder()
-                    //destinationId : to popup untill , clearing all interventing destinations
+                    //destinationId : to popup until , clearing all interventing destinations
                     // .setPopUpTo(destinationId, inclusive)
                     .setPopUpTo(R.id.dagger_navigation, true)
                     .build()
@@ -103,9 +105,16 @@ class MitchDaggerMainActivity : BaseActivity(),
                     navOptions
                 )
             }
-            R.id.postsFragment -> navController.navigate(R.id.postsFragment)
+            R.id.postsFragment -> {
+                if (isValidDestination(R.id.postsFragment))//navigate to posts iff it is in profile; going to posts many times goes only once but the rest aren't added to the backstack
+                    navController.navigate(R.id.postsFragment)
+            }
         }
         return true
 
+    }
+
+    private fun isValidDestination(destination: Int/*id of the fragment it is trying to navigate to*/): Boolean {
+        return destination != navController.currentDestination?.id
     }
 }
