@@ -18,6 +18,7 @@ class AuthModule {
     * provideAuthApi():AuthApi u tell dagger that u wanna authApi object with u in a place
     * to use it as an injected object
     * */
+    @AuthScope
     @Provides
     fun provideAuthApi(retrofit: Retrofit): AuthApi {
         return retrofit.create(AuthApi::class.java)

@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".archcomponents.paginganddatabinding.MVVMApp"
+        android:name=".dagger.mitch.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,11 +15,11 @@
         <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity"></activity>
         <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity">
 
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonActivity">
 
@@ -63,11 +63,11 @@
             -->
         </activity>
         <activity android:name=".dagger.mitch.ui.auth.AuthActivity">
-            <!-- <intent-filter>
+             <intent-filter>
                  <action android:name="android.intent.action.MAIN" />
 
                  <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
+             </intent-filter>
         </activity>
         <activity
             android:name=".databinding.ex2.view.ProfileActivity"

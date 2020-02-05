@@ -20,6 +20,7 @@ class MainModule {
     * providesMainApi():MainApi u tell dagger that u wanna mainApi object with u in a place
     * to use it as an injected object
     * */
+    @MainScope
     @Provides
     fun providesMainApi(retrofit: Retrofit): MainApi {
         return retrofit.create(MainApi::class.java)
@@ -28,6 +29,7 @@ class MainModule {
     /*
     *
     * */
+    @MainScope
     @Provides
     fun providePostRecyclerAdapter(): PostRecyclerAdapter {
         return PostRecyclerAdapter()
@@ -38,11 +40,13 @@ class MainModule {
     *   but after this method u don't need to do this just
     *   @Inject lateinit var layoutManager: LayoutManager in ur activity or fragment
     * */
+    @MainScope
     @Provides
     fun provideLayoutManager(context: Application): LayoutManager {
         return LinearLayoutManager(context.applicationContext)
     }
 
+    @MainScope
     @Provides
     fun provideCompositeDisposable(): CompositeDisposable {
         return CompositeDisposable()
