@@ -1,9 +1,9 @@
 package com.zainco.library.databinding.mvvmoldviewpagerfragments.ui.colors
 
-import com.zainco.library.databinding.mvvmoldviewpagerfragments.data.remote.response.Response
-import com.zainco.library.databinding.mvvmoldviewpagerfragments.data.remote.response.Status
 import com.zainco.library.databinding.mvvmoldviewpagerfragments.domain.model.Color
 import com.zainco.library.databinding.mvvmoldviewpagerfragments.domain.repository.ColorRepository
+import com.zainco.library.databinding.mvvmoldviewpagerfragments.remote.response.Response
+import com.zainco.library.databinding.mvvmoldviewpagerfragments.remote.response.Status
 import com.zainco.library.databinding.mvvmoldviewpagerfragments.ui.base.BaseViewModel
 import com.zainco.library.databinding.mvvmoldviewpagerfragments.util.schedulers.BaseScheduler
 import javax.inject.Inject

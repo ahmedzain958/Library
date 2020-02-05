@@ -1,4 +1,4 @@
-package com.zainco.library.databinding.mvvmoldviewpagerfragments.data.remote.response
+package com.zainco.library.databinding.mvvmoldviewpagerfragments.remote.response
 
 /**
  * @author Wellington Costa on 30/12/2017.

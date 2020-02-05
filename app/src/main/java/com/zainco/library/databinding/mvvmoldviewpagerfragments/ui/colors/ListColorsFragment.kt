@@ -14,7 +14,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.zainco.library.BuildConfig
 import com.zainco.library.R
 import com.zainco.library.databinding.FragmentListColorsBinding
-import com.zainco.library.databinding.mvvmoldviewpagerfragments.data.remote.response.Status
+import com.zainco.library.databinding.mvvmoldviewpagerfragments.remote.response.Status
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 

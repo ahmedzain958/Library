@@ -14,6 +14,7 @@ class PokemonViewModel : ViewModel() {
     private var pokemonId: MutableLiveData<Long> = MutableLiveData()
     private var pokemon: LiveData<Pokemon>
 
+
     init {
         //used in PokemonActivity
         pokemons.value = PokemonProvider.getPokemons()

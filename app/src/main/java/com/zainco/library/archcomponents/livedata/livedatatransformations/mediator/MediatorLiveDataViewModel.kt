@@ -1,10 +1,12 @@
 package com.zainco.library.archcomponents.livedata.livedatatransformations.mediator
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MediatorLiveDataViewModel : ViewModel() {
+    var someLiveData: LiveData<Any> = MutableLiveData("Ahmed")
 
 
     /*

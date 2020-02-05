@@ -1,9 +1,9 @@
 package com.zainco.library.databinding.mvvmoldviewpagerfragments.ui.users
 
-import com.zainco.library.databinding.mvvmoldviewpagerfragments.data.remote.response.Response
-import com.zainco.library.databinding.mvvmoldviewpagerfragments.data.remote.response.Status
 import com.zainco.library.databinding.mvvmoldviewpagerfragments.domain.model.User
 import com.zainco.library.databinding.mvvmoldviewpagerfragments.domain.repository.UserRepository
+import com.zainco.library.databinding.mvvmoldviewpagerfragments.remote.response.Response
+import com.zainco.library.databinding.mvvmoldviewpagerfragments.remote.response.Status
 import com.zainco.library.databinding.mvvmoldviewpagerfragments.ui.base.BaseViewModel
 import com.zainco.library.databinding.mvvmoldviewpagerfragments.util.schedulers.BaseScheduler
 import javax.inject.Inject
