@@ -46,4 +46,8 @@
     <string name="users">Users</string>
     <string name="load_data_error">Load data error</string>
 
+
+
+    <string name="space">\u0020</string>
+
 </resources>
