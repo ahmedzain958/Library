@@ -12,14 +12,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity"></activity>
-        <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity">
-
-            <!--<intent-filter>
+        <activity android:name=".texttospeech.TextToSpeechActivity">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+        </activity>
+        <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity" />
+        <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
         </activity>
         <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonActivity">
 
@@ -63,11 +72,14 @@
             -->
         </activity>
         <activity android:name=".dagger.mitch.ui.auth.AuthActivity">
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
 
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".databinding.ex2.view.ProfileActivity"
@@ -104,23 +116,25 @@
             -->
         </activity>
         <activity android:name=".highorderedfunandedittextlisteners.ui.SearchRepositoriesActivity">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
-
-
-        <activity android:name=".archcomponents.paginganddatabinding.ui.search.SearchActivity">
-
-        </activity>
+        <activity android:name=".archcomponents.paginganddatabinding.ui.search.SearchActivity" />
         <activity android:name=".archcomponents.paginganddatabinding.ui.bookmark.BookmarkActivity" />
         <activity android:name=".databinding.mvvmloadingbaseobservable.DogBreedsActivity">
-           <!-- <intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.DataBindingTypesActivity" />
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ViewModelActivity" />

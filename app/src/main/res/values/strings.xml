@@ -23,7 +23,6 @@
     <string name="unknown">\?</string>
 
 
-
     <string name="menu_bookmark">Bookmark</string>
 
 
@@ -45,7 +44,6 @@
     <string name="colors">Colors</string>
     <string name="users">Users</string>
     <string name="load_data_error">Load data error</string>
-
 
 
     <string name="space">\u0020</string>
