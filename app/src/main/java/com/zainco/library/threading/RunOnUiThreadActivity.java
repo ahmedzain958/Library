@@ -22,37 +22,20 @@ public class RunOnUiThreadActivity extends Activity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                runThread();
-                runThreadUsingHandler();
+                runThread();
             }
         });
     }
 
-    private void runThreadUsingHandler() {
-
-    }
-
-    class ExampleRunnable implements Runnable {
-        @Override
-        public void run() {
-            while (i++ < 1000) {
-                if (i == 5)
-                    btn.setText("5 sec");
-                try {
-                    Thread.sleep(300);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    //without synchronized the button text could be 1007
+    //without synchronized the button text could be 1007 or any number more than 1000 if the button clicked multiple times
+    //every time we click the button new worker thread is created (it can access i value) different from the previously created worker thread
+    //, so synchronized solved this issue
     private synchronized void runThread() {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 while (i++ < 1000) {
+                    //switches easily between threads
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -67,7 +50,7 @@ public class RunOnUiThreadActivity extends Activity {
                 }
             }
         }).start();
-        //the prev instead of this
+        //the prev instead of this because run on ui thread wraps the dealing with the view not loops and somethings like that
        /* runOnUiThread(new Thread(new Runnable() {
             public void run() {
                 while (i++ < 1000) {
