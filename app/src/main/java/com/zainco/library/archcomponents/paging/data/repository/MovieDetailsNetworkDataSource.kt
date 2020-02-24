@@ -3,8 +3,8 @@ package com.zainco.library.archcomponents.paging.data.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.oxcoding.moviemvvm.data.vo.MovieDetails
 import com.zainco.library.archcomponents.paging.data.api.TheMovieDBInterface
+import com.zainco.library.archcomponents.paging.data.vo.MovieDetails
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
@@ -25,19 +25,19 @@ class MovieDetailsNetworkDataSource(
         _networkState.postValue(NetworkState.LOADING)
         try {
             compositeDisposable.add(
-                apiService.getMovieDetails(movieId)
+                apiService.getMovieDetails(id = movieId)
                     .subscribeOn(Schedulers.io())
                     .subscribe({
                         _downloadedMovieDetailsRepsonse.postValue(it)
                         _networkState.postValue(NetworkState.LOADED)
                     }, {
                         _networkState.postValue(NetworkState.ERROR)
-                        Log.e("MovieDetailsDataSource",it.message)
+                        Log.e("MovieDetailsDataSource", it.message)
                     })
 
             )
         } catch (e: Exception) {
-            Log.e("MovieDetailsDataSource",e.message)
+            Log.e("MovieDetailsDataSource", e.message)
         }
     }
 }

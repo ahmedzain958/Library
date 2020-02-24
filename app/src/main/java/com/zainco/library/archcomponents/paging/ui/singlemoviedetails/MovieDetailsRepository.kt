@@ -1,7 +1,7 @@
-package com.zainco.library.archcomponents.paging.singlemoviedetails
+package com.zainco.library.archcomponents.paging.ui.singlemoviedetails
 
 import androidx.lifecycle.LiveData
-import com.oxcoding.moviemvvm.data.vo.MovieDetails
+import com.zainco.library.archcomponents.paging.data.vo.MovieDetails
 import com.zainco.library.archcomponents.paging.data.api.TheMovieDBInterface
 import com.zainco.library.archcomponents.paging.data.repository.MovieDetailsNetworkDataSource
 import com.zainco.library.archcomponents.paging.data.repository.NetworkState

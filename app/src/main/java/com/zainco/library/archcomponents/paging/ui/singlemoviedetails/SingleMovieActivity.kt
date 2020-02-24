@@ -1,4 +1,4 @@
-package com.zainco.library.archcomponents.paging.singlemoviedetails
+package com.zainco.library.archcomponents.paging.ui.singlemoviedetails
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,11 +6,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.oxcoding.moviemvvm.data.vo.MovieDetails
 import com.zainco.library.R
 import com.zainco.library.archcomponents.paging.data.api.POSTER_BASE_URL
 import com.zainco.library.archcomponents.paging.data.api.TheMovieDBClient
 import com.zainco.library.archcomponents.paging.data.api.TheMovieDBInterface
+import com.zainco.library.archcomponents.paging.data.vo.MovieDetails
 import kotlinx.android.synthetic.main.activity_single_movie.*
 import java.text.NumberFormat
 import java.util.*

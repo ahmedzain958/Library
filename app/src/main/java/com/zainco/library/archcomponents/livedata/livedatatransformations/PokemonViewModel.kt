@@ -24,7 +24,7 @@ class PokemonViewModel : ViewModel() {
             PokemonProvider.getPokemon(it)
         }*/
         // Switch map example
-        pokemon = Transformations.switchMap(pokemonId) {
+        pokemon = Transformations.switchMap<Long,Pokemon>(pokemonId) {
             PokemonProvider.getPokemonLive(it)
         }
     }

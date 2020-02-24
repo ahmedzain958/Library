@@ -1,4 +1,4 @@
-package com.oxcoding.moviemvvm.data.vo
+package com.zainco.library.archcomponents.paging.data.vo
 
 
 import com.google.gson.annotations.SerializedName

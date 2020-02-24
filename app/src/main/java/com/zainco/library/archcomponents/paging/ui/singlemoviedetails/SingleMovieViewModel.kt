@@ -1,8 +1,8 @@
-package com.zainco.library.archcomponents.paging.singlemoviedetails
+package com.zainco.library.archcomponents.paging.ui.singlemoviedetails
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.oxcoding.moviemvvm.data.vo.MovieDetails
+import com.zainco.library.archcomponents.paging.data.vo.MovieDetails
 import com.zainco.library.archcomponents.paging.data.repository.NetworkState
 import io.reactivex.disposables.CompositeDisposable
 

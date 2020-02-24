@@ -13,20 +13,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".archcomponents.paging.singlemoviedetails.SingleMovieActivity"></activity>
-        <activity android:name=".threading.HandlerActivity">
+        <activity android:name=".archcomponents.paging.ui.popularmovie.MoviesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".threading.ThreadActivity">
-            <intent-filter>
+        <activity android:name="com.zainco.library.archcomponents.paging.ui.singlemoviedetails.SingleMovieActivity" />
+        <activity android:name=".threading.HandlerActivity">
+           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".threading.ThreadActivity">
+          <!--  <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
         </activity>
         <activity android:name=".firebase.remoteconfig.RemoteConfigEDMTVActivity">
 
