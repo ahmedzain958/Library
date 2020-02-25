@@ -1,6 +1,4 @@
 package com.zainco.library.dagger.daggerscopescasterio.screens.profile;
-
-
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
