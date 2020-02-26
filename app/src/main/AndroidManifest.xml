@@ -187,11 +187,11 @@
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ObservableFieldActivity" />
         <activity android:name=".multicheckrecyclerview.MultiCheckRecyclerActivity" />
         <activity android:name=".threading.RunOnUiThreadActivity">
-            <intent-filter>
+          <!--  <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".permissions.CameraPreviewActivity" />
     </application>
