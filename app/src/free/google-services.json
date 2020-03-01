@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "186827942565",
+    "firebase_url": "https://library-d2eab.firebaseio.com",
+    "project_id": "library-d2eab",
+    "storage_bucket": "library-d2eab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186827942565:android:8f34134e2e8fb0b5357b4c",
+        "android_client_info": {
+          "package_name": "com.zainco.library.free.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186827942565-hndgkufhdsssece0a3m1bg8n7np0jobi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zainco.library",
+            "certificate_hash": "0ddb018d54d5419846ca3bd12fc51e29baf310f6"
+          }
+        },
+        {
+          "client_id": "186827942565-ksagnaalbk2pb3f1sqsub12l7d46bl4a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zainco.library",
+            "certificate_hash": "2a9544082ce9aa9d25a4caa0970d3e9452a15c09"
+          }
+        },
+        {
+          "client_id": "186827942565-e6r613rhqmng4gh8blf6tcds2lgn710h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnU8nP1J0xhRJxjgje1wSam2XKzK46Ors"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186827942565-e6r613rhqmng4gh8blf6tcds2lgn710h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
