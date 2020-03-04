@@ -35,10 +35,12 @@ android {
         free {
             dimension "libraryFree"
             applicationId = "com.zainco.library.free"
+            manifestPlaceholders = [appName : "Freeeee"]
         }
         paid {
             dimension "libraryFree"
             applicationId = "com.zainco.library.pro"
+            manifestPlaceholders = [appName : "paiddddd"]
         }
     }
     dataBinding {

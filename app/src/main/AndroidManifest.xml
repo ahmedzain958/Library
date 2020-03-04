@@ -9,21 +9,27 @@
         android:name=".dagger.mitch.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="${appName}"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".archcomponents.paging.ui.popularmovie.MoviesListActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <meta-data
+            android:name="zain"
+            android:resource="@string/no_results"
+          />
+
+
+        <activity android:name=".archcomponents.paging.ui.popularmovie.MoviesListActivity">
+            <!-- <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>-->
         </activity>
         <activity android:name=".archcomponents.paging.ui.singlemoviedetails.SingleMovieActivity" />
         <activity android:name=".threading.HandlerActivity">
-
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,14 +59,11 @@
             -->
         </activity>
         <activity android:name=".permissions.PermissionsActivity">
-
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
         </activity>
         <activity android:name=".texttospeech.TextToSpeechActivity">
 
