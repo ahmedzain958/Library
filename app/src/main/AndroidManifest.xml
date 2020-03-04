@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".dagger.mitch.BaseApplication"
@@ -13,23 +14,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".permissions.phonecall.PhoneCallPermissionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="zain"
-            android:resource="@string/no_results"
-          />
-
+            android:resource="@string/no_results" />
 
         <activity android:name=".archcomponents.paging.ui.popularmovie.MoviesListActivity">
-            <!-- <intent-filter>
+
+            <!--
+             <intent-filter>
                  <action android:name="android.intent.action.MAIN" />
 
                  <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
+             </intent-filter>
+            -->
         </activity>
         <activity android:name=".archcomponents.paging.ui.singlemoviedetails.SingleMovieActivity" />
         <activity android:name=".threading.HandlerActivity">
+
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
