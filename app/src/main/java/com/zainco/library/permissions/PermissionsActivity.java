@@ -2,9 +2,11 @@ package com.zainco.library.permissions;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +35,20 @@ public class PermissionsActivity extends AppCompatActivity
                 showCameraPreview();
             }
         });
+        /////for testing meta data
+        try {
+            ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            Bundle bundle = applicationInfo.metaData;
+            String value =  bundle.getString("zain");
+            Toast.makeText(
+                    this,
+                    value,
+                    Toast.LENGTH_LONG
+            ).show();
+
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 
