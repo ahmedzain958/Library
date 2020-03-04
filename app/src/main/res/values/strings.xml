@@ -65,5 +65,6 @@ features available.]]>
     <string name="camera_permission_available">Camera permission is available. Starting preview.</string>
     <string name="camera_permission_granted">Camera permission was granted. Starting preview.</string>
     <string name="camera_permission_denied">Camera permission request was denied.</string>
-
+    <string name="facebook_app_id">3270825146279963</string>
+    <string name="fb_login_protocol_scheme">fb3270825146279963</string>
 </resources>

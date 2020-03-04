@@ -4,13 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FreeActivity">
+    tools:context="com.zainco.library.jobscheduler.JobSchedulerActivity">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="35dp"
-        android:layout_height="21dp"
-        android:text="free"
-        tools:layout_editor_absoluteX="184dp"
-        tools:layout_editor_absoluteY="300dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
