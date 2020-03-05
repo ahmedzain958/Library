@@ -28,10 +28,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            applicationIdSuffix ".debug"
+//            applicationIdSuffix ".debug"
         }
     }
-    productFlavors {
+    /*productFlavors {
         free {
             dimension "libraryFree"
             applicationId = "com.zainco.library.free"
@@ -42,7 +42,7 @@ android {
             applicationId = "com.zainco.library.pro"
             manifestPlaceholders = [appName : "paiddddd"]
         }
-    }
+    }*/
     dataBinding {
         enabled = true
     }
