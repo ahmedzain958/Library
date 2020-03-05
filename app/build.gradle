@@ -168,6 +168,7 @@ dependencies {
     implementation 'com.facebook.fresco:fresco:1.9.0'
     implementation 'org.mockito:mockito-core:2.25.0'
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
+    implementation 'com.facebook.android:facebook-android-sdk:4.28.0'
 
     // Add the Firebase SDK for Crashlytics.
     implementation 'com.google.firebase:firebase-crashlytics:17.0.0-beta01'
@@ -176,6 +177,7 @@ dependencies {
     def androidXTestVersion = '1.1.1'
     def espressoVersion = '3.1.0-alpha4'
     def runnerExtVersion = '1.1.1'
+    implementation 'com.facebook.android:facebook-login:4.28.0'
 
     testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
     androidTestImplementation "androidx.test:runner:$androidXTestVersion"
