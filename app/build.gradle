@@ -178,6 +178,8 @@ dependencies {
     def espressoVersion = '3.1.0-alpha4'
     def runnerExtVersion = '1.1.1'
     implementation 'com.facebook.android:facebook-login:4.28.0'
+    //work manager
+    implementation "android.arch.work:work-runtime-ktx:1.0.1"
 
     testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
     androidTestImplementation "androidx.test:runner:$androidXTestVersion"
