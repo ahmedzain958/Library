@@ -13,7 +13,7 @@ class HumanConnectorActivity : AppCompatActivity() {
         setContentView(R.layout.activity_human_connector)
         postsRecycler.apply {
             layoutManager = LinearLayoutManager(this@HumanConnectorActivity)
-            adapter = PostsAdapter()
+//            adapter = PostsAdapter()
         }
     }
 }

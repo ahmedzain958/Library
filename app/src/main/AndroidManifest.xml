@@ -14,20 +14,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".workmanager.socialmedia.HumanConnectorActivity">
+        <activity android:name=".workmanager.simplifiedcoding.WorkManagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".workmanager.WorkManagerActivity">
-          <!--  <intent-filter>
+        <activity android:name=".workmanager.socialmedia.HumanConnectorActivity">
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
+
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
