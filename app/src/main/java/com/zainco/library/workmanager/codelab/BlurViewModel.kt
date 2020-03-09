@@ -2,19 +2,23 @@ package com.zainco.library.workmanager.codelab
 
 import android.net.Uri
 import android.text.TextUtils
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.work.*
-import com.zainco.library.workmanager.codelab.Constants.IMAGE_MANIPULATION_WORK_NAME
-import com.zainco.library.workmanager.codelab.Constants.KEY_IMAGE_URI
+import com.zainco.library.workmanager.codelab.Constants.*
 
 
 class BlurViewModel : ViewModel() {
+    private lateinit var mOutputUri: Uri
     var workManager: WorkManager = WorkManager.getInstance()
     private var mImageUri: Uri? = null
+    private val savedWorkInfo: LiveData<List<WorkInfo>> by lazy {
+        workManager.getWorkInfosByTagLiveData(TAG_OUTPUT)
+    }
 
     fun applyBlurr(blurLevel: Int) {
         // Add WorkRequest to Cleanup temporary images
-        var continuation: WorkContinuation = workManager
+        var continuationWorkRequest: WorkContinuation = workManager
             .beginUniqueWork(
                 IMAGE_MANIPULATION_WORK_NAME,
                 ExistingWorkPolicy.REPLACE,
@@ -30,20 +34,26 @@ class BlurViewModel : ViewModel() {
             if (i == 0) {
                 blurBuilder.setInputData(createInputDataForURI())
             }
+            val blurBuilderWorkRequest = blurBuilder.build()
             //neat feature of chaining is that the output of one WorkRequest becomes the input of the next WorkRequest in the chain
-            continuation = continuation.then(blurBuilder.build())
+            continuationWorkRequest = continuationWorkRequest.then(blurBuilderWorkRequest)
         }
-        // Add WorkRequest to save the image to the filesystem
-        // Add WorkRequest to save the image to the filesystem
-        val save = OneTimeWorkRequest.Builder(SaveImageToFileWorker::class.java)
+        // Create charging constraint
+        var constraints: Constraints = Constraints.Builder()
+            .setRequiresCharging(true)
             .build()
-        continuation = continuation.then(save)
+        // Add WorkRequest to save the image to the filesystem
+        val saveWorkRequest = OneTimeWorkRequest.Builder(SaveImageToFileWorker::class.java)
+            .setConstraints(constraints)
+            .addTag(TAG_OUTPUT)
+            .build()
+        continuationWorkRequest = continuationWorkRequest.then(saveWorkRequest)
 
-        continuation.enqueue()
+        continuationWorkRequest.enqueue()
     }
 
-    fun setImageUri(uri: String?) {
-        mImageUri = uriOrNull(uri!!)
+    fun setImageUri(uri: String) {
+        mImageUri = uriOrNull(uri)
     }
 
     private fun uriOrNull(uriString: String): Uri? {
@@ -60,5 +70,21 @@ class BlurViewModel : ViewModel() {
         return builder.build()
     }
 
+    fun setOutputUri(outputImageUri: String) {
+        mOutputUri = uriOrNull(outputImageUri)!!
+    }
+
+    fun getOutputUri(): Uri {
+        return mOutputUri
+    }
+
     fun getImageUri(): Uri? = mImageUri
+    fun getOutputWorkInfoForSavedData(): LiveData<List<WorkInfo>> {
+        return savedWorkInfo
+    }
+
+    fun cancelWork() {
+        workManager.cancelUniqueWork(IMAGE_MANIPULATION_WORK_NAME)
+    }
+
 }

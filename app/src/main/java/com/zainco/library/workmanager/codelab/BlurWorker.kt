@@ -21,11 +21,13 @@ class BlurWorker(context: Context, workerParameters: WorkerParameters) :
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     override fun doWork(): Result {
         try {
-            val applicationContext = applicationContext
+            val resourceURI = inputData.getString(Constants.KEY_IMAGE_URI)
+            val resolver = applicationContext.contentResolver
             // Create a bitmap from a test image in drawable resource
-            val bitmap = BitmapFactory.decodeResource(
-                applicationContext.resources, R.drawable.test
+            val bitmap = BitmapFactory.decodeStream(
+                resolver.openInputStream(Uri.parse(resourceURI))
             )
+
             //blurr the image bitmap and returns another bimtap
             val output: Bitmap = WorkerUtils.blurBitmap(bitmap, applicationContext)
             val outputUri: Uri = WorkerUtils.writeBitmapToFile(applicationContext, output)
