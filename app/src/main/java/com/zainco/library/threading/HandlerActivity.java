@@ -13,8 +13,17 @@ public class HandlerActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     private Button buttonStartThread;
-    private Handler handler = new Handler();
+    /*responsibility of handler is getting the work in the message queue
+    and works with the thread inwhich it has been instantiated in here for ex: it will work with the main thread
+    which means we can use it to get our work to the main thread
+    * */
 
+    private Handler handler = new Handler();
+/*
+every click on button or switch is added to the message queue and executed sequentially
+the Looper loops through the message queue
+
+* */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
