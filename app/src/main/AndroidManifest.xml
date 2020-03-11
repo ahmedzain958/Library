@@ -142,14 +142,11 @@
         </activity>
         <activity android:name=".archcomponents.paging.ui.singlemoviedetails.SingleMovieActivity" />
         <activity android:name=".threading.HandlerActivity">
-
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
         </activity>
         <activity android:name=".threading.ThreadActivity">
 
