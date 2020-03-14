@@ -1,4 +1,4 @@
-package com.zainco.library.threading;
+package com.zainco.library.threading.codinginflow;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -48,7 +48,7 @@ the Looper loops through the message queue
                 Handler handler = new Handler(Looper.getMainLooper());
                 /*this line will lead to crash in
                 handlerWithoutLooper.post(new Runnable() {
-                 can't create handler inside thread that hasn't called Looper.prepare() because the handler can only work iff we didn't pass a constructor to the handler*/
+                 can't create handler inside thread that hasn't called Looper.prepare() because the handler can only work iff we didn't pass a constructor param Looper.getMainLooper() to the handler*/
 
 
                 if (i == 5) {
@@ -74,7 +74,7 @@ the Looper loops through the message queue
                     });
                     /////////////////////////////////////
     /*
-                  method(3) use runOnUIThread()
+                  method(3) use runOnUIThread() like Handler()
                                  * */
                     runOnUiThread(new Runnable() {
                         @Override

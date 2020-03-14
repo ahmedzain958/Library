@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".threading.ThreadActivity">
+    tools:context=".threading.codinginflow.ThreadActivity">
 
     <Switch
         android:layout_width="wrap_content"
