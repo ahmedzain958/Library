@@ -6,7 +6,7 @@ import android.util.Log
 
 class ExampleLooperThread : Thread() {
     private val TAG = "ExampleLooperThread"
-    var handler: Handler? = null
+    lateinit var handler: Handler
     override fun run() {
         Looper.prepare()//creates a looper for this background thread and automatically creates a msg queue
         handler = Handler()
