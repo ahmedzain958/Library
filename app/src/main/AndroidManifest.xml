@@ -16,12 +16,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".threading.codinginflow.ExampleLooperThreadActivity">
+        <activity android:name=".services.pluralsight.PluralSightServicesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".threading.codinginflow.ExampleLooperThreadActivity">
+          <!--  <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
         </activity>
         <activity android:name=".onnewintent.OnNewIntentActivity2" />
         <activity android:name=".onnewintent.OnNewIntentActivity1">
@@ -152,18 +159,24 @@
         </activity>
         <activity android:name=".archcomponents.paging.ui.singlemoviedetails.SingleMovieActivity" />
         <activity android:name=".threading.codinginflow.HandlerActivity">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity android:name=".threading.codinginflow.ThreadActivity">
-           <!-- <intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity android:name=".firebase.remoteconfig.RemoteConfigEDMTVActivity">
 
@@ -329,6 +342,8 @@
         <activity android:name=".permissions.CameraPreviewActivity" />
 
         <service android:name=".jobscheduler.ExampleJobService" />
+        <service android:name=".services.pluralsight.MyStartedService" />
+        <service android:name=".services.pluralsight.MyIntentService" />
     </application>
 
 </manifest>
