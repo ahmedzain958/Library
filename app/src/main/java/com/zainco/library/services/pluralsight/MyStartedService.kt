@@ -14,6 +14,9 @@ class MyStartedService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.i(TAG, "onStartCommand Thread name " + Thread.currentThread().name)
+        val  intentForReceiver = Intent("action.service.to.activity")
+        intentForReceiver.putExtra("startServiceResult","zain")
+        sendBroadcast(intentForReceiver)
         return START_STICKY
     }
 

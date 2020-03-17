@@ -340,10 +340,12 @@
             -->
         </activity>
         <activity android:name=".permissions.CameraPreviewActivity" />
+        <activity android:name=".callrecord.CallRecordActivity" />
 
         <service android:name=".jobscheduler.ExampleJobService" />
         <service android:name=".services.pluralsight.MyStartedService" />
         <service android:name=".services.pluralsight.MyIntentService" />
+        <service android:name=".callrecord.RecordingService" />
     </application>
 
 </manifest>

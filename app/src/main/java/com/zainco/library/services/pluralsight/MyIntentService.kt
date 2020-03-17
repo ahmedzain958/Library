@@ -2,6 +2,8 @@ package com.zainco.library.services.pluralsight
 
 import android.app.IntentService
 import android.content.Intent
+import android.os.Bundle
+import android.os.ResultReceiver
 import android.util.Log
 
 class MyIntentService : IntentService("MyWorkerThread") {
@@ -14,7 +16,7 @@ class MyIntentService : IntentService("MyWorkerThread") {
         super.onCreate()
         Log.i(TAG, "onCreate Thread name " + Thread.currentThread().name)
     }
-
+//works in worker thread
     override fun onHandleIntent(intent: Intent?) {
         Log.i(
             TAG,
@@ -23,6 +25,7 @@ class MyIntentService : IntentService("MyWorkerThread") {
         //MyWorkerThread : name that given to the constructor
 
         val sleepTime: Int = intent?.getIntExtra("sleepTime", 1)!!
+        val resultReceiver = intent.getParcelableExtra<ResultReceiver>("receiver")
         var ctr = 1
         //all this loop works in bg thread and no ANR happens in UI thread
         while (ctr <= sleepTime) {
@@ -37,6 +40,9 @@ class MyIntentService : IntentService("MyWorkerThread") {
             }
             ctr++
         }
+        val bundle = Bundle()
+        bundle.putString("resultIntentService", "Counter Stopped at $ctr seconds")
+        resultReceiver.send(18, bundle)//this will trigger onReceiveResult method in the result receiver class
     }
 
     /*
