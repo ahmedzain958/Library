@@ -1,10 +1,15 @@
 package com.zainco.library.callrecord;
 
 import android.app.Service;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.media.MediaRecorder;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.os.IBinder;
+import android.os.ParcelFileDescriptor;
+import android.provider.MediaStore;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 
@@ -14,6 +19,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
+
+import static android.os.Environment.getExternalStoragePublicDirectory;
 
 /**
  * Created by irshadvali on 14/12/17.
@@ -30,12 +37,41 @@ public class RecordingService extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
+    private void startRecording() throws IOException {
+        ContentValues values = new ContentValues(4);
+        values.put(MediaStore.Audio.Media.TITLE, "zain");
+        values.put(MediaStore.Audio.Media.DATE_ADDED, (int) (System.currentTimeMillis() / 1000));
+        values.put(MediaStore.Audio.Media.MIME_TYPE, "audio/mp3");
+        values.put(MediaStore.Audio.Media.RELATIVE_PATH, "Music/Recordings/");
 
+        Uri audiouri= getContentResolver().insert(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, values);
+        ParcelFileDescriptor file = getContentResolver().openFileDescriptor(audiouri, "w");
+
+        if (file != null) {
+            MediaRecorder     audioRecorder = new MediaRecorder();
+            audioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+            audioRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+            audioRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+            audioRecorder.setOutputFile(file.getFileDescriptor());
+            audioRecorder.setAudioChannels(1);
+            audioRecorder.setAudioChannels(1);
+            audioRecorder.prepare();
+            audioRecorder.start();
+        }
+    }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         //return super.onStartCommand(intent, flags, startId);
 
-        file = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            try {
+                startRecording();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            file = getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
+        }
         Date date = new Date();
         String stringDate = DateFormat.getDateTimeInstance().format(date);
         rec = new MediaRecorder();
@@ -73,7 +109,7 @@ public class RecordingService extends Service {
                 } else if (TelephonyManager.CALL_STATE_OFFHOOK == state) {
                     System.out.println("IRSHAD CALL_STATE_OFFHOOK");
                     try {
-                        file = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
+                        file = getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
                         Date date = new Date();
                         String stringDate = DateFormat.getDateTimeInstance().format(date);
                         rec = new MediaRecorder();

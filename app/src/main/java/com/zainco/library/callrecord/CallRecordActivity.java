@@ -37,7 +37,6 @@ public class CallRecordActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        super.onResume();
 
         // Runtime permission
         try {
@@ -81,7 +80,7 @@ public class CallRecordActivity extends AppCompatActivity {
         {
             e.printStackTrace();
         }
-
+        super.onResume();
     }
 
     @SuppressLint("ResourceAsColor")
@@ -93,8 +92,6 @@ public class CallRecordActivity extends AppCompatActivity {
                 startService(intent);
                 Toast.makeText(getApplicationContext(), "Call Recording is set ON", Toast.LENGTH_SHORT).show();
             textSubHeader.setText("Switch on Toggle to record your calls");
-
-
             } else {
                 Intent intent = new Intent(this, RecordingService.class);
                 stopService(intent);
