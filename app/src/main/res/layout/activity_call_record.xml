@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/headerText"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
         android:textSize="16dp"
         android:text="Switch on Toggle to record your calls"
         android:layout_centerHorizontal="true"
@@ -30,9 +30,9 @@
         />
 
 
-    <ToggleButton
-        android:onClick="toggleButtonClick"
-        android:id="@+id/toggleButton"
+    <Button
+        android:onClick="OnButtonClick"
+        android:id="@+id/onButton"
         android:visibility="visible"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -40,7 +40,19 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/toggle_selector"
         android:layout_marginBottom="150dp"
-        android:text="ToggleButton"
+        android:text="On"
+        android:textColor="#ffffff"/>
+<Button
+        android:onClick="OffButtonClick"
+        android:id="@+id/offButton"
+        android:visibility="visible"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/toggle_selector"
+        android:layout_marginBottom="50dp"
+        android:text="Off"
         android:textColor="#ffffff"/>
 
 </RelativeLayout>

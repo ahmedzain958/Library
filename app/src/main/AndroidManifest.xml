@@ -16,12 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".services.pluralsight.BoundServicePluralSightActivity">
-            <intent-filter>
+        <activity android:name=".services.pluralsight.boundservice.BoundServicePluralSightActivity">
+           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".services.pluralsight.PluralSightServicesActivity">
 
@@ -365,6 +365,7 @@
         <service android:name=".services.pluralsight.MyStartedService" />
         <service android:name=".services.pluralsight.MyIntentService" />
         <service android:name=".callrecord.RecordingService" />
+        <service android:name=".services.pluralsight.boundservice.MyBoundService" />
     </application>
 
 </manifest>

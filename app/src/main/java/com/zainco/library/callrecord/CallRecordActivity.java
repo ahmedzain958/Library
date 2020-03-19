@@ -29,7 +29,6 @@ public class CallRecordActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call_record);
-        toggleButton = (ToggleButton) findViewById(R.id.toggleButton);
         textSubHeader = (TextView) findViewById(R.id.textSubHeader);
 //        File CallRecorder = new File("/sdcard/CallRecorder");
 //        CallRecorder.mkdirs();
@@ -37,7 +36,7 @@ public class CallRecordActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-
+        super.onResume();
         // Runtime permission
         try {
 
@@ -49,57 +48,58 @@ public class CallRecordActivity extends AppCompatActivity {
 
 
             if (permissionGranted_OutgoingCalls) {
-                if (permissionGranted_phoneState) {
-                    if (permissionGranted_recordAudio) {
-                        if (permissionGranted_WriteExternal) {
-                            if (permissionGranted_ReadExternal) {
-                                try {
-                                    toggleButton.setVisibility(View.VISIBLE);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            } else {
-                                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 200);
-                            }
-                        } else {
-                            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 300);
-                        }
-                    } else {
-                        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 400);
-                    }
-                } else {
-                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 500);
-                }
+
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.PROCESS_OUTGOING_CALLS}, 600);
             }
+            if (permissionGranted_phoneState) {
 
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 500);
+            }
+            if (permissionGranted_recordAudio) {
+
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 400);
+            }
+            if (permissionGranted_WriteExternal) {
+
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 300);
+            }
+            if (permissionGranted_ReadExternal) {
+
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 200);
+            }
         } catch (
-                Exception e)
-
-        {
+                Exception e) {
             e.printStackTrace();
         }
-        super.onResume();
     }
 
     @SuppressLint("ResourceAsColor")
-    public void toggleButtonClick(View view) {
+    public void OnButtonClick(View view) {
         try {
-            boolean checked = ((ToggleButton) view).isChecked();
-            if (checked) {
-                Intent intent = new Intent(this, RecordingService.class);
-                startService(intent);
-                Toast.makeText(getApplicationContext(), "Call Recording is set ON", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, RecordingService.class);
+            startService(intent);
+            Toast.makeText(getApplicationContext(), "Call Recording is set ON", Toast.LENGTH_SHORT).show();
             textSubHeader.setText("Switch on Toggle to record your calls");
-            } else {
-                Intent intent = new Intent(this, RecordingService.class);
-                stopService(intent);
-                Toast.makeText(getApplicationContext(), "Call Recording is set OFF", Toast.LENGTH_SHORT).show();
-            textSubHeader.setText("Switch Off Toggle to stop recording your calls");
-            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        catch (Exception e) {
+    }
+
+    @SuppressLint("ResourceAsColor")
+    public void OffButtonClick(View view) {
+        try {
+
+            Intent intent = new Intent(this, RecordingService.class);
+            stopService(intent);
+            Toast.makeText(getApplicationContext(), "Call Recording is set OFF", Toast.LENGTH_SHORT).show();
+            textSubHeader.setText("Switch Off Toggle to stop recording your calls");
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
