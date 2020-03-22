@@ -32,7 +32,7 @@ class ExampleLooperThreadActivity : AppCompatActivity() {
     fun taskA(view: View) {
         /*this is like when u use handler to post from the background thread to the ui thread but here is the opposite direction here
         we send something from the ui thread to the message queue of the new looper thread
-        firstly we start the thread and our ui is responsive and when we click on task A several times it executes the tasks sequentially(ine after another not in the same time)
+        firstly we start the thread and our ui is responsive and when we click on task A several times it executes the tasks sequentially(one after another not in the same time)
          because you post a new runnable to it
       */
         //method (1) working with runnable

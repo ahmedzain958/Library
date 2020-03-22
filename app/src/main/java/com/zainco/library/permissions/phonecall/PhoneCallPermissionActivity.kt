@@ -50,7 +50,7 @@ class PhoneCallPermissionActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_CALL) {
+        if (requestCode == REQUEST_CALL) {//tells that yes this is a reply from REQUEST_CALL permission (don't know if it is granted / not)
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 makePhoneCall()
             } else {

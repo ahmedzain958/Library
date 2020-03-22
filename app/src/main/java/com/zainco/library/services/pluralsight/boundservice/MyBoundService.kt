@@ -12,7 +12,9 @@ class MyBoundService : Service() {
         }
     }
 
-    override fun onBind(intent: Intent?): IBinder = MyLocalBinder()
+    override fun onBind(intent: Intent?): IBinder {
+        return MyLocalBinder()
+    }
 
     fun add(a: Int, b: Int): Int = a + b
     fun sub(a: Int, b: Int): Int = a - b

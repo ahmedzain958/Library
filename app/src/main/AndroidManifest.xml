@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
 
     <application
         android:name=".dagger.mitch.BaseApplication"
@@ -16,12 +17,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".services.pluralsight.boundservice.BoundServicePluralSightActivity">
-           <!-- <intent-filter>
+        <service
+            android:name=".services.pluralsight.ipc.MyMessengerService"
+            android:process=":my_own_process"></service>
+
+        <activity android:name=".services.pluralsight.ipc.MyMessengerActivity">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+        </activity>
+        <activity android:name=".permissions.outgoingcalls.OutgoinCallActivity">
+
+        </activity>
+        <activity android:name=".services.pluralsight.boundservice.BoundServicePluralSightActivity">
+
+            <!--
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+            -->
         </activity>
         <activity android:name=".services.pluralsight.PluralSightServicesActivity">
 
@@ -354,6 +372,16 @@
         </activity>
         <activity android:name=".permissions.CameraPreviewActivity" />
         <activity android:name=".callrecord.CallRecordActivity">
+
+            <!--
+              <intent-filter>
+                  <action android:name="android.intent.action.MAIN" />
+
+                  <category android:name="android.intent.category.LAUNCHER" />
+              </intent-filter>
+            -->
+        </activity>
+        <activity android:name=".permissions.mywork.PermissionsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -365,7 +393,17 @@
         <service android:name=".services.pluralsight.MyStartedService" />
         <service android:name=".services.pluralsight.MyIntentService" />
         <service android:name=".callrecord.RecordingService" />
+        <!--
+  this my_own_process is the name of the service inwhich the MYBoundService will run
+       <service android:name=".services.pluralsight.boundservice.MyBoundService"  android:process=":my_own_process"/>
+        -->
         <service android:name=".services.pluralsight.boundservice.MyBoundService" />
+        <service
+            android:name=".permissions.outgoingcalls.CallDetectionService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver android:name=".permissions.outgoingcalls.CallDetector$OutgoingDetector" />
     </application>
 
 </manifest>
