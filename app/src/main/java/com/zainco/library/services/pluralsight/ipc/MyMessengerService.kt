@@ -14,7 +14,7 @@ class MyMessengerService : Service() {
     inner class IncomingHandler : Handler() {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
-            val bundle: Bundle;
+            val bundle: Bundle
             when (msg.what) {
                 43 -> {
                     bundle = msg.data
@@ -23,9 +23,17 @@ class MyMessengerService : Service() {
                     val sum = add(numOne, numTwo)
                     Toast.makeText(
                         applicationContext,
-                        sum,
+                        sum.toString(),
                         Toast.LENGTH_SHORT
                     ).show()
+
+                    //send data back service into  activity
+                    val incomingMessenger = msg.replyTo
+                    val msgToActivity = Message.obtain(null, 87)
+                    val bundleToActivity = Bundle()
+                    bundleToActivity.putInt("result", sum)
+                    msgToActivity.data = bundleToActivity
+                    incomingMessenger.send(msgToActivity)
                 }
             }
         }

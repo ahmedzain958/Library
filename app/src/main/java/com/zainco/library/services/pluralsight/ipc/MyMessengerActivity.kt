@@ -4,10 +4,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
-import android.os.Bundle
-import android.os.IBinder
-import android.os.Message
-import android.os.Messenger
+import android.os.*
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.zainco.library.R
@@ -15,7 +12,24 @@ import kotlinx.android.synthetic.main.activity_my_messenger.*
 
 class MyMessengerActivity : AppCompatActivity() {
     var isBound = false
-    lateinit var messengerService: Messenger
+    var messengerService: Messenger? = null
+
+    inner class IncomingResponseHandler : Handler() {
+        override fun handleMessage(msgFromService: Message) {
+            super.handleMessage(msgFromService)
+            when (msgFromService.what) {
+                87 -> {
+                    val bundle = msgFromService.data
+                    val result = bundle.getInt("result", 0)
+                    runOnUiThread {
+                        textViewResult.text = result.toString()
+                    }
+                }
+            }
+        }
+    }
+
+    val incomingMessenger = Messenger(IncomingResponseHandler())
     val serviceConnection = object : ServiceConnection {
         override fun onServiceDisconnected(name: ComponentName?) {
             isBound = false
@@ -42,13 +56,15 @@ class MyMessengerActivity : AppCompatActivity() {
         bundle.putInt("numOne", editText1.text.toString().toInt())
         bundle.putInt("numTwo", editText2.text.toString().toInt())
         msgToService.data = bundle
-        messengerService.send(msgToService)//triggers the IncomingHandler inside the service and sends the msgToService to the Handler
+        msgToService.replyTo = incomingMessenger
+        messengerService?.send(msgToService)//triggers the IncomingHandler inside the service and sends the msgToService to the Handler
     }
 
     fun bindService(view: View) {
         //calls onBind method inside the service class
+        val intent = Intent(this, MyMessengerService::class.java)
         bindService(
-            Intent(this, MyMessengerService::class.java),
+            intent,
             serviceConnection,
             Context.BIND_AUTO_CREATE
         )
