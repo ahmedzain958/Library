@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_toggle_record"
+        android:icon="@drawable/ic_record_enable"
+        android:title="@string/menu_enable_record" />
+    <item
+        android:id="@+id/menu_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/menu_settings" />
+    <item
+        android:id="@+id/menu_about"
+        android:icon="@drawable/ic_about"
+        android:title="@string/menu_about" />
+    <item
+        android:id="@+id/menu_delete_all"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/menu_delete_all" />
+</menu>

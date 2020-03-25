@@ -88,4 +88,92 @@ features available.]]>
     <!-- Messages -->
     <string name="set_permissions_in_settings">Go to Settings -> Apps and Notifications ->
         WorkManager Demo -> App Permissions and grant access to Storage.</string>
+
+
+    <string name="menu_about">About</string>
+    <string name="menu_enable_record">Enable Recording</string>
+    <string name="menu_disable_record">Disable Recording</string>
+    <string name="receiver_start_call">Start record call</string>
+    <string name="receiver_end_call">End Record call</string>
+    <string name="confirm_delete_title">Call deletion</string>
+    <string name="confirm_delete_text">Are you sure you want to delete this recording?</string>
+    <string name="options_title">Recording options</string>
+    <string name="options_delete">Delete</string>
+    <string name="confirm_play">Play</string>
+    <string name="confirm_send">Send</string>
+    <string name="mail_subject">Call recording from my phone</string>
+    <string name="mail_body">This is a call recording from my phone</string>
+    <string name="close">Close</string>
+    <string name="send_mail">Send Mail</string>
+    <string name="withheld_number">Withheld Number</string>
+    <string name="record_enabled">Call recording enabled</string>
+    <string name="record_disabled">Call recording disabled</string>
+    <string name="no_records_message">There are no recordings in this phone.\nTo enable recording select \"Enable recording\" from the menu.</string>
+    <string name="menu_delete_all">Delete All Recordings</string>
+    <string name="dialog_delete_all_title">Delete everything?</string>
+    <string name="dialog_delete_all_content">Are you sure you want to delete all of your recordings?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="notification_ticker">Recording is now starting</string>
+    <string name="notification_title">The phone is now on a call</string>
+    <string name="notification_text">If recording was enabled, recording should have started, if not you can enable recording in the application, the phone will stop the recording when the conversation ends</string>
+    <string name="record_impossible">Unfortunately, it is not possible to record calls on this device. (Usually because another application/service is using the microphone in the background)</string>
+    <string name="read_only_message">The selected storage location is read-only.\nNew calls will not be recorded!</string>
+    <string name="about"><![CDATA[<h1>Call recorder %s</h1>
+		\n\n
+		<p>Created by Kobi Krasnoff.</p>
+		\n\n
+		<p>Copyright &copy; 2012 - 2016 call recorder contributors:<br/>
+		Kobi Krasnoff, Raul Robledo, ShadowNinja</p>
+		\n\n
+		<p>This program is free software: you can redistribute it and/or modify
+		it under the terms of the GNU General Public License as published by the
+		Free Software Foundation, either version 3 of the License, or (at your
+		option) any later version.</p>
+		\n\n
+		<p>This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+		or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+		for more details.  You should have received a copy of the GNU General
+		Public License along with this program. If not, see<a>http//www.gnu.org/licenses</a>.</p>
+		\n\n
+		<h2>Material Design Icons</h2>\n
+		<p>By Google.  Logo is a variation of the microphone icon.
+		Used under a <a>Creative Commons Attribution 4.0 International</a> license.</p>
+		\n\n
+		<h2>AntennaPod</h2>\n
+		<p>Code for storage location selector taken from AntennaPod, licensed
+		under a MIT license</p>]]></string>
+    <string name="delete_failed">Failed to delete recording!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="choose_storage_location">Choose storage location</string>
+    <string name="unreadable_message">The selected storage location is not readable.</string>
+    <string name="preference_location_title">Recording Storage Location</string>
+    <string name="welcome_message"><![CDATA[<h3>Welcome to Call Recorder!</h3>
+		<p>Results may vary.  Manufacturers are often known to break call
+		recording functionality on their devices, and there isn\'t a whole lot I
+		can do about it.</p>
+		<p>Check local laws regarding recording of telephone conversations.
+		Some localities may ban the recording of telephone conversations, or may
+		require both parties to be informed of the recording first.  Also, if you
+		are talking to someone in a different locality their recording laws may
+		apply to you.</p>]]></string>
+    <string name="welcome_title">Welcome!</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="navigate_upwards">Navigate upwards</string>
+    <string name="selected_folder">Selected folder</string>
+    <string name="new_folder">New folder</string>
+    <string name="enter_new_folder_name">Enter name for new folder</string>
+    <string name="create_folder_error">Failed to create folder!</string>
+    <string name="create_folder_error_no_write_access">Failed to create folder: no write access.</string>
+    <string name="create_folder_error_already_exists">Failed to create folder: folder already exists.</string>
+    <string name="create_folder_success">Created folder successfully.</string>
+    <string name="location_select_manual">Manually select storage location</string>
+
+    <string name="power">power</string>
+    <string name="volume">volume +</string>
+    <string name="scroll">scroll</string>
+    <string name="swipe">swipe</string>
+
 </resources>

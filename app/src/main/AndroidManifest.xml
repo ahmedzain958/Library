@@ -8,6 +8,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- call recorder ex 2 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:name=".dagger.mitch.BaseApplication"
@@ -17,111 +20,76 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".broadcastreceiver.pluralsight.BroadcastReceiverActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".accessibility.GlobalActionBarService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/global_action_bar_service" />
+        </service>
+
+        <activity android:name=".audiorecord.edmt.AudioRecordEDMTActivity"></activity> <!-- call recorder -->
+        <activity android:name=".callrecord.example2.CallRecorderExample2MainActivity" />
+        <activity
+            android:name=".callrecord.example2.SettingsActivity"
+            android:label="@string/menu_settings"
+            android:parentActivityName=".callrecord.example2.CallRecorderExample2MainActivity" />
+        <activity
+            android:name=".callrecord.example2.DirectoryChooserActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".callrecord.example2.SettingsActivity" />
+        <activity
+            android:name=".callrecord.example2.AboutActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".callrecord.example2.CallRecorderExample2MainActivity" />
+
+        <receiver android:name=".callrecord.example2.PhoneReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".callrecord.example2.RecordService" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.callrecorder.android.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider> <!-- ////////////////////// -->
         <service
             android:name=".services.pluralsight.ipc.MyMessengerService"
-            android:process=":my_own_process"></service>
+            android:process=":my_own_process" />
 
         <activity android:name=".services.pluralsight.ipc.MyMessengerActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".permissions.outgoingcalls.OutgoinCallActivity">
-
-        </activity>
-        <activity android:name=".services.pluralsight.boundservice.BoundServicePluralSightActivity">
-
-            <!--
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".services.pluralsight.PluralSightServicesActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".threading.codinginflow.ExampleLooperThreadActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+        <activity android:name=".permissions.outgoingcalls.OutgoinCallActivity" />
+        <activity android:name=".services.pluralsight.boundservice.BoundServicePluralSightActivity" />
+        <activity android:name=".services.pluralsight.PluralSightServicesActivity" />
+        <activity android:name=".threading.codinginflow.ExampleLooperThreadActivity" />
         <activity android:name=".onnewintent.OnNewIntentActivity2" />
-        <activity android:name=".onnewintent.OnNewIntentActivity1">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".permissions.internalexternalstorage.InternalExternalPermissionsActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".workmanager.codelab.SelectImageActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".workmanager.codelab.WorkManagerBlurrActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".workmanager.simplifiedcoding.WorkManagerActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".workmanager.socialmedia.HumanConnectorActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+        <activity android:name=".onnewintent.OnNewIntentActivity1" />
+        <activity android:name=".permissions.internalexternalstorage.InternalExternalPermissionsActivity" />
+        <activity android:name=".workmanager.codelab.SelectImageActivity" />
+        <activity android:name=".workmanager.codelab.WorkManagerBlurrActivity" />
+        <activity android:name=".workmanager.simplifiedcoding.WorkManagerActivity" />
+        <activity android:name=".workmanager.socialmedia.HumanConnectorActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -143,251 +111,48 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".facebooksdk.FacebookSdkActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".jobscheduler.JobSchedulerActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".permissions.phonecall.PhoneCallPermissionActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+        <activity android:name=".facebooksdk.FacebookSdkActivity" />
+        <activity android:name=".jobscheduler.JobSchedulerActivity" />
+        <activity android:name=".permissions.phonecall.PhoneCallPermissionActivity" />
 
         <meta-data
             android:name="zain"
             android:resource="@string/no_results" />
 
-        <activity android:name=".archcomponents.paging.ui.popularmovie.MoviesListActivity">
-
-            <!--
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-            -->
-        </activity>
+        <activity android:name=".archcomponents.paging.ui.popularmovie.MoviesListActivity" />
         <activity android:name=".archcomponents.paging.ui.singlemoviedetails.SingleMovieActivity" />
-        <activity android:name=".threading.codinginflow.HandlerActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".threading.codinginflow.ThreadActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".firebase.remoteconfig.RemoteConfigEDMTVActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".permissions.PermissionsActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".texttospeech.TextToSpeechActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+        <activity android:name=".threading.codinginflow.HandlerActivity" />
+        <activity android:name=".threading.codinginflow.ThreadActivity" />
+        <activity android:name=".firebase.remoteconfig.RemoteConfigEDMTVActivity" />
+        <activity android:name=".permissions.PermissionsActivity" />
+        <activity android:name=".texttospeech.TextToSpeechActivity" />
         <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity" />
-        <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+        <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity" />
+        <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonDetailActivity" />
-        <activity android:name=".archcomponents.livedata.extendinglivedatausingsensor.SensorLiveDataActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".rxjava2.hotobservables.HotObservablesActivity">
-
-            <!--
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".archcomponents.lifecycle.casterio.deepdive.LifecycleActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".dagger.mitch.ui.auth.AuthActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+        <activity android:name=".archcomponents.livedata.extendinglivedatausingsensor.SensorLiveDataActivity" />
+        <activity android:name=".rxjava2.hotobservables.HotObservablesActivity" />
+        <activity android:name=".archcomponents.lifecycle.casterio.deepdive.LifecycleActivity" />
+        <activity android:name=".dagger.mitch.ui.auth.AuthActivity" />
         <activity
             android:name=".databinding.ex2.view.ProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-            <!--
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-            -->
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".databinding.ex1.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".archcomponents.livedata.casterionewslist.NewsActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".highorderedfunandedittextlisteners.ui.SearchRepositoriesActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".archcomponents.livedata.casterionewslist.NewsActivity" />
+        <activity android:name=".highorderedfunandedittextlisteners.ui.SearchRepositoriesActivity" />
         <activity android:name=".archcomponents.paginganddatabinding.ui.search.SearchActivity" />
         <activity android:name=".archcomponents.paginganddatabinding.ui.bookmark.BookmarkActivity" />
-        <activity android:name=".databinding.mvvmloadingbaseobservable.DogBreedsActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+        <activity android:name=".databinding.mvvmloadingbaseobservable.DogBreedsActivity" />
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.DataBindingTypesActivity" />
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ViewModelActivity" />
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ObservableFieldActivity" />
         <activity android:name=".multicheckrecyclerview.MultiCheckRecyclerActivity" />
-        <activity android:name=".threading.codinginflow.RunOnUiThreadActivity">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+        <activity android:name=".threading.codinginflow.RunOnUiThreadActivity" />
         <activity android:name=".permissions.CameraPreviewActivity" />
-        <activity android:name=".callrecord.CallRecordActivity">
-
-            <!--
-              <intent-filter>
-                  <action android:name="android.intent.action.MAIN" />
-
-                  <category android:name="android.intent.category.LAUNCHER" />
-              </intent-filter>
-            -->
-        </activity>
-        <activity android:name=".permissions.mywork.PermissionsActivity">
-            <!-- <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
-        </activity>
+        <activity android:name=".callrecord.CallRecordActivity" />
+        <activity android:name=".permissions.mywork.PermissionsActivity" />
 
         <service android:name=".jobscheduler.ExampleJobService" />
         <service android:name=".services.pluralsight.MyStartedService" />
@@ -404,6 +169,7 @@
             android:exported="false" />
 
         <receiver android:name=".permissions.outgoingcalls.CallDetector$OutgoingDetector" />
+        <receiver android:name=".broadcastreceiver.pluralsight.MyFirstReceiver" />
     </application>
 
 </manifest>

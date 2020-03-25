@@ -31,7 +31,7 @@ public class CallRecordActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call_record);
-        textSubHeader = (TextView) findViewById(R.id.textSubHeader);
+        textSubHeader = findViewById(R.id.textSubHeader);
         try {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.PROCESS_OUTGOING_CALLS) == PackageManager.PERMISSION_GRANTED) {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
@@ -66,50 +66,45 @@ public class CallRecordActivity extends AppCompatActivity {
         Log.i(CallRecordActivity.class.getSimpleName(), "onRequestPermissionsResult permissions" + permissions);
         Log.i(CallRecordActivity.class.getSimpleName(), "onRequestPermissionsResult grantResults" + grantResults);
         if (requestCode == 200) {
-            Log.i(CallRecordActivity.class.getSimpleName(), "requestCode == 200");
             if (grantResults[4] == PackageManager.PERMISSION_GRANTED) {
                 try {
-                    toggleButton.setVisibility(View.VISIBLE);
+                    Log.i(CallRecordActivity.class.getSimpleName(), "requestCode == 200");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
         if (requestCode == 300) {
-            Log.i(CallRecordActivity.class.getSimpleName(), "requestCode == 300");
             if (grantResults[3] == PackageManager.PERMISSION_GRANTED) {
                 try {
-                    toggleButton.setVisibility(View.VISIBLE);
+                    Log.i(CallRecordActivity.class.getSimpleName(), "requestCode == 300");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
         if (requestCode == 400) {
-            Log.i(CallRecordActivity.class.getSimpleName(), "requestCode == 400");
             if (grantResults[2] == PackageManager.PERMISSION_GRANTED) {
                 try {
-                    toggleButton.setVisibility(View.VISIBLE);
+                    Log.i(CallRecordActivity.class.getSimpleName(), "requestCode == 400");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
         if (requestCode == 500) {
-            Log.i(CallRecordActivity.class.getSimpleName(), "requestCode == 500");
             if (grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 try {
-                    toggleButton.setVisibility(View.VISIBLE);
+                    Log.i(CallRecordActivity.class.getSimpleName(), "requestCode == 500");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
         if (requestCode == 600) {
-            Log.i(CallRecordActivity.class.getSimpleName(), "requestCode == 600");
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 try {
-                    toggleButton.setVisibility(View.VISIBLE);
+                    Log.i(CallRecordActivity.class.getSimpleName(), "requestCode == 600");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
