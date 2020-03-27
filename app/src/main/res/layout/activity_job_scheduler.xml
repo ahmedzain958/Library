@@ -6,4 +6,23 @@
     android:layout_height="match_parent"
     tools:context="com.zainco.library.jobscheduler.JobSchedulerActivity">
 
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="scheduleJob"
+        android:text="schedule job"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="cancelJob"
+        android:text="cancel job"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button12" />
 </androidx.constraintlayout.widget.ConstraintLayout>

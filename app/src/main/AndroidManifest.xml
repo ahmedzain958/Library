@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zainco.library">
+    <!-- RECEIVE_BOOT_COMPLETED  used for this receiver
+    <receiver android:name=".ExampleBroadcastReceiver">
+                <intent-filter>
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -40,7 +45,9 @@
                 android:resource="@xml/global_action_bar_service" />
         </service>
 
-        <activity android:name=".audiorecord.edmt.AudioRecordEDMTActivity"></activity> <!-- call recorder -->
+        <activity android:name=".audiorecord.edmt.AudioRecordEDMTActivity">
+
+        </activity> <!-- call recorder -->
         <activity android:name=".callrecord.example2.CallRecorderExample2MainActivity" />
         <activity
             android:name=".callrecord.example2.SettingsActivity"
@@ -77,8 +84,7 @@
             android:name=".services.pluralsight.ipc.MyMessengerService"
             android:process=":my_own_process" />
 
-        <activity android:name=".services.pluralsight.ipc.MyMessengerActivity">
-        </activity>
+        <activity android:name=".services.pluralsight.ipc.MyMessengerActivity"></activity>
         <activity android:name=".permissions.outgoingcalls.OutgoinCallActivity" />
         <activity android:name=".services.pluralsight.boundservice.BoundServicePluralSightActivity" />
         <activity android:name=".services.pluralsight.PluralSightServicesActivity" />
@@ -112,7 +118,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".facebooksdk.FacebookSdkActivity" />
-        <activity android:name=".jobscheduler.JobSchedulerActivity" />
+        <activity android:name=".jobscheduler.JobSchedulerActivity">
+
+        </activity>
         <activity android:name=".permissions.phonecall.PhoneCallPermissionActivity" />
 
         <meta-data
@@ -151,10 +159,14 @@
         <activity android:name=".multicheckrecyclerview.MultiCheckRecyclerActivity" />
         <activity android:name=".threading.codinginflow.RunOnUiThreadActivity" />
         <activity android:name=".permissions.CameraPreviewActivity" />
-        <activity android:name=".callrecord.CallRecordActivity" />
+        <activity android:name=".callrecord.CallRecordActivity">
+
+        </activity>
         <activity android:name=".permissions.mywork.PermissionsActivity" />
 
-        <service android:name=".jobscheduler.ExampleJobService" />
+        <service
+            android:name=".jobscheduler.ExampleJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
         <service android:name=".services.pluralsight.MyStartedService" />
         <service android:name=".services.pluralsight.MyIntentService" />
         <service android:name=".callrecord.RecordingService" />
@@ -169,7 +181,19 @@
             android:exported="false" />
 
         <receiver android:name=".permissions.outgoingcalls.CallDetector$OutgoingDetector" />
-        <receiver android:name=".broadcastreceiver.pluralsight.MyFirstReceiver" />
+        <receiver android:name=".broadcastreceiver.pluralsight.MyFirstReceiver">
+            <intent-filter>
+                <action android:name="my.custom.action.name" />
+                <action android:name="my.custom.action.name2" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcastreceiver.codinginflow.ExampleBroadcastReceiver">
+            <intent-filter>
+                <!--needs the upper permission-->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

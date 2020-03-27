@@ -46,7 +46,7 @@ class GlobalActionBarService : AccessibilityService() {
         wm.addView(mLayout, lp)
         val power = mLayout?.findViewById<Button>(R.id.power)
         val volume = mLayout?.findViewById<Button>(R.id.volume_up)
-        val scroll = mLayout?.findViewById<Button>(R.id.scroll)
+        val record = mLayout?.findViewById<Button>(R.id.record)
         val swipe = mLayout?.findViewById<Button>(R.id.swipe)
         power?.setOnClickListener {
             performGlobalAction(GLOBAL_ACTION_POWER_DIALOG)
@@ -59,9 +59,34 @@ class GlobalActionBarService : AccessibilityService() {
                 AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI
             )
         }
-        scroll?.setOnClickListener {
-            val scrollable: AccessibilityNodeInfo = findScrollableNode(rootInActiveWindow)!!
-            scrollable.performAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_SCROLL_FORWARD.id)
+        record?.setOnClickListener {
+            /*val recorder: CustomMediaRecorder = CustomMediaRecorder.getInstance()
+            var audiofile: File? = null
+            val out: String = SimpleDateFormat("dd-MM-yyyy hh-mm-ss").format(Date())
+            val sampleDir = File(getExternalFilesDir(null), "/TestRecordingDasa1")
+            if (!sampleDir.exists()) {
+                sampleDir.mkdirs()
+            }
+            val file_name = "Record"
+            try {
+                audiofile = File.createTempFile(file_name, ".amr", sampleDir)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+
+            recorder.getRecorder().setAudioSource(MediaRecorder.AudioSource.VOICE_COMMUNICATION)
+            recorder.getRecorder().setOutputFormat(MediaRecorder.OutputFormat.AMR_NB)
+            recorder.getRecorder().setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB)
+            recorder.getRecorder().setOutputFile(audiofile.getAbsolutePath())
+            try {
+                recorder.getRecorder().prepare()
+            } catch (e: IllegalStateException) {
+                e.printStackTrace()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+            recorder.start(applicationContext)
+*/
         }
         swipe?.setOnClickListener {
             val swipePath = Path()
