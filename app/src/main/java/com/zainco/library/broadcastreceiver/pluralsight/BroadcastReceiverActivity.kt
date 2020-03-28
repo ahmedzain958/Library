@@ -1,10 +1,14 @@
 package com.zainco.library.broadcastreceiver.pluralsight
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.zainco.library.R
 
 class BroadcastReceiverActivity : AppCompatActivity() {
@@ -14,6 +18,12 @@ class BroadcastReceiverActivity : AppCompatActivity() {
     lateinit var receiver2: MyFirstReceiver
     val ACTION1 = "my.custom.action.name"
     val ACTION2 = "my.custom.action.name2"
+
+    //local broadcast receiver example
+    lateinit var localBroadcastManager: LocalBroadcastManager
+    val ACTION_LOCAL_BR = "my.result.intent"
+    //////////
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_broadcast_receiver)
@@ -23,6 +33,7 @@ class BroadcastReceiverActivity : AppCompatActivity() {
         receiver2 = MyFirstReceiver()
         registerReceiver(receiver, filter)
         registerReceiver(receiver2, filter2)
+
     }
 
     fun sendBroadcastMessage(view: View) {
@@ -50,4 +61,40 @@ class BroadcastReceiverActivity : AppCompatActivity() {
         unregisterReceiver(receiver)
         unregisterReceiver(receiver2)
     }
+
+
+    override fun onResume() {
+        super.onResume()
+//local broadcast receiver example
+        localBroadcastManager = LocalBroadcastManager.getInstance(this)
+        val filterLocalBR = IntentFilter(ACTION_LOCAL_BR)
+        localBroadcastManager.registerReceiver(resultReceiver, filterLocalBR)
+        //////////
+    }
+
+    override fun onPause() {
+        super.onPause()
+        localBroadcastManager.unregisterReceiver(resultReceiver)
+    }
+
+    //local broadcast receiver example
+    fun sumlocalBroadcast(view: View) {
+        val intent = Intent(this, MyFirstReceiver::class.java)
+        intent.putExtra("a", 10)
+        intent.putExtra("b", 20)
+        sendBroadcast(intent)
+    }
+
+    val resultReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            Toast.makeText(
+                this@BroadcastReceiverActivity,
+                intent?.getIntExtra("sum", 0).toString(),
+                Toast.LENGTH_SHORT
+            )
+                .show()
+        }
+    }
+    //////////
+
 }

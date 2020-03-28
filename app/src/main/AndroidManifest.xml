@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zainco.library">
-    <!-- RECEIVE_BOOT_COMPLETED  used for this receiver
+
+    <!--
+     RECEIVE_BOOT_COMPLETED  used for this receiver
     <receiver android:name=".ExampleBroadcastReceiver">
                 <intent-filter>
-                    <action android:name="android.intent.action.BOOT_COMPLETED" />-->
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+    -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -25,13 +27,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".broadcastreceiver.pluralsight.BroadcastReceiverActivity">
+        <receiver android:name=".broadcastreceiver.pluralsight.withpermissions.IncomingReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <!-- EXTRS_INCOMING_NUMBER TO know the number of who called me -->
+                <!-- requires     <uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+                <!--                whenever we receive a phone call this BR will be triggered-->
+                <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
+        </receiver>
+
+        <activity android:name=".broadcastreceiver.pluralsight.withpermissions.ReadPhoneStateActivity">
+
         </activity>
+        <activity android:name=".broadcastreceiver.pluralsight.sticky.StickyActivity" />
+        <activity android:name=".broadcastreceiver.pluralsight.dynamicreceiver.DynamicReceiverActivity" />
+        <activity android:name=".broadcastreceiver.pluralsight.orderedbrs.OrderedBRsActivity" />
+        <activity android:name=".broadcastreceiver.pluralsight.BroadcastReceiverActivity"></activity>
 
         <service
             android:name=".accessibility.GlobalActionBarService"
@@ -45,9 +56,7 @@
                 android:resource="@xml/global_action_bar_service" />
         </service>
 
-        <activity android:name=".audiorecord.edmt.AudioRecordEDMTActivity">
-
-        </activity> <!-- call recorder -->
+        <activity android:name=".audiorecord.edmt.AudioRecordEDMTActivity" /> <!-- call recorder -->
         <activity android:name=".callrecord.example2.CallRecorderExample2MainActivity" />
         <activity
             android:name=".callrecord.example2.SettingsActivity"
@@ -84,7 +93,7 @@
             android:name=".services.pluralsight.ipc.MyMessengerService"
             android:process=":my_own_process" />
 
-        <activity android:name=".services.pluralsight.ipc.MyMessengerActivity"></activity>
+        <activity android:name=".services.pluralsight.ipc.MyMessengerActivity" />
         <activity android:name=".permissions.outgoingcalls.OutgoinCallActivity" />
         <activity android:name=".services.pluralsight.boundservice.BoundServicePluralSightActivity" />
         <activity android:name=".services.pluralsight.PluralSightServicesActivity" />
@@ -118,9 +127,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".facebooksdk.FacebookSdkActivity" />
-        <activity android:name=".jobscheduler.JobSchedulerActivity">
-
-        </activity>
+        <activity android:name=".jobscheduler.JobSchedulerActivity" />
         <activity android:name=".permissions.phonecall.PhoneCallPermissionActivity" />
 
         <meta-data
@@ -132,7 +139,12 @@
         <activity android:name=".threading.codinginflow.HandlerActivity" />
         <activity android:name=".threading.codinginflow.ThreadActivity" />
         <activity android:name=".firebase.remoteconfig.RemoteConfigEDMTVActivity" />
-        <activity android:name=".permissions.PermissionsActivity" />
+        <activity android:name=".permissions.PermissionsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".texttospeech.TextToSpeechActivity" />
         <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity" />
@@ -159,9 +171,7 @@
         <activity android:name=".multicheckrecyclerview.MultiCheckRecyclerActivity" />
         <activity android:name=".threading.codinginflow.RunOnUiThreadActivity" />
         <activity android:name=".permissions.CameraPreviewActivity" />
-        <activity android:name=".callrecord.CallRecordActivity">
-
-        </activity>
+        <activity android:name=".callrecord.CallRecordActivity" />
         <activity android:name=".permissions.mywork.PermissionsActivity" />
 
         <service
@@ -178,8 +188,7 @@
         <service
             android:name=".permissions.outgoingcalls.CallDetectionService"
             android:enabled="true"
-            android:exported="false" />
-
+            android:exported="false" /> <!-- should make all brs android:exported="false" because it is by default true -->
         <receiver android:name=".permissions.outgoingcalls.CallDetector$OutgoingDetector" />
         <receiver android:name=".broadcastreceiver.pluralsight.MyFirstReceiver">
             <intent-filter>
@@ -189,9 +198,36 @@
         </receiver>
         <receiver android:name=".broadcastreceiver.codinginflow.ExampleBroadcastReceiver">
             <intent-filter>
-                <!--needs the upper permission-->
+
+                <!-- needs the upper permission -->
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver> <!-- start of   same action name for the next 3 receivers -->
+        <receiver android:name=".broadcastreceiver.pluralsight.orderedbrs.OrderedReceiver1">
+            <intent-filter android:priority="3">
+
+                <!-- higher priority execution firstly with same action name -->
+                <action android:name="my.action.name" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcastreceiver.pluralsight.orderedbrs.OrderedReceiver3">
+            <intent-filter android:priority="2">
+                <action android:name="my.action.name" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcastreceiver.pluralsight.orderedbrs.OrderedReceiver2">
+            <intent-filter android:priority="1">
+                <action android:name="my.action.name" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcastreceiver.pluralsight.orderedbrs.OrderedResultReceiver"
+            android:exported="false">
+            <intent-filter>
+
+                <!-- no priority -->
+                <action android:name="my.action.name" />
             </intent-filter>
         </receiver>
     </application>

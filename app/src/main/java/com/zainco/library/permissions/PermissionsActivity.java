@@ -39,7 +39,7 @@ public class PermissionsActivity extends AppCompatActivity
         try {
             ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             Bundle bundle = applicationInfo.metaData;
-            String value =  bundle.getString("zain");
+            String value = bundle.getString("zain");
             Toast.makeText(
                     this,
                     value,
@@ -51,7 +51,7 @@ public class PermissionsActivity extends AppCompatActivity
         }
     }
 
-
+    //if granted 5eer w baraka
     private void showCameraPreview() {
         // BEGIN_INCLUDE(startCamera)
         // Check if the Camera permission has been granted; it will be opened without anything
@@ -62,42 +62,40 @@ public class PermissionsActivity extends AppCompatActivity
                     R.string.camera_permission_available,
                     Snackbar.LENGTH_SHORT).show();
             startCamera();
-        } else {
-            // Permission is missing and must be requested.
-            requestCameraPermission();
+        } else {//if not granted . either rationale or not
+            /**
+             * Requests the {@link android.Manifest.permission#CAMERA} permission.
+             * If an additional rationale should be displayed, the user has to launch the request from
+             * a SnackBar that includes additional information.
+             */
+            /* if permission dialog displayed before and user denied it, the next condition shouldShowRequestPermissionRationale returns true
+             * we here should explain the user why this permission is required by ordinary dialog (or Snakbar as here) for ex with OK and after responding the permission dialog will be displayed
+             * but this time dialog will be displayed with checkbox "never ask again" if user checked it and denied the next condition will always return false no matter the permission
+             * has been granted or denied*/
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+                // Provide an additional rationale to the user if the permission was not granted
+                // and the user would benefit from additional context for the use of the permission.
+                // Display a SnackBar with cda button to request the missing permission.
+                Snackbar.make(mLayout, R.string.camera_access_required,
+                        Snackbar.LENGTH_INDEFINITE).setAction(R.string.ok, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Request the permission
+                        ActivityCompat.requestPermissions(PermissionsActivity.this,
+                                new String[]{Manifest.permission.CAMERA},
+                                PERMISSION_REQUEST_CAMERA);
+                    }
+                }).show();
+
+            } else {
+                //<b>Camera could not be opened.</b>\nThis occurs when the camera is not available (for example it is already in use) or if the system has denied access (for example when camera access has been disabled).
+                Snackbar.make(mLayout, R.string.camera_unavailable, Snackbar.LENGTH_SHORT).show();
+                // Request the permission. The result will be received in onRequestPermissionResult().
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
+            }
         }
         // END_INCLUDE(startCamera)
-    }
-
-    /**
-     * Requests the {@link android.Manifest.permission#CAMERA} permission.
-     * If an additional rationale should be displayed, the user has to launch the request from
-     * a SnackBar that includes additional information.
-     */
-    private void requestCameraPermission() {
-        // Permission has not been granted and must be requested.
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
-            // Provide an additional rationale to the user if the permission was not granted
-            // and the user would benefit from additional context for the use of the permission.
-            // Display a SnackBar with cda button to request the missing permission.
-            Snackbar.make(mLayout, R.string.camera_access_required,
-                    Snackbar.LENGTH_INDEFINITE).setAction(R.string.ok, new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // Request the permission
-                    ActivityCompat.requestPermissions(PermissionsActivity.this,
-                            new String[]{Manifest.permission.CAMERA},
-                            PERMISSION_REQUEST_CAMERA);
-                }
-            }).show();
-
-        } else {
-            //<b>Camera could not be opened.</b>\nThis occurs when the camera is not available (for example it is already in use) or if the system has denied access (for example when camera access has been disabled).
-            Snackbar.make(mLayout, R.string.camera_unavailable, Snackbar.LENGTH_SHORT).show();
-            // Request the permission. The result will be received in onRequestPermissionResult().
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
-        }
     }
 
     private void startCamera() {
