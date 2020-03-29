@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zainco.library">
-
     <!--
      RECEIVE_BOOT_COMPLETED  used for this receiver
     <receiver android:name=".ExampleBroadcastReceiver">
@@ -18,6 +17,8 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- call recorder ex 2 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!--    to starttforegroundservice if u target sdk 28-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:name=".dagger.mitch.BaseApplication"
@@ -27,22 +28,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".services.codinginflow.ForegroundServiceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".notifications.codinginflow.NotificationsCodingInFlowActivity"></activity>
+
         <receiver android:name=".broadcastreceiver.pluralsight.withpermissions.IncomingReceiver">
             <intent-filter>
+
                 <!-- EXTRS_INCOMING_NUMBER TO know the number of who called me -->
-                <!-- requires     <uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
-                <!--                whenever we receive a phone call this BR will be triggered-->
+                <!-- requires     <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+                <!-- whenever we receive a phone call this BR will be triggered -->
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".broadcastreceiver.pluralsight.withpermissions.ReadPhoneStateActivity">
-
-        </activity>
+        <activity android:name=".broadcastreceiver.pluralsight.withpermissions.ReadPhoneStateActivity" />
         <activity android:name=".broadcastreceiver.pluralsight.sticky.StickyActivity" />
         <activity android:name=".broadcastreceiver.pluralsight.dynamicreceiver.DynamicReceiverActivity" />
         <activity android:name=".broadcastreceiver.pluralsight.orderedbrs.OrderedBRsActivity" />
-        <activity android:name=".broadcastreceiver.pluralsight.BroadcastReceiverActivity"></activity>
+        <activity android:name=".broadcastreceiver.pluralsight.BroadcastReceiverActivity" />
 
         <service
             android:name=".accessibility.GlobalActionBarService"
@@ -139,12 +148,7 @@
         <activity android:name=".threading.codinginflow.HandlerActivity" />
         <activity android:name=".threading.codinginflow.ThreadActivity" />
         <activity android:name=".firebase.remoteconfig.RemoteConfigEDMTVActivity" />
-        <activity android:name=".permissions.PermissionsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".permissions.PermissionsActivity"></activity>
         <activity android:name=".texttospeech.TextToSpeechActivity" />
         <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity" />
@@ -188,7 +192,8 @@
         <service
             android:name=".permissions.outgoingcalls.CallDetectionService"
             android:enabled="true"
-            android:exported="false" /> <!-- should make all brs android:exported="false" because it is by default true -->
+            android:exported="false" />
+        <service android:name=".services.codinginflow.ExampleService" /> <!-- should make all brs android:exported="false" because it is by default true -->
         <receiver android:name=".permissions.outgoingcalls.CallDetector$OutgoingDetector" />
         <receiver android:name=".broadcastreceiver.pluralsight.MyFirstReceiver">
             <intent-filter>
