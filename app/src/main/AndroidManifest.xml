@@ -16,26 +16,25 @@
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- call recorder ex 2 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!--    to starttforegroundservice if u target sdk 28-->
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- to starttforegroundservice if u target sdk 28 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
-        android:name=".dagger.mitch.BaseApplication"
+        android:name=".databinding.ex1.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".services.codinginflow.ForegroundServiceActivity">
+        <activity android:name=".githubbrowsersample.GithubBrowserSampleSearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".notifications.codinginflow.NotificationsCodingInFlowActivity"></activity>
+        <activity android:name=".services.codinginflow.ForegroundServiceActivity"></activity>
+        <activity android:name=".notifications.codinginflow.NotificationsCodingInFlowActivity" />
 
         <receiver android:name=".broadcastreceiver.pluralsight.withpermissions.IncomingReceiver">
             <intent-filter>
@@ -148,7 +147,7 @@
         <activity android:name=".threading.codinginflow.HandlerActivity" />
         <activity android:name=".threading.codinginflow.ThreadActivity" />
         <activity android:name=".firebase.remoteconfig.RemoteConfigEDMTVActivity" />
-        <activity android:name=".permissions.PermissionsActivity"></activity>
+        <activity android:name=".permissions.PermissionsActivity" />
         <activity android:name=".texttospeech.TextToSpeechActivity" />
         <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity" />
@@ -163,7 +162,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".databinding.ex1.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".archcomponents.livedata.casterionewslist.NewsActivity" />
         <activity android:name=".highorderedfunandedittextlisteners.ui.SearchRepositoriesActivity" />
         <activity android:name=".archcomponents.paginganddatabinding.ui.search.SearchActivity" />

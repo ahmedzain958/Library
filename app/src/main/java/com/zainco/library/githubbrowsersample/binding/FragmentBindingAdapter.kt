@@ -1,0 +1,3 @@
+package com.zainco.library.githubbrowsersample.binding
+
+class FragmentBindingAdapter

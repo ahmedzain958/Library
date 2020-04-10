@@ -54,4 +54,7 @@
 
  <dimen name="horizontal_page_margin">@dimen/margin_medium</dimen>
  <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
+
+    <dimen name="photo_size">64dp</dimen>
+    <dimen name="default_margin">8dp</dimen>
 </resources>
