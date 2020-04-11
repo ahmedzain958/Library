@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    azan-->
+    <string name="set_alarm">اعداد الاذان</string>
+    <string name="pause">ايقاف مؤقت</string>
+    <string name="stop">توقف</string>
+    <string name="resume">استكمال الاذان</string>
+</resources>

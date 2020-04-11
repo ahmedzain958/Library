@@ -44,8 +44,12 @@ public class ExampleService extends Service {
         //do heavy work on a background thread
         //stopSelf();
 
-        return START_NOT_STICKY;/*START_STICKY : restarted again but the intent re-sent to it will be null
-        START_REDELIVER_INTENT : restarted with the same previous intent*/
+        return START_NOT_STICKY;
+        /*
+        START_STICKY :if android system terminates service restarted again but the re-sent intent = null
+        START_REDELIVER_INTENT : restarted with the same previous intent
+        START_NOT_STICKY :service not restarted
+        */
     }
 
     @Override

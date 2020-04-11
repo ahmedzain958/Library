@@ -18,6 +18,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- to starttforegroundservice if u target sdk 28 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:name=".databinding.ex1.MainApplication"
@@ -27,13 +28,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".githubbrowsersample.GithubBrowserSampleSearchActivity">
+        <activity android:name=".services.neverending.NeverEndingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".services.codinginflow.ForegroundServiceActivity"></activity>
+
+        <receiver
+            android:name=".salaty.MyAlarm"
+            android:exported="true"></receiver>
+
+        <activity android:name=".salaty.AzanActivity">
+
+        </activity>
+        <activity android:name=".githubbrowsersample.GithubBrowserSampleSearchActivity" />
+        <activity android:name=".services.codinginflow.ForegroundServiceActivity" />
         <activity android:name=".notifications.codinginflow.NotificationsCodingInFlowActivity" />
 
         <receiver android:name=".broadcastreceiver.pluralsight.withpermissions.IncomingReceiver">
@@ -162,7 +173,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".databinding.ex1.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".archcomponents.livedata.casterionewslist.NewsActivity" />
         <activity android:name=".highorderedfunandedittextlisteners.ui.SearchRepositoriesActivity" />
         <activity android:name=".archcomponents.paginganddatabinding.ui.search.SearchActivity" />
@@ -192,7 +203,9 @@
             android:name=".permissions.outgoingcalls.CallDetectionService"
             android:enabled="true"
             android:exported="false" />
-        <service android:name=".services.codinginflow.ExampleService" /> <!-- should make all brs android:exported="false" because it is by default true -->
+        <service android:name=".services.codinginflow.ExampleService" />
+        <service android:name=".salaty.AzanService" />
+        <!-- should make all brs android:exported="false" because it is by default true -->
         <receiver android:name=".permissions.outgoingcalls.CallDetector$OutgoingDetector" />
         <receiver android:name=".broadcastreceiver.pluralsight.MyFirstReceiver">
             <intent-filter>
@@ -234,6 +247,15 @@
                 <action android:name="my.action.name" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name=".services.neverending.SensorRestarterBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:label="RestartServiceWhenStopped">
+
+        </receiver>
+
+        <service android:name=".services.neverending.SensorService" />
     </application>
 
 </manifest>

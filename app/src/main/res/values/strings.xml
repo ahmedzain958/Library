@@ -178,5 +178,9 @@ features available.]]>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="set_alarm">Set Alarm</string>
+    <string name="pause">Pause</string>
+    <string name="stop">stop</string>
+    <string name="resume">resume</string>
 
 </resources>
