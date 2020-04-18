@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--    azan-->
+    <!--    salaty-->
     <string name="set_alarm">اعداد الاذان</string>
     <string name="pause">ايقاف مؤقت</string>
     <string name="stop">توقف</string>
     <string name="resume">استكمال الاذان</string>
+    <string name="day">اليوم</string>
+    <string name="salawat">الصلوات</string>
+    <string name="quaan">القران</string>
+    <string name="qibla">القبلة</string>
+    <string name="extras">االمزيد</string>
 </resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/day"
+        android:icon="@drawable/ic_today"
+        android:title="@string/day"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/salawat"
+        android:icon="@drawable/ic_access_time"
+        android:title="@string/salawat"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/quaan"
+        android:icon="@drawable/ic_quraan"
+        android:title="@string/quaan"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/qibla"
+        android:icon="@drawable/ic_qibla"
+        android:title="@string/qibla"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/extras"
+        android:icon="@drawable/ic_extras"
+        android:title="@string/extras"
+        app:showAsAction="ifRoom" />
+</menu>

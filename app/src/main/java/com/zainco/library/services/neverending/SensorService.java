@@ -48,7 +48,7 @@ public class SensorService extends Service {
          * * @param delay  delay in milliseconds before task is to be executed.
          * @param period time in milliseconds between successive task executions.*/
         //schedule the timer, to wake up every 1 second
-        timer.schedule(timerTask, 1000, 1000); //
+        timer.schedule(timerTask, 1000, 500); //
     }
 
     /**
@@ -57,7 +57,7 @@ public class SensorService extends Service {
     public void initializeTimerTask() {
         timerTask = new TimerTask() {
             public void run() {
-                Log.i("in timer", df.format(Calendar.getInstance().getTime()) + " counter " + (counter++));
+                Log.i("in timer", df.format(Calendar.getInstance().getTime()) + " counter " + (counter++) + " " + Thread.currentThread().getName());
             }
         };
     }

@@ -1,4 +1,4 @@
-package com.zainco.library.salaty;
+package com.zainco.library.salaty.ui;
 
 import android.content.Context;
 import android.content.res.Resources;

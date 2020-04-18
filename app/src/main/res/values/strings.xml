@@ -176,11 +176,15 @@ features available.]]>
     <string name="scroll">scroll</string>
     <string name="swipe">swipe</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--Salaty-->
     <string name="set_alarm">Set Alarm</string>
     <string name="pause">Pause</string>
     <string name="stop">stop</string>
     <string name="resume">resume</string>
+    <string name="day">Day</string>
+    <string name="salawat">Prayers</string>
+    <string name="quaan">Quraan</string>
+    <string name="qibla">Qibla</string>
+    <string name="extras">Extras</string>
 
 </resources>

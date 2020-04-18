@@ -20,7 +20,7 @@ import javax.inject.Singleton
         AppModule::class,
         ViewModelFactoryModule::class]
 )
-
+// component creates dependency graph
 interface AppComponent : AndroidInjector<BaseApplication> {
     //will be kept alive as long as application is alive
     fun sessionManager():SessionManager

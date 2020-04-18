@@ -2,18 +2,24 @@ package com.zainco.library.salaty
 
 import android.app.Service
 import android.content.Intent
+import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.IBinder
 import android.util.Log
 import com.zainco.library.R
+import javax.inject.Inject
 
 class AzanService : Service() {
     private lateinit var mediaPlayer: MediaPlayer
+
+    @Inject
+    lateinit var preferences: SharedPreferences
 
     companion object {
         const val ACTION_PLAY = "PLAY"
         const val ACTION_PAUSE = "PAUSE"
         const val ACTION_RESUME = "RESUME"
+        const val CURRENT_MEDIA_STOPPED_POSISTION = "CURRENT_MEDIA_STOPPED_POSISTION"
     }
 
     override fun onCreate() {
@@ -30,7 +36,7 @@ class AzanService : Service() {
             pause()
         } else if (intent?.action == ACTION_RESUME) {
             Log.d("AhmedZain", "resume()")
-            pause()
+            resume()
         }
         return START_REDELIVER_INTENT
     }
@@ -45,11 +51,14 @@ class AzanService : Service() {
     }
 
     fun pause() {
+        /*preferences.edit().putInt(CURRENT_MEDIA_STOPPED_POSISTION, mediaPlayer.currentPosition)
+            .apply()*/
         mediaPlayer.pause()
     }
 
     fun resume() {
-        mediaPlayer.pause()
+        //preferences.getInt(CURRENT_MEDIA_STOPPED_POSISTION,0)
+        mediaPlayer.start()
     }
 
     fun stop() {
