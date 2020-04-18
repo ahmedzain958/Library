@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.zainco.library.R
 import com.zainco.library.salaty.AzanBroadcastReceiver
-import kotlinx.android.synthetic.main.activity_azan.*
 
 
 class AzanActivity : AppCompatActivity() {
@@ -20,9 +19,6 @@ class AzanActivity : AppCompatActivity() {
         /*  bottom_navigation.menu.getItem(0).isChecked = true
           bottom_navigation.menu.findItem(R.id.day).setCheckable(true)
           bottom_navigation.menu.findItem(R.id.day).setChecked(true)*/
-        bottom_navigation.menu.findItem(R.id.day).isEnabled = true
-        bottom_navigation.menu.findItem(R.id.day).isEnabled = true
-        bottom_navigation.menu.findItem(R.id.day).isEnabled = true
         /*buttonAlarm.setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
             if (Build.VERSION.SDK_INT >= 23) {
@@ -67,6 +63,9 @@ class AzanActivity : AppCompatActivity() {
             val intentAzanService = Intent(this, AzanService::class.java)
             stopService(intentAzanService)
         }*/
+//        bottom_navigation.setupWithNavController(findNavController(this, R.id.nav_host_fragment))
+//todo create navigation of bottom..
+
     }
 
     private fun setAlarm(timeInMillis: Long) {
