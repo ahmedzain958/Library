@@ -28,21 +28,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mediaplayer.PlayPauseActivity">
+        <activity android:name=".espressotest.EsspressoMainActivity">
 
         </activity>
-        <activity android:name=".services.neverending.NeverEndingActivity"></activity>
+        <activity
+            android:name=".salaty.ui.fragments.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".mediaplayer.PlayPauseActivity" />
+        <activity android:name=".services.neverending.NeverEndingActivity" />
 
         <receiver
             android:name=".salaty.AzanBroadcastReceiver"
             android:exported="true" />
 
         <activity android:name=".salaty.ui.AzanActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".githubbrowsersample.GithubBrowserSampleSearchActivity" />
         <activity android:name=".services.codinginflow.ForegroundServiceActivity" />
@@ -251,7 +257,7 @@
             android:name=".services.neverending.SensorRestarterBroadcastReceiver"
             android:enabled="true"
             android:exported="true"
-            android:label="RestartServiceWhenStopped"></receiver>
+            android:label="RestartServiceWhenStopped" />
 
         <service android:name=".services.neverending.SensorService" />
     </application>

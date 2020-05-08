@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/day"
+        android:id="@+id/mainFragment"
         android:icon="@drawable/ic_today"
-        android:title="@string/day"
-        app:showAsAction="ifRoom" />
+        android:title="@string/day" />
     <item
-        android:id="@+id/salawat"
+        android:id="@+id/prayersFragment"
         android:icon="@drawable/ic_access_time"
-        android:title="@string/salawat"
-        app:showAsAction="ifRoom" />
+        android:title="@string/salawat" />
     <item
-        android:id="@+id/quaan"
+        android:id="@+id/quraanFragment"
         android:icon="@drawable/ic_quraan"
-        android:title="@string/quaan"
-        app:showAsAction="ifRoom" />
+        android:title="@string/quaan" />
     <item
-        android:id="@+id/qibla"
+        android:id="@+id/qiblaFragment"
         android:icon="@drawable/ic_qibla"
-        android:title="@string/qibla"
-        app:showAsAction="ifRoom" />
+        android:title="@string/qibla" />
     <item
-        android:id="@+id/extras"
+        android:id="@+id/moreFragment"
         android:icon="@drawable/ic_extras"
-        android:title="@string/extras"
-        app:showAsAction="ifRoom" />
+        android:title="@string/extras" />
 </menu>
