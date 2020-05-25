@@ -1,6 +1,7 @@
 package com.zainco.library.salaty.ui.fragments
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.zainco.library.R
@@ -18,4 +19,8 @@ class ScrollingActivity : AppCompatActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.azan_home_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 }

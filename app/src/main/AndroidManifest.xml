@@ -28,17 +28,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".espressotest.EsspressoMainActivity">
-
-        </activity>
-        <activity
-            android:name=".salaty.ui.fragments.ScrollingActivity"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".coroutines.CoroutinesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".fab.FabActivity"></activity>
+        <activity android:name=".espressotest.EsspressoMainActivity" />
+        <activity
+            android:name=".salaty.ui.fragments.ScrollingActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
         </activity>
         <activity android:name=".mediaplayer.PlayPauseActivity" />
         <activity android:name=".services.neverending.NeverEndingActivity" />
@@ -47,9 +56,7 @@
             android:name=".salaty.AzanBroadcastReceiver"
             android:exported="true" />
 
-        <activity android:name=".salaty.ui.AzanActivity">
-
-        </activity>
+        <activity android:name=".salaty.ui.AzanActivity" />
         <activity android:name=".githubbrowsersample.GithubBrowserSampleSearchActivity" />
         <activity android:name=".services.codinginflow.ForegroundServiceActivity" />
         <activity android:name=".notifications.codinginflow.NotificationsCodingInFlowActivity" />
