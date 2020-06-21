@@ -173,7 +173,9 @@
         <activity android:name=".threading.codinginflow.ThreadActivity" />
         <activity android:name=".firebase.remoteconfig.RemoteConfigEDMTVActivity" />
         <activity android:name=".permissions.PermissionsActivity" />
-        <activity android:name=".texttospeech.TextToSpeechActivity" />
+        <activity android:name=".texttospeech.TextToSpeechActivity">
+
+        </activity>
         <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonActivity" />

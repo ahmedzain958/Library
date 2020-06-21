@@ -27,7 +27,7 @@ public class ThreadActivity extends AppCompatActivity {
         buttonStartThread = findViewById(R.id.button_start_thread);
         /*
         * instead of this in ui thread we used another worker thread because if we clicked on the switch it will
-        *  crash without sleeping in new worker thread
+        *  crash without sleeping in new worker thread(ExampleThread and new Thread(ExampleRunnable))
         *
         * for (int i = 0; i < 10; i++) {
                 try {
