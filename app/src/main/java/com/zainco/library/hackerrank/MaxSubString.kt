@@ -1,4 +1,4 @@
-package com.zainco.library
+package com.zainco.library.hackerrank
 
 fun maxSubString(str: String): String {
     if (str.isNotEmpty()) {
@@ -15,15 +15,5 @@ fun maxSubString(str: String): String {
 
 fun main() {
     println(maxSubString("ahmed"))
-    /*    val list = listOf(Pharmacy("Ahmed"), Pharmacy("Amgad"), Pharmacy("Zain"))
-    var list2: List<Pharmacy> = list.filter {
-        it.name.startsWith("A")
-    }
-    println(list)
-    println(list2)*/
+
 }
-
-
-data class Pharmacy(
-    val name: String
-)

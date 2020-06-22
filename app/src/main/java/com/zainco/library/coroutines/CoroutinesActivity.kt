@@ -104,7 +104,30 @@ class CoroutinesActivity : AppCompatActivity() {
         }
         Log.d(TAG, "after  runblocking")*/
 
+//video 5 runBlocking
+/*  Log.d(TAG, "before  runblocking")
+ runBlocking {
+     launch(Dispatchers.IO) {//no need for Globalscope keyword bec. u are already inside a coroutine
+         delay(3000L)// doesn't block the io thread
+         Log.d(TAG, "finished  IO coroutine 1")
+     }
+     launch(Dispatchers.IO) {//no need for Globalscope keyword bec. u are already inside a coroutine
+         delay(3000L)
+         Log.d(TAG, "finished  IO coroutine 2")// will be executed after 3 secs not 6
+     }
+     Log.d(TAG, "start  runblocking")
+     delay(5000L)//this is like calling delay() method inside oncreate() (mean inside main thread) but it can't be done bec. it won't be inside coroutines
+     Log.d(TAG, "end  runblocking")
+ }
+ Log.d(TAG, "after  runblocking")
 
+ 2020-06-22 03:02:51.783 628-628/com.zainco.library D/CoroutinesActivitys: before  runblocking
+2020-02 03:02:51.885 628-628/com.zainco.library D/CoroutinesActivitys: start  runblocking
+2020-06-22 03:02:54.893 628-697/com.zainco.library D/CoroutinesActivitys: finished  IO coroutine 1
+2020-06-22 03:02:54.896 628-697/com.zainco.library D/CoroutinesActivitys: finished  IO coroutine 2
+2020-06-22 03:02:56.889 628-628/com.zainco.library D/CoroutinesActivitys: end  runblocking
+2020-06-22 03:02:56.894 628-628/com.zainco.library D/CoroutinesActivitys: after  runblocking
+*/
     }
 
     suspend fun doNetworkCall(): String {
