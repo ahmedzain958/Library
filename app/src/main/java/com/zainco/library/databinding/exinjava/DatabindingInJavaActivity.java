@@ -17,7 +17,12 @@ import com.zainco.library.databinding.exinjava.model.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+* You can use the inflate method on the generated class. This is useful for using data binding in fragments, ListView or RecyclerView.
+* ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater(), container, attachToContainer);
+// get the root view
+View view = binding.getRoot();
+* */
 public class DatabindingInJavaActivity extends AppCompatActivity {
     private DatabindingInJavaViewModel databindingInJavaViewModel;
     private EmployeeDataAdapter employeeDataAdapter;

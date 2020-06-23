@@ -4,11 +4,11 @@
     <data>
         <variable
             name="temp"
-            type="com.zainco.library.databinding.ex3baseadapter.TemperatureData" />
+            type="com.zainco.library.databinding.vogellabaseadapter.TemperatureData" />
 
         <variable
             name="presenter"
-            type="com.zainco.library.databinding.ex3baseadapter.MainActivityPresenter" />
+            type="com.zainco.library.databinding.vogellabaseadapter.MainActivityPresenter" />
     </data>
 
     <androidx.recyclerview.widget.RecyclerView

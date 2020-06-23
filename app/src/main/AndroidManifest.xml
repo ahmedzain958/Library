@@ -28,14 +28,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".coroutines.androiddevs.AsyncAndAwaitActivity">
+        <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleFirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".coroutines.androiddevs.AsyncAndAwaitActivity">
+
+        </activity>
         <activity android:name=".coroutines.androiddevs.JobsWaitingCancelationActivity"></activity>
+        <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleSecondActivity"></activity>
         <activity android:name=".coroutines.androiddevs.CoroutinesActivity" />
         <activity android:name=".fab.FabActivity" />
         <activity android:name=".espressotest.EsspressoMainActivity" />

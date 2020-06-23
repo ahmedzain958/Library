@@ -1,17 +1,20 @@
-package com.zainco.library.databinding.ex3baseadapter;
+package com.zainco.library.databinding.vogellabaseadapter;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.ImageView;
 
+import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.zainco.library.R;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class BaseAdapterExampleSecondActivity extends Activity  {
+public class BaseAdapterExampleSecondActivity extends Activity {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -39,6 +42,13 @@ public class BaseAdapterExampleSecondActivity extends Activity  {
         recyclerView.setAdapter(mAdapter);
     }
 
-
+    //To register a custom converter, define the following static method, either in your activity or in a separate class.
+    @BindingAdapter("android:src")
+    public static void setImageUrl(ImageView view, String url) {
+        Glide.with(view.getContext()).
+                load(url).
+                placeholder(R.drawable.ic_about).
+                into(view);
+    }
 
 }

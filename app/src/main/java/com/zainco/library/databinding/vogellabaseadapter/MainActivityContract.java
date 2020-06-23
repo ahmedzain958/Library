@@ -1,14 +1,16 @@
-package com.zainco.library.databinding.ex3baseadapter;
+package com.zainco.library.databinding.vogellabaseadapter;
 
 
 public interface MainActivityContract {
-    public interface Presenter {
-        void onShowData(TemperatureData temperatureData);
+    interface Presenter {
+        void onShowCelesiusData(TemperatureData temperatureData);
+
         void showList();
     }
 
-    public interface View {
+    interface View {
         void showData(TemperatureData temperatureData);
+
         void startSecondActivity();
     }
 

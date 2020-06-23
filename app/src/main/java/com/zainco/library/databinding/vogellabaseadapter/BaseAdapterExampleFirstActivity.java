@@ -1,4 +1,4 @@
-package com.zainco.library.databinding.ex3baseadapter;
+package com.zainco.library.databinding.vogellabaseadapter;
 
 import android.app.Activity;
 import android.content.Intent;

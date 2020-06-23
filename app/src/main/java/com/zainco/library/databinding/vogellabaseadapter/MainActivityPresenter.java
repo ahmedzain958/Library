@@ -1,4 +1,4 @@
-package com.zainco.library.databinding.ex3baseadapter;
+package com.zainco.library.databinding.vogellabaseadapter;
 
 public class MainActivityPresenter implements MainActivityContract.Presenter {
     private MainActivityContract.View view;
@@ -8,7 +8,7 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
     }
 
     @Override
-    public void onShowData(TemperatureData temperatureData) {
+    public void onShowCelesiusData(TemperatureData temperatureData) {
         view.showData(temperatureData);
     }
 

@@ -16,11 +16,12 @@ import com.zainco.library.databinding.ex2.utils.GridSpacingItemDecoration
 
 
 class ProfileActivity : AppCompatActivity(), PostsAdapter.PostsAdapterListener {
+    //This name is converted to Pascal case and the Binding suffix is added to it.
     lateinit var binding: ActivityProfileBinding
     lateinit var handlers: MyClickHandlers
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView<ActivityProfileBinding>(
+        binding = DataBindingUtil.setContentView(
             this,
             R.layout.activity_profile
         )
@@ -69,7 +70,7 @@ class ProfileActivity : AppCompatActivity(), PostsAdapter.PostsAdapterListener {
         user.numberOfFollowers.set(3050890L)
         user.numberOfFollowing.set(150L)
         // display user
-        binding.user = user
+        binding.user = user// generated setter
         // assign click handlers
         binding.content.handlers = handlers
     }
