@@ -2,6 +2,7 @@ package com.zainco.library.androidstudioactvs.fragandviewmodel
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.zainco.library.R
 import com.zainco.library.androidstudioactvs.fragandviewmodel.ui.main.FragAndViewModelFragment
 
 class FragAndViewModelActivity : AppCompatActivity() {

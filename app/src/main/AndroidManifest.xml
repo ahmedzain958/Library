@@ -28,13 +28,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".coroutines.androiddevs.LifecyclescopeViewmodelscopeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".androidstudioactvs.ASScrollingActivity"
             android:label="@string/title_activity_a_s_scrolling"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".androidstudioactvs.BottomNavigationActivity"
-            android:label="@string/title_activity_bottom_navigation"></activity>
+            android:label="@string/title_activity_bottom_navigation" />
         <activity android:name=".androidstudioactvs.fragandviewmodel.FragAndViewModelActivity" />
         <activity
             android:name=".androidstudioactvs.basicactivity.ASBasicActivity"
@@ -215,13 +222,7 @@
         <activity android:name=".highorderedfunandedittextlisteners.ui.SearchRepositoriesActivity" />
         <activity android:name=".archcomponents.paginganddatabinding.ui.search.SearchActivity" />
         <activity android:name=".archcomponents.paginganddatabinding.ui.bookmark.BookmarkActivity" />
-        <activity android:name=".databinding.alimuzaffar.mvvmloadingbaseobservable.DogBreedsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".databinding.alimuzaffar.mvvmloadingbaseobservable.DogBreedsActivity"></activity>
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.DataBindingTypesActivity" />
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ViewModelActivity" />
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ObservableFieldActivity" />

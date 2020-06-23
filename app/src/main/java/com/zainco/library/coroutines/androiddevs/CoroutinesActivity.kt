@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.zainco.library.R
 import kotlinx.coroutines.delay
-
+/*
+* Dispatchers: Dispatchers help coroutines in deciding the thread on which the work has to be done. There are majorly three types of Dispatchers which are as IO, Default, and Main. IO dispatcher is used to do the network and disk-related work. Default is used to do the CPU intensive work. Main is the UI thread of Android. In order to use these, we need to wrap the work under the async function. Async function looks like below.
+suspend: Suspend function is a function that could be started, paused, and resume.*/
 /*
 * difference between thread.sleep() and coroutines delay() method :
 * if we have 2 construction projects(2 threads) and every project has workers(worker = coroutine)
@@ -12,6 +14,9 @@ import kotlinx.coroutines.delay
 * thread.sleep():project stopped(thread stopped) working so all workers(coroutines) should stop working
 * */
 //delay functions (suspend functions) called only from inside coroutine blocks or from inside another suspend function
+/*ex
+* So, the fetchAndShowUser can only be called from another suspend function or a coroutine.
+*  We can't make the onCreate function of an activity suspend, so we need to call it from the coroutines like below:*/
 class CoroutinesActivity : AppCompatActivity() {
     val TAG = "CoroutinesActivitys"
 
@@ -58,7 +63,24 @@ class CoroutinesActivity : AppCompatActivity() {
             }
         }
 */
+/*
+* withContext is nothing but another way of writing the async where we do not have to write await().
 
+suspend fun fetchUser(): User {
+    return withContext(Dispatchers.IO) {
+        // make network call
+        // return user
+    }
+}
+* Now, let's use withContext in our async example of fetchFirstUser and fetchSecondUser in parallel.
+
+GlobalScope.launch(Dispatchers.Main) {
+    val userOne = withContext(Dispatchers.IO) { fetchFirstUser() }
+    val userTwo = withContext(Dispatchers.IO) { fetchSecondUser() }
+    showUsers(userOne, userTwo) // back on UI thread
+}
+* When we use withContext, it will run in series instead of parallel. That is a major difference
+* */
 /*
         // video 4 :runBlocking starts coroutines in the main thread and also blocks the thread unlike delay inside global scope
         runBlocking {
@@ -140,3 +162,9 @@ class CoroutinesActivity : AppCompatActivity() {
         return "method take some time to get the answer - this is the answer"
     }
 }
+/*Mindorks
+* Use withContext when you do not need the parallel execution.
+Use async only when you need the parallel execution.
+Both withContext and async can be used to get the result which is not possible with the launch.
+Use withContext to return the result of a single task.
+Use async for results from multiple tasks that run in parallel.*/
