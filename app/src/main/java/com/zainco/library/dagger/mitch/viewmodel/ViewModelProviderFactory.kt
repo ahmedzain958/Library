@@ -9,8 +9,7 @@ import javax.inject.Provider
 * NOT THAT IS A FIXED CLASS u can use it at any project to solve the problem of
 * dagger2 and ViewModel because both are not working with each other
 * just copy past it and do not care about the implementation
-* it is valid for all p
-* rojects
+* it is valid for all projects
 *
 * */
 class ViewModelProviderFactory @Inject constructor(

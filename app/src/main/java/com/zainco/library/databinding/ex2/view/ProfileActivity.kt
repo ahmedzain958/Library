@@ -24,12 +24,11 @@ class ProfileActivity : AppCompatActivity(), PostsAdapter.PostsAdapterListener {
             this,
             R.layout.activity_profile
         )
-
+        //Android data binding generates a Binding class  holds all the bindings from the layout properties
         val toolbar = binding.toolbar
         setSupportActionBar(toolbar)
         supportActionBar?.setTitle(R.string.toolbar_profile)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
         handlers = MyClickHandlers(this)
 
         renderProfile()

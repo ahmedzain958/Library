@@ -1,4 +1,4 @@
-package com.zainco.library.coroutines
+package com.zainco.library.coroutines.androiddevs
 
 import android.os.Bundle
 import android.util.Log
@@ -17,7 +17,7 @@ class JobsWaitingCancelationActivity : AppCompatActivity() {
             }
         }
         runBlocking {
-            job.join()//will block our thread until the upper coroutine will finish
+            job.join()//will block our thread (cuz inside runBlocking) until the upper coroutine will finish
             Log.d("JobsWaitingCancelation", "main thread is continuing")
         }
         020-06-22 10:34:33.105 13950-14041/com.zainco.library D/JobsWaitingCancelation: coroutine is still working

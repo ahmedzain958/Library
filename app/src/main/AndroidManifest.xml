@@ -28,28 +28,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".coroutines.JobsWaitingCancelationActivity">
+        <activity android:name=".coroutines.androiddevs.AsyncAndAwaitActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".coroutines.CoroutinesActivity"></activity>
+        <activity android:name=".coroutines.androiddevs.JobsWaitingCancelationActivity"></activity>
+        <activity android:name=".coroutines.androiddevs.CoroutinesActivity" />
         <activity android:name=".fab.FabActivity" />
         <activity android:name=".espressotest.EsspressoMainActivity" />
         <activity
             android:name=".salaty.ui.fragments.ScrollingActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".mediaplayer.PlayPauseActivity" />
         <activity android:name=".services.neverending.NeverEndingActivity" />
 
@@ -174,8 +166,8 @@
         <activity android:name=".threading.codinginflow.ThreadActivity" />
         <activity android:name=".firebase.remoteconfig.RemoteConfigEDMTVActivity" />
         <activity android:name=".permissions.PermissionsActivity" />
-        <activity android:name=".texttospeech.TextToSpeechActivity"></activity>
-        <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity" />
+        <activity android:name=".texttospeech.TextToSpeechActivity" />
+        <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity"></activity>
         <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonDetailActivity" />

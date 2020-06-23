@@ -1,4 +1,4 @@
-package com.zainco.library.coroutines
+package com.zainco.library.coroutines.androiddevs
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -99,7 +99,7 @@ class CoroutinesActivity : AppCompatActivity() {
         // if you have a suspend function and you want to call it you can call it from inside runBlocking , but if you don't care about it is not asynchronous
         runBlocking {
             Log.d(TAG, "start  runblocking")
-            delay(3000L)//this is like calling delay() method inside oncreate() (mean inside main thread) but ir can't be done bec. it won't be inside coroutines
+            delay(3000L)//this is like calling delay() method inside oncreate() (mean inside main thread) but it can't be done bec. it won't be inside coroutines
             Log.d(TAG, "end  runblocking")
         }
         Log.d(TAG, "after  runblocking")*/
