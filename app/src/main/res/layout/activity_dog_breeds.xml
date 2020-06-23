@@ -7,13 +7,13 @@
 
         <variable
             name="model"
-            type="com.zainco.library.databinding.mvvmloadingbaseobservable.viewmodel.DogBreedsViewModel" />
+            type="com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.viewmodel.DogBreedsViewModel" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DogBreedsActivity">
+        tools:context=".databinding.alimuzaffar.mvvmloadingbaseobservable.DogBreedsActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listOfBreeds"

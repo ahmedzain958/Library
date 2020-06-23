@@ -1,4 +1,4 @@
-package com.zainco.library.databinding.mvvmloadingbaseobservable.model;
+package com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.model;
 
 import com.google.gson.annotations.SerializedName;
 

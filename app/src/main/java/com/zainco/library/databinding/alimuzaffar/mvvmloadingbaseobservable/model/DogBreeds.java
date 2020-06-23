@@ -1,11 +1,11 @@
-package com.zainco.library.databinding.mvvmloadingbaseobservable.model;
+package com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.model;
 
 import android.util.Log;
 
 import androidx.databinding.BaseObservable;
 import androidx.lifecycle.MutableLiveData;
 
-import com.zainco.library.databinding.mvvmloadingbaseobservable.net.Api;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.net.Api;
 
 import java.util.ArrayList;
 import java.util.List;

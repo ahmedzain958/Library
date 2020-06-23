@@ -28,7 +28,7 @@ class FragmentsViewPagerActivity : DaggerAppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        setSupportActionBar(binding.includeToolbar?.toolbar)
+        setSupportActionBar(binding.includeToolbar.toolbar)
         supportActionBar?.title = getString(R.string.app_name)
     }
 

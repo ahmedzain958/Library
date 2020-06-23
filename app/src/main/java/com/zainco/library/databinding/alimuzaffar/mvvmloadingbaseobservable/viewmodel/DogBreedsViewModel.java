@@ -1,4 +1,4 @@
-package com.zainco.library.databinding.mvvmloadingbaseobservable.viewmodel;
+package com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.viewmodel;
 
 import android.util.Log;
 import android.view.View;
@@ -9,11 +9,11 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.zainco.library.R;
-import com.zainco.library.databinding.mvvmloadingbaseobservable.adapter.DogBreedsAdapter;
-import com.zainco.library.databinding.mvvmloadingbaseobservable.model.DogBreed;
-import com.zainco.library.databinding.mvvmloadingbaseobservable.model.DogBreedImages;
-import com.zainco.library.databinding.mvvmloadingbaseobservable.model.DogBreeds;
-import com.zainco.library.databinding.mvvmloadingbaseobservable.net.DogImagesCallback;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.adapter.DogBreedsAdapter;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.model.DogBreed;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.model.DogBreedImages;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.model.DogBreeds;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.net.DogImagesCallback;
 
 import java.util.List;
 

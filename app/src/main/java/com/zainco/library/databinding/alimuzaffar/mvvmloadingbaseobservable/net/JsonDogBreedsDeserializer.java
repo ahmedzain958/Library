@@ -1,4 +1,4 @@
-package com.zainco.library.databinding.mvvmloadingbaseobservable.net;
+package com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.net;
 
 import android.util.Log;
 
@@ -7,8 +7,8 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import com.zainco.library.databinding.mvvmloadingbaseobservable.model.DogBreed;
-import com.zainco.library.databinding.mvvmloadingbaseobservable.model.DogBreeds;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.model.DogBreed;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.model.DogBreeds;
 
 import java.lang.reflect.Type;
 import java.util.Map;

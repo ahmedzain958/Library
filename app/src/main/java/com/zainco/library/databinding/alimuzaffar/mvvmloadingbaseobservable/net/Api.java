@@ -1,9 +1,9 @@
-package com.zainco.library.databinding.mvvmloadingbaseobservable.net;
+package com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.net;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.zainco.library.databinding.mvvmloadingbaseobservable.model.DogBreedImages;
-import com.zainco.library.databinding.mvvmloadingbaseobservable.model.DogBreeds;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.model.DogBreedImages;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.model.DogBreeds;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

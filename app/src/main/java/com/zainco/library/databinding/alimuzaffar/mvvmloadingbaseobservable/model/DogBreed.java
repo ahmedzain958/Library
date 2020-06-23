@@ -1,8 +1,8 @@
-package com.zainco.library.databinding.mvvmloadingbaseobservable.model;
+package com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.model;
 
 import androidx.databinding.BaseObservable;
 
-import com.zainco.library.databinding.mvvmloadingbaseobservable.net.Api;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.net.Api;
 
 import retrofit2.Callback;
 

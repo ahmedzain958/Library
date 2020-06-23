@@ -11,7 +11,7 @@
 
         <variable
             name="viewModel"
-            type="com.zainco.library.databinding.mvvmloadingbaseobservable.viewmodel.DogBreedsViewModel" />
+            type="com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.viewmodel.DogBreedsViewModel" />
     </data>
 
     <LinearLayout

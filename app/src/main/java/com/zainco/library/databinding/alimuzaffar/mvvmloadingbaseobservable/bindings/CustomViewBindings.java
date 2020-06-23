@@ -1,4 +1,4 @@
-package com.zainco.library.databinding.mvvmloadingbaseobservable.bindings;
+package com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.bindings;
 
 import android.widget.ImageView;
 

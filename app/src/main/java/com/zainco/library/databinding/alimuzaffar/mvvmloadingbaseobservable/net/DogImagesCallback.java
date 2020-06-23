@@ -1,7 +1,7 @@
-package com.zainco.library.databinding.mvvmloadingbaseobservable.net;
+package com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.net;
 
 
-import com.zainco.library.databinding.mvvmloadingbaseobservable.model.DogBreedImages;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.model.DogBreedImages;
 
 import retrofit2.Callback;
 

@@ -1,4 +1,4 @@
-package com.zainco.library.databinding.mvvmloadingbaseobservable.adapter;
+package com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -10,8 +10,8 @@ import androidx.databinding.ViewDataBinding;
 import androidx.databinding.library.baseAdapters.BR;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.zainco.library.databinding.mvvmloadingbaseobservable.model.DogBreed;
-import com.zainco.library.databinding.mvvmloadingbaseobservable.viewmodel.DogBreedsViewModel;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.model.DogBreed;
+import com.zainco.library.databinding.alimuzaffar.mvvmloadingbaseobservable.viewmodel.DogBreedsViewModel;
 
 import java.util.List;
 

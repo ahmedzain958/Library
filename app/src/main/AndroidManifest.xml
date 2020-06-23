@@ -29,23 +29,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleFirstActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".coroutines.androiddevs.AsyncAndAwaitActivity">
 
         </activity>
-        <activity android:name=".coroutines.androiddevs.JobsWaitingCancelationActivity"></activity>
-        <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleSecondActivity"></activity>
+        <activity android:name=".coroutines.androiddevs.AsyncAndAwaitActivity"></activity>
+        <activity android:name=".coroutines.androiddevs.JobsWaitingCancelationActivity" />
+        <activity android:name=".databinding.alimuzaffar.formemailvalidation.login.LoginActivity">
+
+        </activity>
+        <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleSecondActivity" />
         <activity android:name=".coroutines.androiddevs.CoroutinesActivity" />
         <activity android:name=".fab.FabActivity" />
         <activity android:name=".espressotest.EsspressoMainActivity" />
         <activity
             android:name=".salaty.ui.fragments.ScrollingActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".mediaplayer.PlayPauseActivity" />
         <activity android:name=".services.neverending.NeverEndingActivity" />
 
@@ -171,7 +168,7 @@
         <activity android:name=".firebase.remoteconfig.RemoteConfigEDMTVActivity" />
         <activity android:name=".permissions.PermissionsActivity" />
         <activity android:name=".texttospeech.TextToSpeechActivity" />
-        <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity"></activity>
+        <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonDetailActivity" />
@@ -189,7 +186,13 @@
         <activity android:name=".highorderedfunandedittextlisteners.ui.SearchRepositoriesActivity" />
         <activity android:name=".archcomponents.paginganddatabinding.ui.search.SearchActivity" />
         <activity android:name=".archcomponents.paginganddatabinding.ui.bookmark.BookmarkActivity" />
-        <activity android:name=".databinding.mvvmloadingbaseobservable.DogBreedsActivity" />
+        <activity android:name=".databinding.alimuzaffar.mvvmloadingbaseobservable.DogBreedsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.DataBindingTypesActivity" />
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ViewModelActivity" />
         <activity android:name=".databinding.livedatavsobservable_databindingbasicsample.ui.ObservableFieldActivity" />
