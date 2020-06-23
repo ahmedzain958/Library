@@ -28,14 +28,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleFirstActivity">
-
+        <activity
+            android:name=".androidstudioactvs.ASScrollingActivity"
+            android:label="@string/title_activity_a_s_scrolling"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".androidstudioactvs.BottomNavigationActivity"
+            android:label="@string/title_activity_bottom_navigation"></activity>
+        <activity android:name=".androidstudioactvs.fragandviewmodel.FragAndViewModelActivity" />
+        <activity
+            android:name=".androidstudioactvs.basicactivity.ASBasicActivity"
+            android:label="@string/title_activity_a_s_basic"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".androidstudioactvs.NavDrawerActivity"
+            android:label="@string/title_activity_nav_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".androidstudioactvs.ASNavDrawerActivity"
+            android:label="@string/title_activity_a_s_nav_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".androidstudioactvs.masterdetailflow.ItemListActivity"
+            android:label="@string/title_item_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".androidstudioactvs.masterdetailflow.ItemDetailActivity"
+            android:label="@string/title_item_detail"
+            android:parentActivityName=".androidstudioactvs.masterdetailflow.ItemListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zainco.library.androidstudioactvs.masterdetailflow.ItemListActivity" />
         </activity>
-        <activity android:name=".coroutines.androiddevs.AsyncAndAwaitActivity"></activity>
+        <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleFirstActivity" />
+        <activity android:name=".coroutines.androiddevs.AsyncAndAwaitActivity" />
         <activity android:name=".coroutines.androiddevs.JobsWaitingCancelationActivity" />
-        <activity android:name=".databinding.alimuzaffar.formemailvalidation.login.LoginActivity">
-
-        </activity>
+        <activity android:name=".databinding.alimuzaffar.formemailvalidation.login.LoginActivity" />
         <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleSecondActivity" />
         <activity android:name=".coroutines.androiddevs.CoroutinesActivity" />
         <activity android:name=".fab.FabActivity" />
