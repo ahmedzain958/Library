@@ -231,6 +231,37 @@
         <activity android:name=".permissions.CameraPreviewActivity" />
         <activity android:name=".callrecord.CallRecordActivity" />
         <activity android:name=".permissions.mywork.PermissionsActivity" />
+        <!--mindorks coroutines activs-->
+        <activity
+            android:name="com.mindorks.example.coroutines.learn.retrofit.single.SingleNetworkCallActivity"
+            android:label="@string/single_network_call" />
+        <activity
+            android:name="com.mindorks.example.coroutines.learn.retrofit.series.SeriesNetworkCallsActivity"
+            android:label="@string/series_network_calls" />
+        <activity
+            android:name="com.mindorks.example.coroutines.learn.retrofit.parallel.ParallelNetworkCallsActivity"
+            android:label="@string/parallel_network_calls" />
+        <activity
+            android:name="com.mindorks.example.coroutines.learn.room.RoomDBActivity"
+            android:label="@string/room_database" />
+        <activity
+            android:name="com.mindorks.example.coroutines.learn.timeout.TimeoutActivity"
+            android:label="@string/timeout" />
+        <activity
+            android:name="com.mindorks.example.coroutines.learn.errorhandling.trycatch.TryCatchActivity"
+            android:label="@string/try_catch_error" />
+        <activity
+            android:name="com.mindorks.example.coroutines.learn.errorhandling.exceptionhandler.ExceptionHandlerActivity"
+            android:label="@string/exception_handler" />
+        <activity
+            android:name="com.mindorks.example.coroutines.learn.errorhandling.supervisor.IgnoreErrorAndContinueActivity"
+            android:label="@string/ignore_error_and_continue" />
+        <activity
+            android:name="com.mindorks.example.coroutines.learn.task.onetask.LongRunningTaskActivity"
+            android:label="@string/long_running_task" />
+        <activity
+            android:name="com.mindorks.example.coroutines.learn.task.twotasks.TwoLongRunningTasksActivity"
+            android:label="@string/two_long_running_tasks" />
 
         <service
             android:name=".jobscheduler.ExampleJobService"
