@@ -13,9 +13,9 @@ class MovieDataSource(
     private val apiService: TheMovieDBInterface,
     private val compositeDisposable: CompositeDisposable
 ) : PageKeyedDataSource<Int, Movie>() {
-    /*Int:Key Movie:because we need a kist of movie*/
+    /*Int:Key Movie:because we need a list of movie*/
 
-    private var page = FIRST_PAGE
+    private var page: Int = FIRST_PAGE
     val networkState: MutableLiveData<NetworkState> = MutableLiveData()
 
     // loads the first page

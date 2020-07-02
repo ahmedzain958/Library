@@ -9,5 +9,13 @@ class LifecyclescopeViewmodelscopeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lifecyclescope_viewmodelscope)
+        /*
+        * class MyViewModel: ViewModel() {
+    init {
+        viewModelScope.launch {
+            // Coroutine that will be canceled when the ViewModel is cleared.
+        }
+    }
+        }*/
     }
 }

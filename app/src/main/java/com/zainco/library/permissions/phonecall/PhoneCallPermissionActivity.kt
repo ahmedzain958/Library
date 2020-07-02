@@ -23,8 +23,8 @@ class PhoneCallPermissionActivity : AppCompatActivity() {
     }
 
     private fun makePhoneCall() {
-        val number: String = edit_text_number.getText().toString()
-        if (number.trim { it <= ' ' }.length > 0) {
+        val number: String = edit_text_number.text.toString()
+        if (number.trim { it <= ' ' }.isNotEmpty()) {
             if (ContextCompat.checkSelfPermission(
                     this,
                     Manifest.permission.CALL_PHONE

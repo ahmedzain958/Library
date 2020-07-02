@@ -19,7 +19,7 @@ class PermissionsActivity : AppCompatActivity() {
         buttonRead.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
                     this,
-                    Manifest.permission.PROCESS_OUTGOING_CALLS
+                    Manifest.permission.READ_EXTERNAL_STORAGE
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
                 Toast.makeText(this, "READ_EXTERNAL_STORAGE", Toast.LENGTH_SHORT).show()
@@ -34,14 +34,4 @@ class PermissionsActivity : AppCompatActivity() {
 
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        //if there is only android.permission.READ_EXTERNAL_STORAGE permission in this activity  then if it is granted permissions[0] = "android.permission.READ_EXTERNAL_STORAGE"
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-//both permissions READ_EXTERNAL_STORAGE && WRITE_EXTERNAL_STORAGE have the same dialog permission
-
-    }
 }

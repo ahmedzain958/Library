@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zainco.library.R
 import kotlinx.android.synthetic.main.activity_pokemon.*
@@ -27,7 +27,7 @@ class PokemonActivity : AppCompatActivity() {
         pokemon_list.adapter = pokemonAdapter
 
         // Getting data from ViewModel
-        val pokemonViewModel = ViewModelProviders.of(this).get(PokemonViewModel::class.java)
+        val pokemonViewModel = ViewModelProvider(this).get(PokemonViewModel::class.java)
         pokemonViewModel.getPokemons().observe(this, Observer {
             pokemonAdapter.swapData(it!!)
         })

@@ -12,10 +12,7 @@ object PokemonProvider {
     )
 
     fun getPokemons() = pokemons
-
-    fun getPokemon(id: Long) = pokemons.first { it.id == id }
-
-    fun getPokemonLive(id: Long) = MutableLiveData<Pokemon>().apply {
+    fun getPokemonLiveDataById(id: Long) = MutableLiveData<Pokemon>().apply {
         value = pokemons.first { it.id == id }
     }
 }

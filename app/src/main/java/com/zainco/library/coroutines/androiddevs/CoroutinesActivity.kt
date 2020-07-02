@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.zainco.library.R
 import kotlinx.coroutines.delay
+
 /*
 * Dispatchers: Dispatchers help coroutines in deciding the thread on which the work has to be done. There are majorly three types of Dispatchers which are as IO, Default, and Main. IO dispatcher is used to do the network and disk-related work. Default is used to do the CPU intensive work. Main is the UI thread of Android. In order to use these, we need to wrap the work under the async function. Async function looks like below.
 suspend: Suspend function is a function that could be started, paused, and resume.*/
@@ -30,7 +31,7 @@ class CoroutinesActivity : AppCompatActivity() {
         //GlobalScope means that this coroutine will live as long as app does
         GlobalScope.launch {
             //put instr. ur coroutines will execute
-            delay(1000L)// works different from thread.sleep() because it pauses the current coroutine and won't block the whole thread it is working in
+            delay(1000L)// works different from thread.sleep() because it pauses the current coroutine and won't block the whole thread (main) it is working in
             d(TAG, "coroutines says hello from ${Thread.currentThread().name}")
         }
         d(TAG, "hello from ${Thread.currentThread().name}")
