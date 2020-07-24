@@ -19,6 +19,10 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- to starttforegroundservice if u target sdk 28 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- api 29: explicitly request location permission from user in a service if you are tracking his location in the background -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:name=".salaty.SalatyApplicationClass"
@@ -29,13 +33,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".coroutines.flow.mindorks.FlowExample1Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".callintercept.CallInterceptActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+        <activity android:name=".archcomponents.paging.listtopagelist.ListToPagelistActivity"></activity>
+        <activity android:name=".runningtracker.MvvmRunningTrackerActivity"></activity>
+        <activity android:name=".SendEmailActivity" />
+        <activity android:name=".coroutines.flow.mindorks.FlowExample1Activity" />
         <activity android:name=".coroutines.androiddevs.LifecyclescopeViewmodelscopeActivity" />
         <activity
             android:name=".androidstudioactvs.ASScrollingActivity"
@@ -92,11 +96,18 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".broadcastreceiver.pluralsight.withpermissions.ReadPhoneStateActivity" />
+        <activity android:name=".broadcastreceiver.pluralsight.withpermissions.ReadPhoneStateActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".broadcastreceiver.pluralsight.sticky.StickyActivity" />
         <activity android:name=".broadcastreceiver.pluralsight.dynamicreceiver.DynamicReceiverActivity" />
         <activity android:name=".broadcastreceiver.pluralsight.orderedbrs.OrderedBRsActivity" />
-        <activity android:name=".broadcastreceiver.pluralsight.BroadcastReceiverActivity" />
+        <activity android:name=".broadcastreceiver.pluralsight.BroadcastReceiverActivity">
+
+        </activity>
 
         <service
             android:name=".accessibility.GlobalActionBarService"
@@ -159,11 +170,6 @@
         <activity android:name=".workmanager.codelab.WorkManagerBlurrActivity" />
         <activity android:name=".workmanager.simplifiedcoding.WorkManagerActivity" />
         <activity android:name=".workmanager.socialmedia.HumanConnectorActivity" />
-
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -183,14 +189,7 @@
         <activity android:name=".facebooksdk.FacebookSdkActivity" />
         <activity android:name=".jobscheduler.JobSchedulerActivity" />
         <activity android:name=".permissions.phonecall.PhoneCallPermissionActivity" />
-
-        <meta-data
-            android:name="zain"
-            android:resource="@string/no_results" />
-
-        <activity android:name=".archcomponents.paging.ui.popularmovie.MoviesListActivity">
-
-        </activity>
+        <activity android:name=".archcomponents.paging.ui.popularmovie.MoviesListActivity" />
         <activity android:name=".archcomponents.paging.ui.singlemoviedetails.SingleMovieActivity" />
         <activity android:name=".threading.codinginflow.HandlerActivity" />
         <activity android:name=".threading.codinginflow.ThreadActivity" />
@@ -320,6 +319,16 @@
             android:label="RestartServiceWhenStopped" />
 
         <service android:name=".services.neverending.SensorService" />
+
+        <meta-data
+            android:name="zain"
+            android:resource="@string/no_results" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>

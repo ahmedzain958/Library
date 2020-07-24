@@ -18,7 +18,7 @@ class IncomingReceiver : BroadcastReceiver() {
                 Toast.makeText(
                     context, "received state", Toast.LENGTH_SHORT
                 ).show()
-            TelephonyManager.EXTRA_STATE_RINGING ->
+            TelephonyManager.EXTRA_STATE_IDLE ->
                 Toast.makeText(
                     context, "idle state", Toast.LENGTH_SHORT/*idle means after call ended*/
                 ).show()

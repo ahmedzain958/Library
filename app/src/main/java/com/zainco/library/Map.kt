@@ -6,4 +6,8 @@ fun main(args: Array<String>) {
     for (key in myMap.keys) {
         println(myMap[key])
     }
+
+    println("myMap[key]".subSequence(3, 5))
+
+
 }

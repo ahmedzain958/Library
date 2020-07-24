@@ -20,11 +20,25 @@ class ReadPhoneStateActivity : AppCompatActivity() {
                 Manifest.permission.READ_PHONE_STATE
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.READ_PHONE_STATE),
-                200
-            )
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    this,
+                    Manifest.permission.READ_PHONE_STATE
+                )
+            ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.READ_PHONE_STATE),
+                    200
+                )
+            } else {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.READ_PHONE_STATE),
+                    200
+                )
+            }
+        } else {
+            //do nothing
         }
     }
 
@@ -36,12 +50,17 @@ class ReadPhoneStateActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             200 -> {
-                if (grantResults.size > 0 && grantResults[0] == PERMISSION_GRANTED) {
-                    Toast.makeText(
-                        this,
-                        intent?.getIntExtra("permission granted", 0).toString(),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                if (grantResults.isNotEmpty() && grantResults[0] == PERMISSION_GRANTED) {
+                    if (ContextCompat.checkSelfPermission(
+                            this,
+                            Manifest.permission.READ_PHONE_STATE
+                        ) != PackageManager.PERMISSION_GRANTED
+                    )
+                        Toast.makeText(
+                            this,
+                            intent?.getIntExtra("permission granted", 0).toString(),
+                            Toast.LENGTH_SHORT
+                        ).show()
                 }
             }
         }
