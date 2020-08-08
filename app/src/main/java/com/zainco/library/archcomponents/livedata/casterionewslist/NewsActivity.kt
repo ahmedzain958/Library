@@ -35,12 +35,13 @@ class NewsActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.refresh -> {
                 newsViewModel.updateNewsArticles()
             }
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

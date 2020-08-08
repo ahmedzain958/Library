@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:bind="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -14,9 +17,7 @@
             type="com.zainco.library.databinding.ex2.view.MyClickHandlers" />
     </data>
 
-    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -56,7 +57,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:onClick="@{handlers::onProfileFabClicked}"
-                        android:src="@drawable/ic_add_white"
+                        app:srcCompat="@drawable/ic_add_white"
                         app:fabCustomSize="@dimen/fab_profile" />
 
                 </RelativeLayout>
@@ -108,7 +109,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:text="@{BindingUtils.convertToSuffix(user.numberOfPosts)}"
                         android:textColor="@color/profile_meta"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:textStyle="normal" />
 
                     <TextView
@@ -133,7 +134,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:text="@{BindingUtils.convertToSuffix(user.numberOfFollowers)}"
                         android:textColor="@color/profile_meta"
-                        android:textSize="24dp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:layout_width="wrap_content"

@@ -25,7 +25,6 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
-        android:name=".runningtracker.BaseApplication"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:icon="@mipmap/ic_launcher"
@@ -37,7 +36,6 @@
 
         </activity>
         <activity android:name=".archcomponents.paging.listtopagelist.ListToPagelistActivity"></activity>
-        <activity android:name=".runningtracker.MvvmRunningTrackerActivity"></activity>
         <activity android:name=".SendEmailActivity" />
         <activity android:name=".coroutines.flow.mindorks.FlowExample1Activity" />
         <activity android:name=".coroutines.androiddevs.LifecyclescopeViewmodelscopeActivity" />
@@ -71,21 +69,11 @@
         <activity android:name=".coroutines.androiddevs.CoroutinesActivity" />
         <activity android:name=".fab.FabActivity" />
         <activity android:name=".espressotest.EsspressoMainActivity" />
-        <activity
-            android:name=".salaty.ui.fragments.ScrollingActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".mediaplayer.PlayPauseActivity" />
         <activity android:name=".services.neverending.NeverEndingActivity" />
-
-        <receiver
-            android:name=".salaty.AzanBroadcastReceiver"
-            android:exported="true" />
-
-        <activity android:name=".salaty.ui.AzanActivity" />
         <activity android:name=".githubbrowsersample.GithubBrowserSampleSearchActivity" />
         <activity android:name=".services.codinginflow.ForegroundServiceActivity" />
         <activity android:name=".notifications.codinginflow.NotificationsCodingInFlowActivity" />
-
         <receiver android:name=".broadcastreceiver.pluralsight.withpermissions.IncomingReceiver">
             <intent-filter>
 
@@ -196,14 +184,12 @@
         <activity android:name=".firebase.remoteconfig.RemoteConfigEDMTVActivity" />
         <activity android:name=".permissions.PermissionsActivity" />
         <activity android:name=".texttospeech.TextToSpeechActivity" />
-        <activity android:name=".dagger.mitch.ui.main.MitchDaggerMainActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.mediator.MediatorLiveDataActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonActivity" />
         <activity android:name=".archcomponents.livedata.livedatatransformations.PokemonDetailActivity" />
         <activity android:name=".archcomponents.livedata.extendinglivedatausingsensor.SensorLiveDataActivity" />
         <activity android:name=".rxjava2.hotobservables.HotObservablesActivity" />
         <activity android:name=".archcomponents.lifecycle.casterio.deepdive.LifecycleActivity" />
-        <activity android:name=".dagger.mitch.ui.auth.AuthActivity" />
         <activity
             android:name=".databinding.ex2.view.ProfileActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -270,7 +256,6 @@
             android:enabled="true"
             android:exported="false" />
         <service android:name=".services.codinginflow.ExampleService" />
-        <service android:name=".salaty.AzanService" /> <!-- should make all brs android:exported="false" because it is by default true -->
         <receiver android:name=".permissions.outgoingcalls.CallDetector$OutgoingDetector" />
         <receiver android:name=".broadcastreceiver.pluralsight.MyFirstReceiver">
             <intent-filter>

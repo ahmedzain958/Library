@@ -22,8 +22,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.widget.TextView;
 
-import androidx.multidex.BuildConfig;
-
+import com.zainco.library.BuildConfig;
 import com.zainco.library.R;
 
 public class AboutActivity extends Activity {

@@ -20,7 +20,7 @@ public class CallDetector {
             sharedPreferences = ctx.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString(NUMBER_KEY, number);
-            editor.commit();
+            editor.apply();
         }
 
     }

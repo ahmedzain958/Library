@@ -24,7 +24,7 @@ class WorkManagerBlurrActivity : AppCompatActivity() {
         }
         //get uri from SelectImageActivity
         val imageUriExtra = intent.getStringExtra(Constants.KEY_IMAGE_URI)
-        viewModel.setImageUri(imageUriExtra)
+        viewModel.setImageUri(imageUriExtra!!)
         //display the image
         if (viewModel.getImageUri() != null) {
             Glide.with(this).load(viewModel.getImageUri()).into(image_view)
@@ -86,19 +86,19 @@ class WorkManagerBlurrActivity : AppCompatActivity() {
      * Shows and hides views for when the Activity is processing an image
      */
     fun showWorkInProgress() {
-        progress_bar.setVisibility(View.VISIBLE)
-        cancel_button.setVisibility(View.VISIBLE)
-        go_button.setVisibility(View.GONE)
-        see_file_button.setVisibility(View.GONE)
+        progress_bar.visibility = View.VISIBLE
+        cancel_button.visibility = View.VISIBLE
+        go_button.visibility = View.GONE
+        see_file_button.visibility = View.GONE
     }
 
     /**
      * Shows and hides views for when the Activity is done processing an image
      */
     fun showWorkFinished() {
-        progress_bar.setVisibility(View.GONE)
-        cancel_button.setVisibility(View.GONE)
-        go_button.setVisibility(View.VISIBLE)
+        progress_bar.visibility = View.GONE
+        cancel_button.visibility = View.GONE
+        go_button.visibility = View.VISIBLE
     }
 
     private fun getBlurLevel(): Int {

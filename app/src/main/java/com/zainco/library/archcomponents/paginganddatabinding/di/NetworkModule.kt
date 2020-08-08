@@ -1,7 +1,7 @@
 package com.zainco.library.archcomponents.paginganddatabinding.di
 
-import androidx.multidex.BuildConfig
 import com.google.gson.GsonBuilder
+import com.zainco.library.BuildConfig
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

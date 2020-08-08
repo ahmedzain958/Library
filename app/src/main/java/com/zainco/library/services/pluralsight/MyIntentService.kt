@@ -40,10 +40,13 @@ class MyIntentService : IntentService("MyWorkerThread") {
             }
             ctr++
         }
-        val bundle = Bundle()
-        bundle.putString("resultIntentService", "Counter Stopped at $ctr seconds")
-        resultReceiver.send(18, bundle)//this will trigger onReceiveResult method in the result receiver class
-    }
+    val bundle = Bundle()
+    bundle.putString("resultIntentService", "Counter Stopped at $ctr seconds")
+    resultReceiver?.send(
+        18,
+        bundle
+    )//this will trigger onReceiveResult method in the result receiver class
+}
 
     /*
     total log

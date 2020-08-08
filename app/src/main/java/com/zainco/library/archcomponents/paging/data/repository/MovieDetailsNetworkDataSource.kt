@@ -32,12 +32,14 @@ class MovieDetailsNetworkDataSource(
                         _networkState.postValue(NetworkState.LOADED)
                     }, {
                         _networkState.postValue(NetworkState.ERROR)
-                        Log.e("MovieDetailsDataSource", it.message)
+                        it.message?.let { message ->
+                            Log.e("MovieDetailsDataSource", message)
+                        }
                     })
 
             )
         } catch (e: Exception) {
-            Log.e("MovieDetailsDataSource", e.message)
+            Log.e("MovieDetailsDataSource", e.message!!)
         }
     }
 }

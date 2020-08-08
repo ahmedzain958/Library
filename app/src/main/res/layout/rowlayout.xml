@@ -35,8 +35,7 @@
             android:ellipsize="marquee"
             android:text="@{obj.celsius}"
             android:textSize="12sp"
-            android:maxLines="1"
-            />
+            android:singleLine="true" />
 
         <TextView
             android:id="@+id/firstLine"

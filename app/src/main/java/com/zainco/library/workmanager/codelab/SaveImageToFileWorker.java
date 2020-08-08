@@ -55,7 +55,7 @@ public class SaveImageToFileWorker extends Worker {
     private static final String TAG = SaveImageToFileWorker.class.getSimpleName();
 
     private static final String TITLE = "Blurred Image";
-    private static final SimpleDateFormat DATE_FORMATTER =
+    private SimpleDateFormat DATE_FORMATTER =
             new SimpleDateFormat("yyyy.MM.dd 'at' HH:mm:ss z", Locale.getDefault());
 
     @NonNull
