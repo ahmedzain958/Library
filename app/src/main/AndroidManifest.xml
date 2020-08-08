@@ -25,7 +25,6 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
-        android:name=".runningtracker.BaseApplication"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:icon="@mipmap/ic_launcher"
@@ -37,7 +36,6 @@
 
         </activity>
         <activity android:name=".archcomponents.paging.listtopagelist.ListToPagelistActivity"></activity>
-        <activity android:name=".runningtracker.MvvmRunningTrackerActivity"></activity>
         <activity android:name=".SendEmailActivity" />
         <activity android:name=".coroutines.flow.mindorks.FlowExample1Activity" />
         <activity android:name=".coroutines.androiddevs.LifecyclescopeViewmodelscopeActivity" />
