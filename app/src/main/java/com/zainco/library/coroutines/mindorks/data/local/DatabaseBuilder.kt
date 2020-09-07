@@ -2,6 +2,7 @@ package com.mindorks.example.coroutines.data.local
 
 import android.content.Context
 import androidx.room.Room
+import com.zainco.library.coroutines.mindorks.data.local.AppDatabase
 
 object DatabaseBuilder {
 
