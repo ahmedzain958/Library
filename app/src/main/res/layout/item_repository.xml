@@ -25,8 +25,8 @@
         <androidx.appcompat.widget.AppCompatImageButton
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/ic_bookmark_plus"
-                android:background="?attr/selectableItemBackgroundBorderless"
+            app:srcCompat="@drawable/ic_bookmark_plus"
+            android:background="?attr/selectableItemBackgroundBorderless"
                 android:onClick="@{() -> vm  != null ? vm.saveToBookmark(item) : void}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"

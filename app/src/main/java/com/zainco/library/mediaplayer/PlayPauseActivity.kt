@@ -110,7 +110,7 @@ class PlayPauseActivity : AppCompatActivity() {
             mPlayer = null
             Toast.makeText(this, "Stop playing.", Toast.LENGTH_SHORT).show()
             if (mHandler != null) {
-                mHandler?.removeCallbacks(mRunnable)
+                mHandler?.removeCallbacks(mRunnable!!)
             }
         }
 
@@ -135,8 +135,8 @@ class PlayPauseActivity : AppCompatActivity() {
 
                 getAudioStats()
             }
-            mHandler?.postDelayed(mRunnable, mInterval)
+            mHandler?.postDelayed(mRunnable!!, mInterval)
         }
-        mHandler?.postDelayed(mRunnable, mInterval)
+        mHandler?.postDelayed(mRunnable!!, mInterval)
     }
 }

@@ -26,8 +26,10 @@ fun main() {
 
     //let for null checks
 
-    var name : String? = "Kotlin let null check"
+    var name: String? = "Kotlin let null check"
     name?.let { println(it) } //prints Kotlin let null check
     name = null
-    name?.let { println(it) } //nothing happens
+    name?.let {
+//        println(it)
+    } //nothing happens
 }

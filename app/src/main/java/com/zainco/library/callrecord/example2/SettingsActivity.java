@@ -28,8 +28,7 @@ import android.preference.PreferenceActivity;
 import android.text.Html;
 import android.util.Log;
 
-import androidx.multidex.BuildConfig;
-
+import com.zainco.library.BuildConfig;
 import com.zainco.library.R;
 
 import java.io.File;

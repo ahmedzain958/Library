@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -17,7 +18,7 @@ import java.util.TimerTask;
  */
 public class SensorService extends Service {
     public int counter = 0;
-    SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
+    SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
     private Timer timer;
     private TimerTask timerTask;
 
