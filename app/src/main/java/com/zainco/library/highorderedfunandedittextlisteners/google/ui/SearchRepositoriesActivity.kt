@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.zainco.library.highorderedfunandedittextlisteners.ui
+package com.zainco.library.highorderedfunandedittextlisteners.google.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -26,9 +26,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.zainco.library.highorderedfunandedittextlisteners.Injection
 import com.zainco.library.R
-import com.zainco.library.highorderedfunandedittextlisteners.model.Repo
+import com.zainco.library.highorderedfunandedittextlisteners.google.Injection
+import com.zainco.library.highorderedfunandedittextlisteners.google.model.Repo
 import kotlinx.android.synthetic.main.activity_search_repositories.*
 
 class SearchRepositoriesActivity : AppCompatActivity() {
@@ -75,7 +75,7 @@ class SearchRepositoriesActivity : AppCompatActivity() {
     private fun initSearch(query: String) {
         search_repo.setText(query)
 
-        search_repo.setImeActionLabel("Reply", EditorInfo.IME_ACTION_UNSPECIFIED);
+        search_repo.setImeActionLabel("Reply", EditorInfo.IME_ACTION_UNSPECIFIED)
         search_repo.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_GO) {
                 updateRepoListFromInput()

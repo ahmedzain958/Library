@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.zainco.library.highorderedfunandedittextlisteners.db
+package com.zainco.library.highorderedfunandedittextlisteners.google.db
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import com.zainco.library.highorderedfunandedittextlisteners.model.Repo
+import com.zainco.library.highorderedfunandedittextlisteners.google.model.Repo
 import java.util.concurrent.Executor
 
 /**

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.zainco.library.highorderedfunandedittextlisteners.model
+package com.zainco.library.highorderedfunandedittextlisteners.google.model
 
 import androidx.lifecycle.LiveData
 

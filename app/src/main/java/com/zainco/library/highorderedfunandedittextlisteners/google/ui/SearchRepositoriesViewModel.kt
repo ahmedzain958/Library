@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.zainco.library.highorderedfunandedittextlisteners.ui
+package com.zainco.library.highorderedfunandedittextlisteners.google.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.zainco.library.highorderedfunandedittextlisteners.data.GithubRepository
-import com.zainco.library.highorderedfunandedittextlisteners.model.Repo
-import com.zainco.library.highorderedfunandedittextlisteners.model.RepoSearchResult
+import com.zainco.library.highorderedfunandedittextlisteners.google.data.GithubRepository
+import com.zainco.library.highorderedfunandedittextlisteners.google.model.Repo
+import com.zainco.library.highorderedfunandedittextlisteners.google.model.RepoSearchResult
 
 /**
  * ViewModel for the [SearchRepositoriesActivity] screen.

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.zainco.library.highorderedfunandedittextlisteners.ui
+package com.zainco.library.highorderedfunandedittextlisteners.google.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.zainco.library.highorderedfunandedittextlisteners.data.GithubRepository
+import com.zainco.library.highorderedfunandedittextlisteners.google.data.GithubRepository
 
 /**
  * Factory for ViewModels

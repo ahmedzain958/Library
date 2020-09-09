@@ -206,7 +206,7 @@
             android:name=".databinding.ex1.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".archcomponents.livedata.casterionewslist.NewsActivity" />
-        <activity android:name=".highorderedfunandedittextlisteners.ui.SearchRepositoriesActivity" />
+        <activity android:name=".highorderedfunandedittextlisteners.google.ui.SearchRepositoriesActivity" />
         <activity android:name=".archcomponents.paginganddatabinding.ui.search.SearchActivity" />
         <activity android:name=".archcomponents.paginganddatabinding.ui.bookmark.BookmarkActivity" />
         <activity android:name=".databinding.alimuzaffar.mvvmloadingbaseobservable.DogBreedsActivity" />

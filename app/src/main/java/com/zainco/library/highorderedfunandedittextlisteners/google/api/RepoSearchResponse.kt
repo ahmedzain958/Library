@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.zainco.library.highorderedfunandedittextlisteners.api
+package com.zainco.library.highorderedfunandedittextlisteners.google.api
 
-import com.zainco.library.highorderedfunandedittextlisteners.model.Repo
 import com.google.gson.annotations.SerializedName
+import com.zainco.library.highorderedfunandedittextlisteners.google.model.Repo
 
 /**
  * Data class to hold repo responses from searchRepo API calls.

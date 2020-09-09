@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.zainco.library.highorderedfunandedittextlisteners
+package com.zainco.library.highorderedfunandedittextlisteners.google
 
 import android.content.Context
 import androidx.lifecycle.ViewModelProvider
-import com.zainco.library.highorderedfunandedittextlisteners.api.GithubService
-import com.zainco.library.highorderedfunandedittextlisteners.data.GithubRepository
-import com.zainco.library.highorderedfunandedittextlisteners.db.GithubLocalCache
-import com.zainco.library.highorderedfunandedittextlisteners.db.RepoDatabase
-import com.zainco.library.highorderedfunandedittextlisteners.ui.ViewModelFactory
+import com.zainco.library.highorderedfunandedittextlisteners.google.api.GithubService
+import com.zainco.library.highorderedfunandedittextlisteners.google.data.GithubRepository
+import com.zainco.library.highorderedfunandedittextlisteners.google.db.GithubLocalCache
+import com.zainco.library.highorderedfunandedittextlisteners.google.db.RepoDatabase
+import com.zainco.library.highorderedfunandedittextlisteners.google.ui.ViewModelFactory
 import java.util.concurrent.Executors
 
 /**

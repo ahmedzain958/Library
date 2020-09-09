@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.zainco.library.highorderedfunandedittextlisteners.ui
+package com.zainco.library.highorderedfunandedittextlisteners.google.ui
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.zainco.library.highorderedfunandedittextlisteners.model.Repo
+import com.zainco.library.highorderedfunandedittextlisteners.google.model.Repo
 
 /**
  * Adapter for the list of repositories.

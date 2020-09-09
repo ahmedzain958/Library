@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.zainco.library.highorderedfunandedittextlisteners.db
+package com.zainco.library.highorderedfunandedittextlisteners.google.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.zainco.library.highorderedfunandedittextlisteners.model.Repo
+import com.zainco.library.highorderedfunandedittextlisteners.google.model.Repo
 
 /**
  * Room data access object for accessing the [Repo] table.

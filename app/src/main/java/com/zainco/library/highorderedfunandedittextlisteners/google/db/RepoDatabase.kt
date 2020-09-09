@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.zainco.library.highorderedfunandedittextlisteners.db
+package com.zainco.library.highorderedfunandedittextlisteners.google.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.zainco.library.highorderedfunandedittextlisteners.model.Repo
+import com.zainco.library.highorderedfunandedittextlisteners.google.model.Repo
 
 /**
  * Database schema that holds the list of repos.

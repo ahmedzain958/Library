@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.zainco.library.highorderedfunandedittextlisteners.api
+package com.zainco.library.highorderedfunandedittextlisteners.google.api
 
 import android.util.Log
-import com.zainco.library.highorderedfunandedittextlisteners.model.Repo
+import com.zainco.library.highorderedfunandedittextlisteners.google.model.Repo
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level

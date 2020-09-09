@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.zainco.library.highorderedfunandedittextlisteners.data
+package com.zainco.library.highorderedfunandedittextlisteners.google.data
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.zainco.library.highorderedfunandedittextlisteners.db.GithubLocalCache
-import com.zainco.library.highorderedfunandedittextlisteners.api.GithubService
-import com.zainco.library.highorderedfunandedittextlisteners.api.searchRepos
-import com.zainco.library.highorderedfunandedittextlisteners.model.RepoSearchResult
+import com.zainco.library.highorderedfunandedittextlisteners.google.api.GithubService
+import com.zainco.library.highorderedfunandedittextlisteners.google.api.searchRepos
+import com.zainco.library.highorderedfunandedittextlisteners.google.db.GithubLocalCache
+import com.zainco.library.highorderedfunandedittextlisteners.google.model.RepoSearchResult
 
 /**
  * Repository class that works with local and remote data sources.
