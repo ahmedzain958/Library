@@ -6,17 +6,23 @@ package com.zainco.library.problemsolving.hackerrank.interviewpreparation.arrays
 import java.util.*
 
 // Complete the rotLeft function below.
-fun rotLeft(a: Array<Int>, d: Int): Array<Int> {
+fun rotLeft(a: Array<Int>, d: Int): IntArray {
     val arrayLength = a.size
-    for (j in 1..d) {
-        val firstElement = a[0]
-        for (i in 0 until arrayLength) {
-            if (i < arrayLength - 1) {
-                a[i] = a[i + 1]
-            } else a[arrayLength - 1] = firstElement
-        }
+    val rotatedArray = IntArray(arrayLength)
+    var rotatedIndex = d
+    var i = 0
+    while (rotatedIndex < arrayLength) {//while shifted index still doesn't reach the end of the array
+        rotatedArray[i] = a[rotatedIndex]
+        i++
+        rotatedIndex++
     }
-    return a
+    rotatedIndex = 0
+    while (rotatedIndex < d) {
+        rotatedArray[i] = a[rotatedIndex]
+        i++
+        rotatedIndex++
+    }
+    return rotatedArray
 }
 
 fun main() {
