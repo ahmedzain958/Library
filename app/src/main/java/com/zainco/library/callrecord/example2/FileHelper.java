@@ -70,23 +70,17 @@ class FileHelper {
             return res;
         }
         Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
-        String[] projection = new String[]{
-                ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
-                ContactsContract.CommonDataKinds.Phone.NUMBER};
-        Cursor names = context.getContentResolver().query(uri, projection,
-                null, null, null);
+        String[] projection = new String[]{ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, ContactsContract.CommonDataKinds.Phone.NUMBER};
+        Cursor names = context.getContentResolver().query(uri, projection, null, null, null);
         if (names == null)
             return res;
-
         int indexName = names.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
         int indexNumber = names.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-
         if (names.getCount() > 0) {
             names.moveToFirst();
             do {
                 String name = names.getString(indexName);
                 String number = cleanNumber(names.getString(indexNumber));
-
                 if (PhoneNumberUtils.compare(number, phoneNum)) {
                     res = name;
                     break;
@@ -94,7 +88,6 @@ class FileHelper {
             } while (names.moveToNext());
         }
         names.close();
-
         return res;
     }
 

@@ -56,8 +56,13 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
     }
 
     override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
-        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-            AppSettingsDialog.Builder(this).build().show()
+        if (EasyPermissions.somePermissionPermanentlyDenied(
+                this,
+                perms/*the denied permissions*/
+            )
+        ) {
+            AppSettingsDialog.Builder(this).build()
+                .show()//lead the user to app settings to allow permissions again if you p denied them
         } else {//denied for the first time or not permanent
             requestPermissions()
         }
@@ -69,6 +74,11 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+        EasyPermissions.onRequestPermissionsResult(
+            requestCode,
+            permissions,
+            grantResults,
+            this
+        )//this is the fragment that will receive results of our request
     }
 }

@@ -16,8 +16,7 @@ class ReadPhoneStateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_read_phone_state)
         if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.READ_PHONE_STATE
+                this, Manifest.permission.READ_PHONE_STATE
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(

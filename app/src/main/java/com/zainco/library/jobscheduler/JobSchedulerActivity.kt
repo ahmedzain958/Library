@@ -30,7 +30,7 @@ class JobSchedulerActivity : AppCompatActivity() {
             .setPersisted(true/*keep our job alive even if we rebooted the device*/)
             /*no ultimate control when exactly will it be executed, it is only guaranteed that it will be executed within this period
             * because the system tries to be intelligent about executing these jobs to save battery and memory
-            * can't be lowe than 15 min and if you tried to set this lower than 15 min it will be set to 15 min internally*/
+            * can't be lower than 15 min and if you tried to set this lower than 15 min it will be set to 15 min internally*/
             .setPeriodic(15 * 60 * 1000)/*defines how often we want to execute this job*/
             .build()
         val scheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler

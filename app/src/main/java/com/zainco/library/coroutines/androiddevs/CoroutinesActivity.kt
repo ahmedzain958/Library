@@ -6,7 +6,9 @@ import com.zainco.library.R
 import kotlinx.coroutines.delay
 
 /*
-* Dispatchers: Dispatchers help coroutines in deciding the thread on which the work has to be done. There are majorly three types of Dispatchers which are as IO, Default, and Main. IO dispatcher is used to do the network and disk-related work. Default is used to do the CPU intensive work. Main is the UI thread of Android. In order to use these, we need to wrap the work under the async function. Async function looks like below.
+* Dispatchers: Dispatchers help coroutines in deciding the thread on which the work has to be done. There are majorly three types of Dispatchers which are as IO, Default, and Main.
+* IO dispatcher is used to do the network and disk-related work. Default is used to do the CPU intensive work. Main is the UI thread of Android. In order to use these,
+* we need to wrap the work under the async function. Async function looks like below.
 suspend: Suspend function is a function that could be started, paused, and resume.*/
 /*
 * difference between thread.sleep() and coroutines delay() method :
@@ -36,14 +38,14 @@ class CoroutinesActivity : AppCompatActivity() {
         }
         d(TAG, "hello from ${Thread.currentThread().name}")
 
-        GlobalScope.launch {//both answer will display after  6 seconds
+        GlobalScope.launch {//both answer will display after 6 seconds
             val doNetworkCall = doNetworkCall()//this will influence the second delay
             val doNetworkCall2 = doNetworkCall2()//will be affected by the first delay
             d(TAG, doNetworkCall)
             d(TAG, doNetworkCall2)
         }
-/*
-        //Coroutines run in specific contexts; contexts will descibe in which thread our coroutine will be started in
+
+        //Coroutines run in specific contexts; contexts will describe in which thread our coroutine will be started in
         GlobalScope.launch(Dispatchers.Main) {
             //do ui operations from within ur coroutine, caz u can only change ur ui from ur main thread   }
         }
@@ -55,7 +57,8 @@ class CoroutinesActivity : AppCompatActivity() {
         }
         GlobalScope.launch(newSingleThreadContext("MyThread")) {
             //runs coroutines in that new thread
-        }*/
+        }
+        //video 4
         GlobalScope.launch(Dispatchers.IO) {
             val answer = doNetworkCall()//this is ex makes a network call for 3 secs
             withContext(Dispatchers.Main) {
@@ -65,7 +68,7 @@ class CoroutinesActivity : AppCompatActivity() {
         }
 */
 /*
-* withContext is nothing but another way of writing the async where we do not have to write await().
+ withContext is nothing but another way of writing the async where we do not have to write await().
 
 suspend fun fetchUser(): User {
     return withContext(Dispatchers.IO) {
@@ -80,12 +83,13 @@ GlobalScope.launch(Dispatchers.Main) {
     val userTwo = withContext(Dispatchers.IO) { fetchSecondUser() }
     showUsers(userOne, userTwo) // back on UI thread
 }
-* When we use withContext, it will run in series instead of parallel. That is a major difference
-* */
+ When we use withContext, it will run in series instead of parallel. That is a major difference
+*/
 /*
-        // video 4 :runBlocking starts coroutines in the main thread and also blocks the thread unlike delay inside global scope
+        // video 5 :runBlocking starts coroutines in the main thread and also blocks the thread unlike delay inside global scope
         runBlocking {
             //actually blocks the main thread
+            delay(100L)
             delay(100L)
         }
         // delay here in this fn doesn't block, we can still use our ui
@@ -100,13 +104,12 @@ GlobalScope.launch(Dispatchers.Main) {
               Log.d(TAG, "start Globalscope.launch")
               delay(3000L)
               Log.d(TAG, "end Globalscope.launch")
-
           }
           Log.d(TAG, "after Globalscope.launch")
           prints the following
            2020-05-27 22:55:57.556 21493-21493/com.zainco.library D/CoroutinesActivitys: before Globalscope.launch
            2020-05-27 22:55:58.378 21493-21493/com.zainco.library D/CoroutinesActivitys: after Globalscope.launch
-           //the upper 2 lines means that Globalscope {} block doesn't block the main thread
+           //the upper 2 lines means that Globalscope {} block doesn't block the main thread although it has a delay(3000)
            2020-05-27 22:55:58.581 21493-21493/com.zainco.library D/CoroutinesActivitys: start Globalscope.launch
            2020-05-27 22:56:01.584 21493-21493/com.zainco.library D/CoroutinesActivitys: end Globalscope.launch*/
 
@@ -144,8 +147,8 @@ GlobalScope.launch(Dispatchers.Main) {
  }
  Log.d(TAG, "after  runblocking")
 
- 2020-06-22 03:02:51.783 628-628/com.zainco.library D/CoroutinesActivitys: before  runblocking
-2020-02 03:02:51.885 628-628/com.zainco.library D/CoroutinesActivitys: start  runblocking
+2020-06-22 03:02:51.783 628-628/com.zainco.library D/CoroutinesActivitys: before  runblocking
+2020-02    03:02:51.885 628-628/com.zainco.library D/CoroutinesActivitys: start  runblocking
 2020-06-22 03:02:54.893 628-697/com.zainco.library D/CoroutinesActivitys: finished  IO coroutine 1
 2020-06-22 03:02:54.896 628-697/com.zainco.library D/CoroutinesActivitys: finished  IO coroutine 2
 2020-06-22 03:02:56.889 628-628/com.zainco.library D/CoroutinesActivitys: end  runblocking
@@ -155,12 +158,12 @@ GlobalScope.launch(Dispatchers.Main) {
 
     suspend fun doNetworkCall(): String {
         delay(3000L)
-        return "method take some time to get the answer - this is the answer"
+        return "method doNetworkCall take some time to get the answer - this is the answer"
     }
 
     suspend fun doNetworkCall2(): String {
         delay(3000L)
-        return "method take some time to get the answer - this is the answer"
+        return "method doNetworkCall2 take some time to get the answer - this is the answer"
     }
 }
 /*Mindorks

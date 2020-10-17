@@ -13,7 +13,7 @@ import com.zainco.library.R;
 
 import static com.zainco.library.services.codinginflow.ForegroundServiceActivity.CHANNEL_ID;
 
-public class ExampleService extends Service {
+public class ExampleForegroundService extends Service {
 
     @Override
     public void onCreate() {
@@ -37,7 +37,7 @@ public class ExampleService extends Service {
                 //to open this activity for this pending intent
                 .setContentIntent(pendingIntent)
                 .build();
-//normally to start a notification we call notificationManager.notify() but here it the service starts it itself
+//normally to start a notification we call notificationManager.notify() but here the service starts itself
         //if startForeground hasn't called before 5 secs the service will be stopped
         startForeground(1, notification);
 

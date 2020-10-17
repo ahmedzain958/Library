@@ -12,7 +12,7 @@ class MyBoundService : Service() {
         }
     }
 
-    override fun onBind(intent: Intent?): IBinder {
+    override fun onBind(intent: Intent?): IBinder/*bound service onBind() method should never return null*/ {
         return MyLocalBinder()
     }
 

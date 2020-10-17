@@ -14,24 +14,30 @@ import kotlinx.android.synthetic.main.activity_bound_service_plural_sight.*
 class BoundServicePluralSightActivity : AppCompatActivity() {
     var isBound = false
     lateinit var myBoundService: MyBoundService
-    val serviceConnection = object : ServiceConnection {
-        override fun onServiceDisconnected(name: ComponentName?) {
-            isBound = false
-        }
 
-        override fun onServiceConnected(name: ComponentName?, iBinder: IBinder?) {
-            val myLocalBinder = iBinder as MyBoundService.MyLocalBinder
-            myBoundService = myLocalBinder.getService()
-            isBound = true
+    // to establish a connection between the calling component and the service, we need to make use of a special class of ServiceConnection
+    val serviceConnection =
+        object : ServiceConnection /*when a service disconnected to the activity*/ {
+            override fun onServiceDisconnected(name: ComponentName?) {
+                isBound = false
+            }
+
+            override fun onServiceConnected(
+                name: ComponentName?,
+                iBinder: IBinder?
+            )/*when a connection established between the activity and the service*/ {
+                val myLocalBinder = iBinder as MyBoundService.MyLocalBinder
+                myBoundService = myLocalBinder.getService()
+                isBound = true
+            }
         }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bound_service_plural_sight)
     }
 
-    override fun onStart() {
+    override fun onStart() {// whenever this activ. starts we need it to bind to the service
         super.onStart()
         val intent = Intent(this@BoundServicePluralSightActivity, MyBoundService::class.java)
         //whenever this method is executed the onBind() method in service class is also executed

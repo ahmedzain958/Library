@@ -34,7 +34,8 @@ class DynamicReceiverActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
 /*if forget to unregister
-* leaked IntentReceiver com.zainco.library.broadcastreceiver.pluralsight.dynamicreceiver.DynamicReceiverActivity$DynamicReciever@f324c0b that was originally registered here. Are you missing a call to unregisterReceiver()*/
+* leaked IntentReceiver com.zainco.library.broadcastreceiver.pluralsight.dynamicreceiver.DynamicReceiverActivity$DynamicReciever@f324c0b
+*  that was originally registered here. Are you missing a call to unregisterReceiver()*/
         unregisterReceiver(dynamicReciever)
         unregisterReceiver(dynamicTimerReciever)
     }

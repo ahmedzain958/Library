@@ -325,6 +325,13 @@ features available.]]>
     <!--    running tracker-->
     <string name="google_maps_key">AIzaSyDWFqTINWluWLpFU_v1mJjTl1EIl6Ppsgg</string>
 
+    <string name="none">None</string>
+    <string name="speech_toggle_on">START SPEAKING</string>
+    <string name="speech_toggle_off">STOP SPEAKING</string>
+
+    <!-- <string name="start_speaking">Okay! I will read your messages out loud for you now.</string>
+     <string name="stop_speaking">Okay! I will stay silent now.</string>-->
+
     <string-array name="filter_options">
         <item>Date</item>
         <item>Running Time</item>

@@ -38,11 +38,9 @@ fun main(args: Array<String>) {
     val t = scan.nextLine().trim().toInt()
     for (tItr in 1..t) {
         val n = scan.nextInt()
-        var q = IntArray(n)
-        for (i in 0 until n) {
-            val line = readLine()
-            q = line?.split(" ")?.map { it.trim().toInt() }?.toIntArray()!!
-        }
+        val q = IntArray(n)
+        for (i in 0 until n)
+            q[i] = scan.nextInt()
         minimumBribes(q)
     }
 }

@@ -1,6 +1,7 @@
 package com.zainco.library.androiddevsrunningtracker
 
 import android.app.Application
+import com.zainco.library.BuildConfig
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
@@ -13,6 +14,7 @@ class MvvmRunningTrackerBaseApplication : Application() {
     //all app module dependencies will live as long the application lives
     override fun onCreate() {
         super.onCreate()
-        Timber.plant(Timber.DebugTree())
+        if (BuildConfig.DEBUG)
+            Timber.plant(Timber.DebugTree())
     }
 }

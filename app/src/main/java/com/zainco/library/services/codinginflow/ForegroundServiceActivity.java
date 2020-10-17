@@ -41,16 +41,16 @@ public class ForegroundServiceActivity extends AppCompatActivity {
     public void startService(View v) {
         String input = editTextInput.getText().toString();
 
-        Intent serviceIntent = new Intent(this, ExampleService.class);
+        Intent serviceIntent = new Intent(this, ExampleForegroundService.class);
         serviceIntent.putExtra("inputExtra", input);
 /*tells the system to start foreground service as soon as possible it gives 5 secs to call startForeground(1, notification);
- from inside the service if not the system will kill your service immediately*/
+ from inside the service, if not the system will kill your service immediately*/
         ContextCompat.startForegroundService(this, serviceIntent);//used from API level 26 onwards otherwise earlier startService()
         //startForegroundService used to start the service if the app isnt in the foreground
     }
 
     public void stopService(View v) {
-        Intent serviceIntent = new Intent(this, ExampleService.class);
+        Intent serviceIntent = new Intent(this, ExampleForegroundService.class);
         stopService(serviceIntent);
     }
 }
