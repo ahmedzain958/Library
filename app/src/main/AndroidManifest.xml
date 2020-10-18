@@ -24,11 +24,10 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- to starttforegroundservice if u target sdk 28 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!-- api 29: explicitly request location permission from user in a service if you are tracking his location in the background -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- api 29: explicitly request location permission from user in a service if you are tracking his location in the background -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />  <!-- is only needed starting with android Q, but before we were tracking the location by default -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> <!-- is only needed starting with android Q, but before we were tracking the location by default -->
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
@@ -42,14 +41,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MvvmRunningAppTheme">
-        <activity android:name=".texttospeech.MessageAnnouncerActivity"></activity>
-        <activity android:name=".broadcastreceiver.screenon.BRListenWhenScreenOnActivity"></activity>
-        <activity android:name=".coroutines.TestCoroutinesActivity"></activity>
-        <activity android:name=".callintercept.CallInterceptActivity" />
-        <activity android:name=".androiddevsrunningtracker.ui.MvvmRunningTrackerActivity">
+        <activity android:name=".services.codetutor.CodeTutorServiceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".texttospeech.MessageAnnouncerActivity" />
+        <activity android:name=".broadcastreceiver.screenon.BRListenWhenScreenOnActivity" />
+        <activity android:name=".coroutines.TestCoroutinesActivity" />
+        <activity android:name=".callintercept.CallInterceptActivity" />
+        <activity android:name=".androiddevsrunningtracker.ui.MvvmRunningTrackerActivity"></activity>
         <activity android:name=".archcomponents.paging.listtopagelist.ListToPagelistActivity" />
         <activity android:name=".SendEmailActivity" />
         <activity android:name=".coroutines.flow.mindorks.FlowExample1Activity" />
@@ -119,7 +122,7 @@
         </service>
 
         <activity android:name=".audiorecord.edmt.AudioRecordEDMTActivity" /> <!-- call recorder -->
-        <activity android:name=".callrecord.example2.CallRecorderExample2MainActivity"></activity>
+        <activity android:name=".callrecord.example2.CallRecorderExample2MainActivity" />
         <activity
             android:name=".callrecord.example2.SettingsActivity"
             android:label="@string/menu_settings"
@@ -158,10 +161,6 @@
         <activity android:name=".services.pluralsight.ipc.MyMessengerActivity" />
         <activity android:name=".permissions.outgoingcalls.OutgoinCallActivity" />
         <activity android:name=".services.pluralsight.boundservice.BoundServicePluralSightActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".services.pluralsight.PluralSightServicesActivity" />
         <activity android:name=".threading.codinginflow.ExampleLooperThreadActivity" />

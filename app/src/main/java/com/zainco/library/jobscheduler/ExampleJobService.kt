@@ -12,6 +12,15 @@ class ExampleJobService : JobService() {
     val TAG = ExampleJobService::class.java.name
     var jobCancelled = false
 
+    /*
+       * if this task is short and can be executed in the scope of this method we have to return false
+       * this tells the system that out job is over when this method is over*/
+    override fun onStartJob(params: JobParameters?): Boolean {
+        Log.d(TAG, "Job started")
+        doBackgroundWork(params)
+        return true //for long running operation
+    }
+
     /*this method gets called by the system when our job gets cancelled , for example if we wanted to execute our job when we have WIFI connection
     * and the user turns off WIFI*/
     override fun onStopJob(params: JobParameters?): Boolean {
@@ -36,12 +45,4 @@ class ExampleJobService : JobService() {
 
     }
 
-    /*
-       * if this task is short and can be executed in the scope of this method we have to return false
-       * this tells the system that out job is over when this method is over*/
-    override fun onStartJob(params: JobParameters?): Boolean {
-        Log.d(TAG, "Job started")
-        doBackgroundWork(params)
-        return true //for long running operation
-    }
 }

@@ -65,7 +65,7 @@ class PluralSightServicesActivity : AppCompatActivity() {
             super.onReceiveResult(resultCode, resultData)
             if (resultCode == 18 && resultData != null) {
                 val result = resultData.getString("resultIntentService")
-                //onReceiveResult also works in worker thread so we can access ui elements
+                //onReceiveResult also works in worker thread so we can access ui elements using
                 button9.post {
                     button9.text = result// button9 text will be "Counter stopped at 10 seconds
                 }
