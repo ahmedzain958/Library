@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.zainco.library.R
-import kotlinx.android.synthetic.main.activity_flow_example1.*
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.map
+
 /*
 * If you are an Android developer and looking to build an app asynchronously you might be using RxJava as it has an operator for almost everything. RxJava has become one of the most important things to know in Android.
 
@@ -31,27 +33,36 @@ So, in RxJava, Observables type is an example of a structure that represents a s
 * Flow works on the same condition where the code inside a flow builder does not run until the flow is collected.*/
 class FlowExample1Activity : AppCompatActivity() {
     private val TAG = FlowExample1Activity::class.java.name
+    lateinit var flow: Flow<Int>
 
     @InternalCoroutinesApi
     @ExperimentalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flow_example1)
-        CoroutineScope(Dispatchers.Main).launch {
-            flow {
-                Log.d(TAG, "Start flow")
-                (0..10).forEach {
-                    // Emit items with 500 milliseconds delay
-                    delay(500)
-                    Log.d(TAG, "Emitting $it")
-                    emit(it)
-                }
-            }.map {
-                it * it
-            }.flowOn(Dispatchers.Default).collect {
-                textView13.text = it.toString()
-            }
+        setupFlow()
+        /*CoroutineScope(Dispatchers.Main).launch {
+            flow.collect{
 
-        }
+            }
+        }*/
+    }
+
+    fun setupFlow() {
+        flow = flow {
+            Log.d(TAG, "Start flow")
+            (0..10).forEach {
+                // Emit items with 500 milliseconds delay
+                delay(500)
+                Log.d(TAG, "Emitting $it")
+                emit(it)
+
+            }
+        }.flowOn(Dispatchers.Default)
+    }
+
+    suspend fun getValues(): List<Int> {
+        delay(1000)
+        return listOf(1, 2, 3)
     }
 }

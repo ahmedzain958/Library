@@ -51,7 +51,7 @@ class TestCoroutinesActivity : AppCompatActivity() {
         /*equals to
         oncreate(){
           Timber.d("qq-start")
-            delay(3000L)//this is like calling delay() method inside oncreate() (mean inside main thread) but it can't be done bec. it won't be inside coroutines
+            delay(3000L)
             Timber.d( "qq-end ")
          }
          */
@@ -76,7 +76,7 @@ class TestCoroutinesActivity : AppCompatActivity() {
             Timber.d("xx- start  inside runblocking")
             launch(Dispatchers.IO) {
                 Timber.d("xx- start launch 1 inside runblocking")
-                delay(3000L)
+                delay(3000L)//this doesn't block the next  delay(3000L) inside the next launch
                 Timber.d("xx- end launch 1 inside runblocking")
             }
             launch(Dispatchers.IO) {

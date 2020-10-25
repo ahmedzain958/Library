@@ -86,7 +86,8 @@ GlobalScope.launch(Dispatchers.Main) {
  When we use withContext, it will run in series instead of parallel. That is a major difference
 */
 /*
-        // video 5 :runBlocking starts coroutines in the main thread and also blocks the thread unlike delay inside global scope
+        //runBlocking gives you  coroutines scope in =which we can execute a suspend function
+        // video 5 :runBlocking starts coroutines in the main thread and also its delay method blocks the thread unlike delay inside global scope
         runBlocking {
             //actually blocks the main thread
             delay(100L)
@@ -151,7 +152,7 @@ GlobalScope.launch(Dispatchers.Main) {
 2020-02    03:02:51.885 628-628/com.zainco.library D/CoroutinesActivitys: start  runblocking
 2020-06-22 03:02:54.893 628-697/com.zainco.library D/CoroutinesActivitys: finished  IO coroutine 1
 2020-06-22 03:02:54.896 628-697/com.zainco.library D/CoroutinesActivitys: finished  IO coroutine 2
-2020-06-22 03:02:56.889 628-628/com.zainco.library D/CoroutinesActivitys: end  runblocking
+2020-06-22 03:02:56.889 628-628/com.zainco.library D/CoroutinesActivitys: end  runblocking//after waiting the 5 secs
 2020-06-22 03:02:56.894 628-628/com.zainco.library D/CoroutinesActivitys: after  runblocking
 */
     }

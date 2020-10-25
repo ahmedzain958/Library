@@ -50,10 +50,7 @@
         <activity android:name=".archcomponents.paging.listtopagelist.ListToPagelistActivity" />
         <activity android:name=".SendEmailActivity" />
         <activity android:name=".coroutines.flow.mindorks.FlowExample1Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".coroutines.androiddevs.LifecyclescopeViewmodelscopeActivity" />
         <activity
@@ -80,7 +77,12 @@
         </activity>
         <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleFirstActivity" />
         <activity android:name=".coroutines.androiddevs.AsyncAndAwaitActivity" />
-        <activity android:name=".coroutines.androiddevs.JobsWaitingCancelationActivity" />
+        <activity android:name=".coroutines.androiddevs.JobsWaitingCancelationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".databinding.alimuzaffar.formemailvalidation.login.LoginActivity" />
         <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleSecondActivity" />
         <activity android:name=".coroutines.androiddevs.CoroutinesActivity" />
