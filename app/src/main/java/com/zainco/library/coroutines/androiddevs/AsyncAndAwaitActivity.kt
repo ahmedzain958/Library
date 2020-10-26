@@ -17,7 +17,7 @@ class AsyncAndAwaitActivity : AppCompatActivity() {
                val time = measureTimeMillis {
                    val answer1 = doNetworkCall1()
                    val answer2 = doNetworkCall2()
-                   //answer 1 and 2 won't be null cuz will wait till network call finish then assign values and cuz both called in same coroutines unlike the next ex.
+                   //answer 1 and 2 won't be null cuz will wait till network call finish then assign values and cuz both called in same coroutines and took 6 secs unlike the next ex.
                    Log.d(TAG, "ans 1 $answer1")
                    Log.d(TAG, "ans 2 $answer2")
                }
@@ -72,7 +72,7 @@ class AsyncAndAwaitActivity : AppCompatActivity() {
                 Log.d(
                     TAG,
                     "ans 1 ${answer1.await()}"
-                )//answer1 here is deferred but use answer1.await which will block this current  coroutine (GlobalScope.launch/GlobalScope.async) till the answer is available
+                )//answer1 here is deferred but use answer1.await which will block this current  coroutine (GlobalScope.launch/GlobalScope.async) till the answer is av'ailable
                 Log.d(TAG, "ans 2 ${answer2.await()}")
             }
             Log.d(TAG, "took $time")// as previous it prints 3 secs  but in a best way
