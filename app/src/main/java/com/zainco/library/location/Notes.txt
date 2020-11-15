@@ -1,0 +1,38 @@
+There are two ways to get the current location of any Android device:
+→ Android’s Location Manager API
+→ Fused Location Provider
+So we will take a look at both. Let’s start with the first one →
+· Android’s Location Manager API
+Before diving in the location manager and it’s listener firstly we need to understand that what are the provider’s available in our android device for location. There are two provider’s available in any device:
+GPS Provider
+Network Provider
+Both of them have their unique advantages, but we have to use both to get precise location coordinates. Because in some cases like in-door situations Network works and in other GPS works. The network gives the location based on the nearest mobile towers while GPS gives us the exact location.
+First of all, before implementing any method we have to take user permission:
+Location Permission
+To protect user privacy, apps that use location services must request location permissions. Therefore we have to set the two permissions in the Android Manifest file before starting anything.
+<!-- To request foreground location access, declare one of these permissions. -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<!-- Required only when requesting background location access on Android 10 (API level 29). -->
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+We may also ask for permission for Internet access as we are using the Network provider and also saving the coordinates in Firestore
+<uses-permission android:name="android.permission.INTERNET"/>
+We can check that if permissions are granted or not. If not granted then we can request permission in realtime.
+if(ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED            && ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
+ {
+ActivityCompat.requestPermissions(this,arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION,                    android.Manifest.permission.ACCESS_COARSE_LOCATION)
+,requestcode
+ }
+<!--Here above we checks first that if permission is not granted through ActivityCompat and then asks for permission in realtime by requestpermission which takes three arguement - Context, permission , RequestCode. -->
+
+Fused Location Provider is the Google Play services location APIs, your app can request the last known location of the user’s device.
+Use the fused location provider to retrieve the device’s last known location. The fused location provider is one of the location APIs in Google Play services. It provides a simple API so that you can specify requirements at a high level, like high accuracy or low power. It also optimizes the device’s use of battery power.
+First, we will create a fusedlocationcleint variable and then give it an instance of FusedLocationProviderClient inside the onCreate
+private lateinit var fusedLocationClient: FusedLocationProviderClient
+override fun onCreate(savedInstanceState: Bundle?) {
+<!--Inside the onCreate give the lateinitialized variable an instance of Fused Location -->
+fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+}
+Fused location provider API can broadly categorize two use cases.
+getLastLocation(GoogleApiClient) : It should be used when there is no need for continuous access to the location from an application.
+requestLocationUpdates(GoogleApiClient,LocationRequest, LocationListener) : It should be used when there a need for continuous location updates and the location is accessed when the application is active in the foreground.

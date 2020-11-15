@@ -41,22 +41,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MvvmRunningAppTheme">
-        <activity android:name=".coroutines.RunBlockingVsLaunchActivity">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+
+        <activity android:name=".ads.adaptivebanner.GoogleAdaptiveBannerActivity">
+
+        </activity>
+        <activity android:name=".coroutines.RunBlockingVsLaunchActivity"></activity>
+        <activity android:name=".services.codetutor.CodeTutorServiceActivity" />
+        <activity android:name=".texttospeech.MessageAnnouncerActivity" />
+        <activity android:name=".broadcastreceiver.screenon.BRListenWhenScreenOnActivity" />
+        <activity android:name=".coroutines.TestCoroutinesActivity" />
+        <activity android:name=".callintercept.CallInterceptActivity" />
+        <activity android:name=".androiddevsrunningtracker.ui.MvvmRunningTrackerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".services.codetutor.CodeTutorServiceActivity" />
-        <activity android:name=".texttospeech.MessageAnnouncerActivity" />
-        <activity android:name=".broadcastreceiver.screenon.BRListenWhenScreenOnActivity" />
-        <activity android:name=".coroutines.TestCoroutinesActivity" />
-        <activity android:name=".callintercept.CallInterceptActivity" />
-        <activity android:name=".androiddevsrunningtracker.ui.MvvmRunningTrackerActivity" />
         <activity android:name=".archcomponents.paging.listtopagelist.ListToPagelistActivity" />
         <activity android:name=".SendEmailActivity" />
-        <activity android:name=".coroutines.flow.mindorks.FlowExample1Activity"></activity>
+        <activity android:name=".coroutines.flow.mindorks.FlowExample1Activity" />
         <activity android:name=".coroutines.androiddevs.LifecyclescopeViewmodelscopeActivity" />
         <activity
             android:name=".androidstudioactvs.ASScrollingActivity"
@@ -82,8 +89,7 @@
         </activity>
         <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleFirstActivity" />
         <activity android:name=".coroutines.androiddevs.AsyncAndAwaitActivity" />
-        <activity android:name=".coroutines.androiddevs.JobsWaitingCancelationActivity">
-        </activity>
+        <activity android:name=".coroutines.androiddevs.JobsWaitingCancelationActivity"></activity>
         <activity android:name=".databinding.alimuzaffar.formemailvalidation.login.LoginActivity" />
         <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleSecondActivity" />
         <activity android:name=".coroutines.androiddevs.CoroutinesActivity" />
@@ -162,7 +168,7 @@
 
         <activity android:name=".services.pluralsight.ipc.MyMessengerActivity" />
         <activity android:name=".permissions.outgoingcalls.OutgoinCallActivity" />
-        <activity android:name=".services.pluralsight.boundservice.BoundServicePluralSightActivity"></activity>
+        <activity android:name=".services.pluralsight.boundservice.BoundServicePluralSightActivity" />
         <activity android:name=".services.pluralsight.PluralSightServicesActivity" />
         <activity android:name=".threading.codinginflow.ExampleLooperThreadActivity" />
         <activity android:name=".onnewintent.OnNewIntentActivity2" />
@@ -253,6 +259,7 @@
         <activity
             android:name="com.mindorks.example.coroutines.learn.task.twotasks.TwoLongRunningTasksActivity"
             android:label="@string/two_long_running_tasks" />
+        <activity android:name=".coroutines.raywenderlich.snowy.SnowySplashActivity"></activity>
 
         <service
             android:name=".jobscheduler.ExampleJobService"
@@ -319,6 +326,7 @@
             android:label="RestartServiceWhenStopped" />
 
         <service android:name=".services.neverending.SensorService" />
+        <service android:name=".androiddevsrunningtracker.services.TrackingService" />
 
         <meta-data
             android:name="zain"

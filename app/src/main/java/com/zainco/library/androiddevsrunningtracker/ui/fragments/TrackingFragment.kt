@@ -1,11 +1,14 @@
 package com.zainco.library.androiddevsrunningtracker.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.android.gms.maps.GoogleMap
 import com.zainco.library.R
+import com.zainco.library.androiddevsrunningtracker.other.Constants.ACTION_START_OR_RESUME_SERVICE
+import com.zainco.library.androiddevsrunningtracker.services.TrackingService
 import com.zainco.library.androiddevsrunningtracker.ui.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_tracking.*
@@ -20,10 +23,19 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
         super.onViewCreated(view, savedInstanceState)
         //mapview has its own lifecycle as well.Hence, we can synchronize its lifecycle events with the fragment lifecycle events
         mapView.onCreate(savedInstanceState)
+        btnToggleRun.setOnClickListener {
+            sendCommandToService(ACTION_START_OR_RESUME_SERVICE)
+        }
         mapView.getMapAsync { googleMap ->/*the loaded map*/
             map = googleMap
         }
     }
+
+    private fun sendCommandToService(action: String) =
+        Intent(requireContext(), TrackingService::class.java).also {
+            it.action = action
+            requireContext().startService(it)
+        }
 
     override fun onResume() {
         super.onResume()

@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 class MyViewModel : ViewModel() {
     // LiveData object as following
     var someLiveData: LiveData<Any> = MutableLiveData("Ahmed")
-
 }
 data class User(var name: String, var age: Int)
 
