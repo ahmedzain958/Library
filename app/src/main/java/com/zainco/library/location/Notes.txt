@@ -36,3 +36,18 @@ fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 Fused location provider API can broadly categorize two use cases.
 getLastLocation(GoogleApiClient) : It should be used when there is no need for continuous access to the location from an application.
 requestLocationUpdates(GoogleApiClient,LocationRequest, LocationListener) : It should be used when there a need for continuous location updates and the location is accessed when the application is active in the foreground.
+--------------
+setInterval vs setFastestInterval
+setInterval(long) means - set the interval in which you want to get locations.
+setFastestInterval(long) means - if a location is available sooner you can get it (i.e. another app is using the location services).
+For example, you start your application and register it via setInterval(60*1000), that means that you'll get updates every 60 seconds.
+
+Now you call setFastestInterval(10*1000). If you are the only app which use the location services you will continue to receive updates approximately every 60 seconds.
+If another app is using the location services with a higher rate of updates, you will get more location updates (but no more frequently that every 10 seconds).
+
+I believe that it has a good impact on battery life consumed by your app, you define the maximum amount of time that you can wait while saying that if an update is available,
+ you want it. The battery consumption will be credited to the app which requested the more frequent updates and not yours.
+- As pointed in other comments, you can also set option to get location updates if minimum distance criteria is met. Use mLocationRequest.setSmallestDisplacement(10.0) which means get location update only if displacement is 10 meters
+- If you are using setFastestInterval() together with the setInterval() the app will try to make a request for the time given in the setFastestInterval(), that's why your app makes a request every 2mins.
+- SetInterval (long millis) This interval is inexact. You may not receive updates at all (if no location sources are available), or you may receive them slower than requested. You may also receive them faster than requested (if other applications are requesting location at a faster interval). The fastest rate that that you will receive updates can be controlled with setFastestInterval(long). By default this fastest rate is 6x the interval frequency.
+ setFastestInterval (long millis) Unlike setInterval(long), this parameter is exact. Your application will never receive updates faster than this value. If you don't call this method, a fastest interval will be selected for you. It will be a value faster than your active interval (setInterval(long)).

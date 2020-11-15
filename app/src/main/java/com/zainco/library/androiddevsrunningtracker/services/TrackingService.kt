@@ -102,7 +102,7 @@ we will observe on livedata object inside this service and we tell the live data
         location?.let {
             val pos = LatLng(location.latitude, location.longitude)
             pathPoints.value?.apply {
-                //last element is a list
+                //last element is a list (at the beginning it will be the first element)
                 last().add(pos)
                 pathPoints.postValue(this)//our fragment will be notified by it later on
             }
