@@ -41,14 +41,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MvvmRunningAppTheme">
+        <activity android:name=".DeviceIdActivity"></activity>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
 
-        <activity android:name=".ads.adaptivebanner.GoogleAdaptiveBannerActivity">
-
-        </activity>
-        <activity android:name=".coroutines.RunBlockingVsLaunchActivity"></activity>
+        <activity android:name=".ads.adaptivebanner.GoogleAdaptiveBannerActivity"></activity>
+        <activity android:name=".coroutines.RunBlockingVsLaunchActivity" />
         <activity android:name=".services.codetutor.CodeTutorServiceActivity" />
         <activity android:name=".texttospeech.MessageAnnouncerActivity" />
         <activity android:name=".broadcastreceiver.screenon.BRListenWhenScreenOnActivity" />
@@ -89,7 +89,7 @@
         </activity>
         <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleFirstActivity" />
         <activity android:name=".coroutines.androiddevs.AsyncAndAwaitActivity" />
-        <activity android:name=".coroutines.androiddevs.JobsWaitingCancelationActivity"></activity>
+        <activity android:name=".coroutines.androiddevs.JobsWaitingCancelationActivity" />
         <activity android:name=".databinding.alimuzaffar.formemailvalidation.login.LoginActivity" />
         <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleSecondActivity" />
         <activity android:name=".coroutines.androiddevs.CoroutinesActivity" />
@@ -259,7 +259,7 @@
         <activity
             android:name="com.mindorks.example.coroutines.learn.task.twotasks.TwoLongRunningTasksActivity"
             android:label="@string/two_long_running_tasks" />
-        <activity android:name=".coroutines.raywenderlich.snowy.SnowySplashActivity"></activity>
+        <activity android:name=".coroutines.raywenderlich.snowy.SnowySplashActivity" />
 
         <service
             android:name=".jobscheduler.ExampleJobService"

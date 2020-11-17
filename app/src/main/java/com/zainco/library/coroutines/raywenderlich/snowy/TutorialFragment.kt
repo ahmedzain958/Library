@@ -36,6 +36,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.zainco.library.R
 import com.zainco.library.coroutines.raywenderlich.snowy.model.Tutorial
@@ -80,12 +81,30 @@ class TutorialFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /* val tutorial = arguments?.getParcelable(TUTORIAL_KEY) as Tutorial
-         val view = inflater.inflate(R.layout.fragment_tutorial, container, false)
-         view.findViewById<TextView>(R.id.tutorialName).text = tutorial.name
-         view.findViewById<TextView>(R.id.tutorialDesc).text = tutorial.description
- */
+        val view = inflater.inflate(R.layout.fragment_tutorial, container, false)
+        arguments?.let {
+            val tutorial = it.getParcelable(TUTORIAL_KEY) as Tutorial?
+            tutorial?.let {
+                view.findViewById<TextView>(R.id.tutorialName).text = tutorial.name
+                view.findViewById<TextView>(R.id.tutorialDesc).text = tutorial.description
+            }
+        }
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val tutorial = arguments?.getParcelable(TUTORIAL_KEY) as Tutorial?
+        tutorial?.let {
+            coroutineScope.launch(Dispatchers.Main) {
+                val originalBitmap = getOriginalBitmapAsync(tutorial)
+                //1
+                val snowFilterBitmap = loadSnowFilterAsync(originalBitmap)
+                //2
+                loadImage(snowFilterBitmap)
+            }
+        }
+
     }
 
     /* private fun getOriginalBitmapAsync(tutorial: Tutorial): Deferred<Bitmap> =
@@ -109,8 +128,8 @@ Instead of deferring the value, you mark the functions with suspend. This tells 
     /*
     Applying a filter is a heavy task because it has to work pixel-by-pixel, for the entire image. This is usually CPU intensive work, so you can use the Default dispatcher to use a worker thread.
      */
-    private fun loadSnowFilterAsync(originalBitmap: Bitmap): Deferred<Bitmap> =
-        coroutineScope.async(Dispatchers.Default) {
+    private suspend fun loadSnowFilterAsync(originalBitmap: Bitmap): Bitmap =
+        withContext(Dispatchers.Default) {
             SnowFilter.applySnowEffect(originalBitmap)
         }
 

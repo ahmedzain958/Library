@@ -25,7 +25,7 @@ class MediatorLiveDataViewModel : ViewModel() {
         });
     }
      */
-    private var id1: MutableLiveData<Int> = MutableLiveData()
+    private val id1: MutableLiveData<Int> = MutableLiveData()
     private var id2: MutableLiveData<Int> = MutableLiveData()
     val mediatorLiveData = MediatorLiveData<String>()
 
