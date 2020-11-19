@@ -16,6 +16,7 @@ import com.zainco.library.androiddevsrunningtracker.other.Constants.ACTION_START
 import com.zainco.library.androiddevsrunningtracker.other.Constants.MAP_ZOOM
 import com.zainco.library.androiddevsrunningtracker.other.Constants.POLYLINE_COLOR
 import com.zainco.library.androiddevsrunningtracker.other.Constants.POLYLINE_WIDTH
+import com.zainco.library.androiddevsrunningtracker.other.TrackingUtility
 import com.zainco.library.androiddevsrunningtracker.services.PolyLine
 import com.zainco.library.androiddevsrunningtracker.services.TrackingService
 import com.zainco.library.androiddevsrunningtracker.ui.viewmodel.MainViewModel
@@ -29,18 +30,20 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
         null/*don't confuse between GoogleMap(actual map object) and mapview(view that displays the google map) */
     private var pathPoints = mutableListOf<PolyLine>()
     private var isTracking = false
+    private var curTimeInMillis = 0L
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //mapview has its own lifecycle as well.Hence, we can synchronize its lifecycle events with the fragment lifecycle events
         mapView.onCreate(savedInstanceState)
         btnToggleRun.setOnClickListener {
-            sendCommandToService(ACTION_START_OR_RESUME_SERVICE)
+            toggleRun()
         }
         mapView.getMapAsync { googleMap ->/*the loaded map*/
             map = googleMap
             addAllPolylines()//when map loaded for the first time, draw all polylines
         }
+
         subscribeToObservers()
     }
 
@@ -53,6 +56,11 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
             pathPoints = it
             addLatestPolyline()
             moveCameraToUser()
+        })
+        TrackingService.timeRunInMillis.observe(viewLifecycleOwner, Observer {
+            curTimeInMillis = it
+            val formattedTime = TrackingUtility.getFormattedStopWatchTime(curTimeInMillis, true)
+            tvTimer.text = formattedTime
         })
     }
 

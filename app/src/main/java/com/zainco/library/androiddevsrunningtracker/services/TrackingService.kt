@@ -32,8 +32,13 @@ import com.zainco.library.androiddevsrunningtracker.other.Constants.LOCATION_UPD
 import com.zainco.library.androiddevsrunningtracker.other.Constants.NOTIFICATION_CHANNEL_ID
 import com.zainco.library.androiddevsrunningtracker.other.Constants.NOTIFICATION_CHANNEL_NAME
 import com.zainco.library.androiddevsrunningtracker.other.Constants.NOTIFICATION_ID
+import com.zainco.library.androiddevsrunningtracker.other.Constants.TIMER_UPDATE_INTERVAL
 import com.zainco.library.androiddevsrunningtracker.other.TrackingUtility
 import com.zainco.library.androiddevsrunningtracker.ui.MvvmRunningTrackerActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
 /**
@@ -46,8 +51,13 @@ class TrackingService : LifecycleService()/*the reason of extending from Lifecyc
 we will observe on livedata object inside this service and we tell the live data observe fn in which state our tracking service currently is in its lifecycle state*/ {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     var isFirstRun = true
+    private val timeRunInSeconds = MutableLiveData<Long>()
 
+    //things that will be put inside the companion object will be used from outside the service class without object of the current service class
     companion object {
+        //think this is total laps times
+        val timeRunInMillis = MutableLiveData<Long>()
+
         //static in java
         val isTracking = MutableLiveData<Boolean>() //observe on this live data change from outside
 
@@ -89,7 +99,9 @@ we will observe on livedata object inside this service and we tell the live data
     private fun postInitialValues() {
         //initialy we are not tracking
         isTracking.postValue(false)
-        pathPoints.postValue(mutableListOf())//empty list cauze we don't have any coordinates
+        pathPoints.postValue(mutableListOf())//empty list cauze we don't have any coordinatesz
+        timeRunInSeconds.postValue(0L)
+        timeRunInMillis.postValue(0L)
     }
 
     private fun addEmptyPolyline() = pathPoints.value?.apply {
@@ -118,10 +130,12 @@ we will observe on livedata object inside this service and we tell the live data
                         isFirstRun = false
                     } else {
                         Timber.d("Resuming service...")
+                        startTimer()
                     }
                 }
                 ACTION_PAUSE_SERVICE -> {
                     Timber.d("Paused service")
+                    pauseService()
                 }
                 ACTION_STOP_SERVICE -> {
                     Timber.d("Stopped service")
@@ -129,6 +143,39 @@ we will observe on livedata object inside this service and we tell the live data
             }
         }
         return super.onStartCommand(intent, flags, startId)
+    }
+
+    private fun pauseService() {
+        isTracking.postValue(false)
+        isTimerEnabled = false
+    }
+
+    private var isTimerEnabled = false
+    private var lapTime = 0L //time taken by the lap
+    private var totalTimeRun = 0L
+    private var timeStarted = 0L//timestamp when we started the timer
+    private var lastSecondTimeStamp = 0L
+    private fun startTimer() {
+        //service started before, or this is the first start of our service
+        addEmptyPolyline()
+        isTracking.postValue(true)
+        timeStarted = System.currentTimeMillis()
+        isTimerEnabled = true
+        //tracking current time without calling it with the observers all the time which is a very bad performance wise, instead we will track the current time with coroutines
+        //inwhich we delay coroutines for milliseconds which won't be noticeable from the human but  noticeable alot from the computer
+        CoroutineScope(Dispatchers.Main).launch {
+            while (isTracking.value!!) {
+                lapTime =
+                    System.currentTimeMillis() - timeStarted//time difference between now and time started
+                timeRunInMillis.postValue(totalTimeRun + lapTime)
+                if (timeRunInMillis.value!! >= lastSecondTimeStamp + 1000L) {
+                    timeRunInSeconds.postValue(timeRunInSeconds.value!! + 1)
+                    lastSecondTimeStamp += 1000L
+                }
+                delay(TIMER_UPDATE_INTERVAL)
+            }
+            totalTimeRun += lapTime
+        }
     }
 
     val locationCallback = object : LocationCallback() {
@@ -146,7 +193,7 @@ we will observe on livedata object inside this service and we tell the live data
     }
 
     private fun startForegroundService() {
-        addEmptyPolyline()
+        startTimer()
         isTracking.postValue(true)
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE)
                 as NotificationManager
