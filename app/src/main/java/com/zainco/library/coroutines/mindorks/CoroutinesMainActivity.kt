@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.mindorks.example.coroutines.learn.errorhandling.exceptionhandler.ExceptionHandlerActivity
 import com.mindorks.example.coroutines.learn.errorhandling.supervisor.IgnoreErrorAndContinueActivity
 import com.mindorks.example.coroutines.learn.errorhandling.trycatch.TryCatchActivity
-import com.mindorks.example.coroutines.learn.retrofit.parallel.ParallelNetworkCallsActivity
 import com.mindorks.example.coroutines.learn.retrofit.series.SeriesNetworkCallsActivity
 import com.mindorks.example.coroutines.learn.retrofit.single.SingleNetworkCallActivity
 import com.mindorks.example.coroutines.learn.room.RoomDBActivity
@@ -15,6 +14,7 @@ import com.mindorks.example.coroutines.learn.task.onetask.LongRunningTaskActivit
 import com.mindorks.example.coroutines.learn.task.twotasks.TwoLongRunningTasksActivity
 import com.mindorks.example.coroutines.learn.timeout.TimeoutActivity
 import com.zainco.library.R
+import com.zainco.library.coroutines.mindorks.learn.retrofit.parallel.ParallelNetworkCallsActivity
 
 class CoroutinesMainActivity : AppCompatActivity() {
 

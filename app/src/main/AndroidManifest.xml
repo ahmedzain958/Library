@@ -41,13 +41,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MvvmRunningAppTheme">
-        <activity android:name=".DeviceIdActivity"></activity>
+        <activity android:name=".charts.HorizontalBarChartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DeviceIdActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
 
-        <activity android:name=".ads.adaptivebanner.GoogleAdaptiveBannerActivity"></activity>
+        <activity android:name=".ads.adaptivebanner.GoogleAdaptiveBannerActivity" />
         <activity android:name=".coroutines.RunBlockingVsLaunchActivity" />
         <activity android:name=".services.codetutor.CodeTutorServiceActivity" />
         <activity android:name=".texttospeech.MessageAnnouncerActivity" />
@@ -55,11 +62,7 @@
         <activity android:name=".coroutines.TestCoroutinesActivity" />
         <activity android:name=".callintercept.CallInterceptActivity" />
         <activity android:name=".androiddevsrunningtracker.ui.MvvmRunningTrackerActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".archcomponents.paging.listtopagelist.ListToPagelistActivity" />
         <activity android:name=".SendEmailActivity" />
@@ -236,7 +239,7 @@
             android:name="com.mindorks.example.coroutines.learn.retrofit.series.SeriesNetworkCallsActivity"
             android:label="@string/series_network_calls" />
         <activity
-            android:name="com.mindorks.example.coroutines.learn.retrofit.parallel.ParallelNetworkCallsActivity"
+            android:name=".coroutines.mindorks.learn.retrofit.parallel.ParallelNetworkCallsActivity"
             android:label="@string/parallel_network_calls" />
         <activity
             android:name="com.mindorks.example.coroutines.learn.room.RoomDBActivity"

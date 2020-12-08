@@ -1,4 +1,4 @@
-package com.mindorks.example.coroutines.learn.retrofit.parallel
+package com.zainco.library.coroutines.mindorks.learn.retrofit.parallel
 
 import android.os.Bundle
 import android.view.View
@@ -8,17 +8,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.mindorks.example.coroutines.data.api.ApiHelperImpl
 import com.mindorks.example.coroutines.data.api.RetrofitBuilder
 import com.mindorks.example.coroutines.data.local.DatabaseBuilder
 import com.mindorks.example.coroutines.data.local.DatabaseHelperImpl
 import com.mindorks.example.coroutines.data.model.ApiUser
 import com.mindorks.example.coroutines.learn.base.ApiUserAdapter
+import com.mindorks.example.coroutines.learn.retrofit.parallel.ParallelNetworkCallsViewModel
 import com.mindorks.example.coroutines.utils.Status
 import com.mindorks.example.coroutines.utils.ViewModelFactory
 import com.zainco.library.R
-import kotlinx.android.synthetic.main.activity_recycler_view.*
 
 class ParallelNetworkCallsActivity : AppCompatActivity() {
 
@@ -53,7 +52,7 @@ class ParallelNetworkCallsActivity : AppCompatActivity() {
             when (it.status) {
                 Status.SUCCESS -> {
                     progressBar.visibility = View.GONE
-                    it.data?.let { users -> renderList(users) }
+                    it.data.let { users -> renderList(users) }
                     recyclerView.visibility = View.VISIBLE
                 }
                 Status.LOADING -> {
