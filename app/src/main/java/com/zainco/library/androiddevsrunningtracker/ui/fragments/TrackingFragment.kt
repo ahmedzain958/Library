@@ -27,6 +27,7 @@ import com.zainco.library.androiddevsrunningtracker.services.PolyLine
 import com.zainco.library.androiddevsrunningtracker.services.TrackingService
 import com.zainco.library.androiddevsrunningtracker.ui.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_tracking.*
 import java.lang.Math.round
 import java.util.*
 
@@ -67,7 +68,6 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
             map = googleMap
             addAllPolylines()//when map loaded for the first time, draw all polylines
         }
-
         subscribeToObservers()
     }
 
@@ -78,7 +78,7 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
     }
 
     private fun endRunAndSaveToDb() {
-        map.snapshot { bmp ->
+        map?.snapshot { bmp ->
             var distanceInMeters = 0
             for (polyline in pathPoints) {
                 distanceInMeters += TrackingUtility.calculatePolylineLength(polyline).toInt()
@@ -118,7 +118,7 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
              }
          }*/
 
-        map.moveCamera(
+        map?.moveCamera(
             CameraUpdateFactory.newLatLngBounds(
                 bounds.build(),
                 mapView.width,
@@ -198,7 +198,7 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
 
     private fun moveCameraToUser() {
         if (pathPoints.isNotEmpty() && pathPoints.last().isNotEmpty()) {
-            map.animateCamera(
+            map?.animateCamera(
                 CameraUpdateFactory.newLatLngZoom(
                     pathPoints.last().last(),
                     MAP_ZOOM
@@ -213,7 +213,7 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
                 .color(POLYLINE_COLOR)
                 .width(POLYLINE_WIDTH)
                 .addAll(polyline)
-            map.addPolyline(polylineOptions)
+            map?.addPolyline(polylineOptions)
         }
     }
 
@@ -227,7 +227,7 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
                 .width(POLYLINE_WIDTH)
                 .add(preLastLatLng)
                 .add(lastLatLng)
-            map.addPolyline(polylineOptions)
+            map?.addPolyline(polylineOptions)
         }
     }
 

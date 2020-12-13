@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zainco.library">
-    <!--
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    -->
+
     <!--
      RECEIVE_BOOT_COMPLETED  used for this receiver
     <receiver android:name=".ExampleBroadcastReceiver">
@@ -54,20 +49,10 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
 
-        <activity android:name=".ads.adaptivebanner.GoogleAdaptiveBannerActivity" />
-        <activity android:name=".coroutines.RunBlockingVsLaunchActivity" />
-        <activity android:name=".services.codetutor.CodeTutorServiceActivity" />
-        <activity android:name=".texttospeech.MessageAnnouncerActivity" />
-        <activity android:name=".broadcastreceiver.screenon.BRListenWhenScreenOnActivity" />
-        <activity android:name=".coroutines.TestCoroutinesActivity" />
-        <activity android:name=".callintercept.CallInterceptActivity" />
         <activity android:name=".androiddevsrunningtracker.ui.MvvmRunningTrackerActivity">
 
         </activity>
-        <activity android:name=".archcomponents.paging.listtopagelist.ListToPagelistActivity" />
-        <activity android:name=".SendEmailActivity" />
-        <activity android:name=".coroutines.flow.mindorks.FlowExample1Activity" />
-        <activity android:name=".coroutines.androiddevs.LifecyclescopeViewmodelscopeActivity" />
+
         <activity
             android:name=".androidstudioactvs.ASScrollingActivity"
             android:label="@string/title_activity_a_s_scrolling"
@@ -90,19 +75,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.zainco.library.androidstudioactvs.masterdetailflow.ItemListActivity" />
         </activity>
-        <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleFirstActivity" />
-        <activity android:name=".coroutines.androiddevs.AsyncAndAwaitActivity" />
-        <activity android:name=".coroutines.androiddevs.JobsWaitingCancelationActivity" />
-        <activity android:name=".databinding.alimuzaffar.formemailvalidation.login.LoginActivity" />
-        <activity android:name=".databinding.vogellabaseadapter.BaseAdapterExampleSecondActivity" />
-        <activity android:name=".coroutines.androiddevs.CoroutinesActivity" />
-        <activity android:name=".fab.FabActivity" />
-        <activity android:name=".espressotest.EsspressoMainActivity" />
-        <activity android:name=".mediaplayer.PlayPauseActivity" />
-        <activity android:name=".services.neverending.NeverEndingActivity" />
-        <activity android:name=".githubbrowsersample.GithubBrowserSampleSearchActivity" />
-        <activity android:name=".services.codinginflow.ForegroundServiceActivity" />
-        <activity android:name=".notifications.codinginflow.NotificationsCodingInFlowActivity" />
+
 
         <receiver android:name=".broadcastreceiver.pluralsight.withpermissions.IncomingReceiver">
             <intent-filter>
@@ -113,12 +86,6 @@
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
-
-        <activity android:name=".broadcastreceiver.pluralsight.withpermissions.ReadPhoneStateActivity" />
-        <activity android:name=".broadcastreceiver.pluralsight.sticky.StickyActivity" />
-        <activity android:name=".broadcastreceiver.pluralsight.dynamicreceiver.DynamicReceiverActivity" />
-        <activity android:name=".broadcastreceiver.pluralsight.orderedbrs.OrderedBRsActivity" />
-        <activity android:name=".broadcastreceiver.pluralsight.BroadcastReceiverActivity" />
 
         <service
             android:name=".accessibility.GlobalActionBarService"
@@ -169,18 +136,6 @@
             android:name=".services.pluralsight.ipc.MyMessengerService"
             android:process=":my_own_process" />
 
-        <activity android:name=".services.pluralsight.ipc.MyMessengerActivity" />
-        <activity android:name=".permissions.outgoingcalls.OutgoinCallActivity" />
-        <activity android:name=".services.pluralsight.boundservice.BoundServicePluralSightActivity" />
-        <activity android:name=".services.pluralsight.PluralSightServicesActivity" />
-        <activity android:name=".threading.codinginflow.ExampleLooperThreadActivity" />
-        <activity android:name=".onnewintent.OnNewIntentActivity2" />
-        <activity android:name=".onnewintent.OnNewIntentActivity1" />
-        <activity android:name=".permissions.internalexternalstorage.InternalExternalPermissionsActivity" />
-        <activity android:name=".workmanager.codelab.SelectImageActivity" />
-        <activity android:name=".workmanager.codelab.WorkManagerBlurrActivity" />
-        <activity android:name=".workmanager.simplifiedcoding.WorkManagerActivity" />
-        <activity android:name=".workmanager.socialmedia.HumanConnectorActivity" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"

@@ -18,6 +18,7 @@ import com.mindorks.example.coroutines.learn.retrofit.parallel.ParallelNetworkCa
 import com.mindorks.example.coroutines.utils.Status
 import com.mindorks.example.coroutines.utils.ViewModelFactory
 import com.zainco.library.R
+import kotlinx.android.synthetic.main.activity_recycler_view.*
 
 class ParallelNetworkCallsActivity : AppCompatActivity() {
 
@@ -52,7 +53,7 @@ class ParallelNetworkCallsActivity : AppCompatActivity() {
             when (it.status) {
                 Status.SUCCESS -> {
                     progressBar.visibility = View.GONE
-                    it.data.let { users -> renderList(users) }
+                    renderList(it.data!!)
                     recyclerView.visibility = View.VISIBLE
                 }
                 Status.LOADING -> {

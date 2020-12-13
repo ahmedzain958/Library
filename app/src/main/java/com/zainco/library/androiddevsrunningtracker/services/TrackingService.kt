@@ -124,7 +124,7 @@ we will observe on livedata object inside this service and we tell the live data
         timeRunInMillis.postValue(0L)
     }
 
-    private fun addEmptyPolyline() = pathPoints.value.apply {
+    private fun addEmptyPolyline() = pathPoints.value?.apply {
         add(mutableListOf())
         pathPoints.postValue(this/*refers to the current polylines object*/)
     } ?: pathPoints.postValue(mutableListOf(mutableListOf()))
@@ -133,7 +133,7 @@ we will observe on livedata object inside this service and we tell the live data
     private fun addPathPoint(location: Location?) {
         location?.let {
             val pos = LatLng(location.latitude, location.longitude)
-            pathPoints.value.apply {
+            pathPoints.value?.apply {
                 //last element is a list (at the beginning it will be the first element)
                 last().add(pos)
                 pathPoints.postValue(this)//our fragment will be notified by it later on
@@ -203,7 +203,7 @@ we will observe on livedata object inside this service and we tell the live data
         override fun onLocationResult(result: LocationResult?) {
             super.onLocationResult(result)
             if (isTracking.value!!) {
-                result.locations.let { locations ->
+                result?.locations?.let { locations ->
                     for (location in locations) {//whenever we receive a new location which is saved oin result variable
                         addPathPoint(location)
                         Timber.d("NEW LOCATION: ${location.latitude}, ${location.longitude}")
