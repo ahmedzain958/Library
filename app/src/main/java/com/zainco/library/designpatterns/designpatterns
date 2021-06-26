@@ -1,0 +1,27 @@
+A Design Pattern is a general, reusable solution to a commonly occurring problem within a given context.
+So, it is basically a pattern that can be followed to solve a particular feature.
+ These are the best practices that can be used by any programmer to build an application.
+
+ There are a number of Design Patterns that can be used in Software Development and all these can be classified into the following three categories:
+
+ Creational Pattern
+ Structural Pattern
+ Behavioural Pattern
+
+ Creational Pattern
+ The Creational Pattern is used to create some object without showing the logic or the steps that are involved in creating the object.
+ So, every time you want an object, you need not instantiate the object by using the new operator.
+ So, this makes the creation of object easier and can be easily created again and again.
+ Some of the examples of Creational Pattern are Builder, Singleton, and Dependency Injection.
+ Builder pattern
+ In a builder pattern, you are only concerned about what you need from a class and not everything that a class has. For example,
+  when you go to buy some laptop, then you have a list of important features that you want in your laptop like processors, ram, storage, etc.
+   Apart from these features, all the other features like the speaker, battery, etc are some of the optional features for you.
+    So, based on the important features,
+ the shopkeeper will provide you with a laptop that contains all your important features.
+
+ Similarly, when we have a model class and that class is having a number of parameter out of which some are important and some are not important
+ then we can use the Builder pattern.
+  By using the Builder pattern, the user need not call all the methods(as in the case of constructors) present in the class.
+  The user can call only the required methods and even the order of calling of the method is not fixed i.e you can call any method before and after any method.
+   There is no need for new keyword here(for java). Let's understand this with the help of an example.

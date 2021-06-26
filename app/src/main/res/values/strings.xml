@@ -372,4 +372,5 @@ features available.]]>
         <item>Average Speed</item>
         <item>Calories Burned</item>
     </string-array>
+    <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
 </resources>

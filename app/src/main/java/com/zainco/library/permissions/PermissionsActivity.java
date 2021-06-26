@@ -69,7 +69,8 @@ public class PermissionsActivity extends AppCompatActivity
              * a SnackBar that includes additional information.
              */
             /* if permission dialog displayed before and user denied it, the next condition shouldShowRequestPermissionRationale returns true
-             * we here should explain the user why this permission is required by ordinary dialog (or Snakbar as here) for ex with OK and after responding the permission dialog will be displayed
+             * we here should explain the user why this permission is required by ordinary dialog (or Snakbar as here)
+             *  for ex with OK and after responding the permission dialog will be displayed
              * but this time dialog will be displayed with checkbox "never ask again" if user checked it and denied the next condition will always return false */
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
                 // Provide an additional rationale to the user if the permission was not granted

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zainco.library">
-
     <!--
      RECEIVE_BOOT_COMPLETED  used for this receiver
     <receiver android:name=".ExampleBroadcastReceiver">
@@ -26,6 +25,8 @@
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
         android:name=".androiddevsrunningtracker.MvvmRunningTrackerBaseApplication"
@@ -36,23 +37,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MvvmRunningAppTheme">
-        <activity android:name=".charts.HorizontalBarChartActivity">
+        <activity android:name=".wifiscanner.tutorialspoint.WifiScannerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+       <!-- <activity
+            android:name=".NavDrawerActivity"
+            android:label="@string/title_activity_nav_drawer"
+            android:theme="@style/MvvmRunningAppTheme.NoActionBar"></activity>-->
+        <activity android:name=".coroutines.androiddevs.CoroutinesActivity" />
         <activity android:name=".DeviceIdActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
 
-        <activity android:name=".androiddevsrunningtracker.ui.MvvmRunningTrackerActivity">
-
-        </activity>
-
+        <activity android:name=".androiddevsrunningtracker.ui.MvvmRunningTrackerActivity" />
         <activity
             android:name=".androidstudioactvs.ASScrollingActivity"
             android:label="@string/title_activity_a_s_scrolling"
@@ -75,18 +78,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.zainco.library.androidstudioactvs.masterdetailflow.ItemListActivity" />
         </activity>
+        <!--
+<receiver android:name=".broadcastreceiver.pluralsight.withpermissions.IncomingReceiver">
+            <intent-filter  android:priority="999">
 
-
-        <receiver android:name=".broadcastreceiver.pluralsight.withpermissions.IncomingReceiver">
-            <intent-filter>
-
-                <!-- EXTRS_INCOMING_NUMBER TO know the number of who called me -->
-                <!-- requires     <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
-                <!-- whenever we receive a phone call this BR will be triggered -->
+                &lt;!&ndash; EXTRS_INCOMING_NUMBER TO know the number of who called me &ndash;&gt;
+                &lt;!&ndash; requires     <uses-permission android:name="android.permission.READ_PHONE_STATE" /> &ndash;&gt;
+                &lt;!&ndash; whenever we receive a phone call this BR will be triggered &ndash;&gt;
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
-
+        -->
         <service
             android:name=".accessibility.GlobalActionBarService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
@@ -141,7 +143,7 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
         <activity
-            android:name="com.facebook.CustomTabActivity"
+            android:name=".workmanager.codelab.WorkManagerBlurrActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -282,6 +284,23 @@
             android:enabled="true"
             android:exported="true"
             android:label="RestartServiceWhenStopped" />
+
+        <activity android:name=".broadcastreceiver.pluralsight.withpermissions.ReadPhoneStateActivity">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+
+        <receiver android:name=".broadcastreceiver.pluralsight.withpermissions.CallReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
 
         <service android:name=".services.neverending.SensorService" />
         <service android:name=".androiddevsrunningtracker.services.TrackingService" />

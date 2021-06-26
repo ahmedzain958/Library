@@ -30,7 +30,7 @@ class WorkManagerActivity : AppCompatActivity() {
         val constraints = Constraints.Builder()
             .setRequiresCharging(true)
             .build()
-/*request takes the data andthe constraints
+/*request takes the data and the constraints
 * here, you can define different requests with different data and constraints*/
         val oneTimeWorkRequest = OneTimeWorkRequest
             .Builder(MyWorker::class.java)
