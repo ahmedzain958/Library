@@ -7,10 +7,13 @@ package com.zainco.library.threading
 So, (() -> Unit) -> Unit is a function that takes such a function as argument, and returns nothing. For example, Executor.execute(Runnable) is such a function.
 * It's thus a function that takes a task as argument (most probably, to execute that task, now, later, once or several times).
 
-Here's an example which defines a function creating what I just called a task, and another function returning an executor, i.e. a function that executes the task:*/
-//function takes nothig as argument and returns nothing
+Here's an example which defines a function creating what I just called a task, and another function returning an executor
+
+* i.e. a function that executes the task:*/
+//function takes nothing as argument and returns nothing
 fun createTask(): () -> Unit {
     return {
+        ->
         println("Hello world")
     }
 }

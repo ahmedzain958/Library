@@ -30,9 +30,26 @@ fun main(args: Array<String>) {
     /*method(1): just param type - val myLambda = { s: Int -> println(s) } */
     /*method(2):  variable type  - val myLambda: (Int) -> Unit = { s: Int -> println(s) } */
     val myLambda: (Int) -> Unit =
-        { s: Int -> println(s) }   // Lambda Expression [ Function ] :  lamda expression/lamda function  is nothing but just a function with no name {s->println(s)}
+        { s: Int ->
+            println(s)
+        }   // Lambda Expression [ Function ] :  lamda expression/lamda function  is nothing but just a function with no name {s->println(s)}
+    myLambda(3)
 
+    //the next 4 calls are equal
     program.addTwoNumbers(2, 7, myLambda)
+    program.addTwoNumbers(2, 7, myFn())
+    program.addTwoNumbers(2, 7, {//method can be called by two curly { } which called a lamda
+            s: Int ->
+        println(s)
+    })
+    program.addTwoNumbers(2, 7) { s: Int ->
+        println(s)
+    }
+}
+
+private fun myFn() = {// equals the upper myLambda variable
+        s: Int ->
+    println(s)
 }
 
 class Program {
@@ -40,7 +57,9 @@ class Program {
     fun addTwoNumbers(
         a: Int,
         b: Int,
-        action: (Int) -> Unit
+        action: (Int) -> Unit,//even when you define a function as a parameter, you will define a normal variable name then colon: then in the place of the type
+        //(which is after the colon) you need to put the parenthesis first and put all the parameters types required an dif no params leave it empty
+        //then use the return type for your function after the arrow operator, but even if you don't need to have a return type you must put a return type (Unit)
     ) {  // High Level Function with Lambda as Parameter
         val sum = a + b
         action(sum)     // println(sum)
@@ -50,7 +69,7 @@ class Program {
     fun addTwoNumbers(
         a: Int,
         b: Int,
-        action: MyInterface
+        action: MyInterface,
     ) {    // Using Interface / Object Oriented Way
         val sum = a + b
         action.execute(sum)
@@ -58,7 +77,7 @@ class Program {
 
     fun addTwoNumbers(
         a: Int,
-        b: Int
+        b: Int,
     ) {                         // Simple way.. Just for Better Understanding
 
         val sum = a + b
