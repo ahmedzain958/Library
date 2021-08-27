@@ -39,7 +39,7 @@ class CoroutinesActivity : AppCompatActivity() {
         d(TAG, "hello from ${Thread.currentThread().name}")
 
         GlobalScope.launch {//both answer will display after 6 seconds
-            val doNetworkCall = doNetworkCall()//this will influence the second delay
+            val doNetworkCall = doNetworkCall()//this will influence the second delay because doNetworkCall isn't a coroutine scope but it is just a suspend function
             val doNetworkCall2 = doNetworkCall2()//will be affected by the first delay
             d(TAG, doNetworkCall)
             d(TAG, doNetworkCall2)
@@ -68,7 +68,7 @@ class CoroutinesActivity : AppCompatActivity() {
         }
 */
 /*
- withContext is nothing but another way of writing the async where we do not have to write await().
+ withContext is nothing but another way of writing the async where we do not have to write await() / it is just  asuspend function transforms the dispatcher you are in
 
 suspend fun fetchUser(): User {
     return withContext(Dispatchers.IO) {

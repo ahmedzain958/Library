@@ -29,7 +29,7 @@ public class LoginForm extends BaseObservable {
             int indexOfAt = email.indexOf("@");
             int indexOfDot = email.lastIndexOf(".");
             if (indexOfAt > 0 && indexOfDot > indexOfAt && indexOfDot < email.length() - 1) {
-                errors.setEmail(null);
+                errors.setEmail(null);//valid email
                 notifyPropertyChanged(BR.valid);
                 return true;
             } else {
@@ -51,7 +51,7 @@ public class LoginForm extends BaseObservable {
     public boolean isPasswordValid(boolean setMessage) {
         String password = fields.getPassword();
         if (password != null && password.length() > 5) {
-            errors.setPassword(null);
+            errors.setPassword(null);//valid password
             notifyPropertyChanged(BR.valid);
             return true;
         } else {

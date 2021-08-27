@@ -42,7 +42,8 @@ fun main(args: Array<String>) {
             s: Int ->
         println(s)
     })
-    program.addTwoNumbers(2, 7) { s: Int ->
+    program.addTwoNumbers(2, 7) { s: Int ->//when the paramter function is the last porameter it can be after the parenthesis
+        //then it is called trailing lamda
         println(s)
     }
 }
@@ -58,7 +59,7 @@ class Program {
         a: Int,
         b: Int,
         action: (Int) -> Unit,//even when you define a function as a parameter, you will define a normal variable name then colon: then in the place of the type
-        //(which is after the colon) you need to put the parenthesis first and put all the parameters types required an dif no params leave it empty
+        //(which is after the colon) you need to put the parenthesis first and put all the parameters types required and if no params leave it empty
         //then use the return type for your function after the arrow operator, but even if you don't need to have a return type you must put a return type (Unit)
     ) {  // High Level Function with Lambda as Parameter
         val sum = a + b
