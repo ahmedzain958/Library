@@ -5,6 +5,9 @@
       <map>
         <entry key="..\:/projects/Library/app/src/main/res/layout/activity_github_browser_sample_search.xml" value="0.121875" />
         <entry key="..\:/projects/Library/app/src/main/res/layout/activity_mvvm_running_tracker.xml" value="0.264" />
+        <entry key="..\:/projects/Library/app/src/main/res/layout/fragment_tutorial.xml" value="0.14947916666666666" />
+        <entry key="..\:/projects/Library/app/src/main/res/layout/mvi_activity.xml" value="0.2421875" />
+        <entry key="..\:/projects/Library/app/src/main/res/layout/mvi_item_layout.xml" value="0.2421875" />
       </map>
     </option>
   </component>

@@ -1,5 +1,7 @@
 package com.zainco.library
 
+import java.util.concurrent.CompletableFuture
+
 //lamda is just a fn with no name
 fun main1() {
     fun foo(bar: Int = 0, baz: Int = 1, qux: () -> Unit) { /*fun inside fun*/
@@ -84,8 +86,20 @@ class Program {
         val sum = a + b
         println(sum)
     }
+
+    fun ssss(
+        action: () -> Unit
+    ) {
+       action.invoke()
+    }
 }
 
 interface MyInterface {
     fun execute(sum: Int)
 }
+
+private fun myFn1():Unit  {// equals the upper myLambda variable
+    println("s")
+    return
+}
+

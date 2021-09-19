@@ -75,7 +75,7 @@ class TutorialFragment : Fragment() {
 
     //Both the CoroutineDispatcher and a Job implement CoroutineContext. This allows you to sum them – using plus(), to combine their functionality.
     private val coroutineScope =
-        CoroutineScope(Dispatchers.Main + parentJob + coroutineExceptionHandler)
+        CoroutineScope(Dispatchers.Main + parentJob + coroutineExceptionHandler/*All are CoroutineContext*/)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

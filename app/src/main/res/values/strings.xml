@@ -373,4 +373,6 @@ features available.]]>
         <item>Calories Burned</item>
     </string-array>
     <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+    <string name="fetch_user">Fetch User</string>
+
 </resources>
