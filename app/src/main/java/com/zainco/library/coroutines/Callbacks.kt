@@ -19,27 +19,17 @@ class Barista(val name: String) {
     private val coffeeMaker = CoffeeMaker()
 
     fun acceptOrder(type: CoffeeType) {
+        // brew coffee takes parameter/doesn't take any parameter but the listener(callback) returns the brewed coffee
         coffeeMaker.brewCoffee(type) { coffee ->
             println("$name finished brewing ${coffee.type}")
-
         }
     }
-}
-
-/**
- * The Roast of the Coffee
- */
-enum class CoffeeRoast {
-    LIGHT,
-    MEDIUM,
-    DARK
 }
 
 /**
  * The Carrier Object for the finished order
  */
 data class Coffee(val type: CoffeeType)
-
 /**
  * The device that will emulate time passing
  */
@@ -47,7 +37,7 @@ class CoffeeMaker {
     fun brewCoffee(type: CoffeeType, onBrewed: (Coffee) -> Unit) {
         delay(type.brewTime)
         val madeCofee = Coffee(type)
-        onBrewed(madeCofee)
+        onBrewed(madeCofee)//== onBrewed.invoke(madeCofee)
     }
 }
 
